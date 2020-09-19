@@ -11,7 +11,8 @@ FOV = taille du vecteur dir / taille du plan
 posX, posY pour repenser ma position
 dirX, dirY ma direction
 planeX, planeY le plan de la camera
-Time et Oldtime  
+Time et Oldtime temps our la fenetre et lancienne fenetre est apparu
+
 
 Raycast Sol :
 
