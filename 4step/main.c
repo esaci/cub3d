@@ -43,14 +43,14 @@ typedef struct	s_mlx
 
 int	main(void)
 {
-	t_mlx	*mlx;
+	t_mlx	mlx;
 	t_img	img;
 	int		count_w;
 	int		count_h;
 
-	mlx->mlxptr = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlxptr, 1200, 720, "travail");
-	img.imgptr = mlx_new_image(mlx->mlxptr, 400, 800);
+	mlx.mlxptr = mlx_init();
+	mlx.win = mlx_new_window(mlx.mlxptr, 1200, 720, "travail");
+	img.imgptr = mlx_new_image(mlx.mlxptr, 400, 800);
 /*	ca renvoie une chaine de charactere mais int a lair plus pratique */
 	img.data = (int *)mlx_get_data_addr(img.imgptr, &img.bp, &img.size_l, &img.endian);
 	count_h = -1;
@@ -65,7 +65,7 @@ int	main(void)
 				img.data[count_h * 800 + count_w] = 0xFF0000;
 		}
 	}
-	mlx_put_image_to_window(mlx->mlxptr, mlx->win, img.imgptr, 0, 0);			
-	mlx_loop(mlx->mlxptr);
+	mlx_put_image_to_window(mlx.mlxptr, mlx.win, img.imgptr, 0, 0);			
+	mlx_loop(mlx.mlxptr);
 	return (0);
 }
