@@ -6,7 +6,7 @@
 
 /* OUBLIE PAS DE CHANGE LE MEMCPY PAR FTMEMCPY*/
 /* Utilise fabs = valeur absolu */
-
+/* test la div par 0*/
 # define X_EVENT_KEY_PRESS			2
 # define X_EVENT_KEY_release		3
 # define X_EVENT_KEY_EXIT			17
@@ -51,15 +51,26 @@ typedef struct	s_game
 	float	dx;
 	float	dy;
 	float	cameraX;
-	int		rayDirx;
-	int		rayDiry;
 	int		mapX;
 	int		mapY;
-}				t_game
+	int		hit;
+	int		step;
+	int		stepX;
+	int		stepY;
+	int		side;
+}				t_game;
 
 typedef struct	s_ray
 {
-	int		px;
-	int		py;
+	float	px;
+	float	py;
 	int		pdir;
-}				t_ray
+	int		rayDirx;
+	int		rayDiry;
+	float	sideDistX;
+	float	sideDistY;
+	float	deltaDistX;
+	float	deltaDistY;
+	float	perpWallDist;
+	int		lineHeight;	
+}				t_ray;
