@@ -58,6 +58,7 @@ typedef struct	s_game
 	int		stepX;
 	int		stepY;
 	int		side;
+	float	vise;
 }				t_game;
 
 typedef struct	s_ray
@@ -72,5 +73,7 @@ typedef struct	s_ray
 	float	deltaDistX;
 	float	deltaDistY;
 	float	perpWallDist;
-	int		lineHeight;	
+	int		lineHeight;
+	int		drawend;
+	int		drawstart;
 }				t_ray;

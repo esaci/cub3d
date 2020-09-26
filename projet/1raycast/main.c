@@ -6,12 +6,12 @@
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 19:55:18 by esaci             #+#    #+#             */
-/*   Updated: 2020/09/20 00:54:27 by esaci            ###   ########.fr       */
+/*   Updated: 2020/09/26 19:47:13 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-// il a pas definit h ce fdp
+// Pour eviter les double faut utiliser x et y
 void	window_init(t_game *game)
 {
 	game->mlx.mlxptr = mlx_init();
@@ -53,7 +53,7 @@ int	main(void)
 	int		x;
 	int		w;
 
-
+	game.vise = 0;
 	game.dx = 1;
 	game.dy = 2;
 	time = 0;
@@ -107,7 +107,7 @@ int	main(void)
 		game.stepY = 1;
 		ray.sideDistY = (game.mapY + 1 - game.posy) * ray.deltaDistY;
 	}
-
+// tant qu'n a rien tape, on avance, si on tape tout stop et side vaut 0 si on bouge en X sinon 1 et bouge en Y
 	while (game.hit == 0)
 	{
 		if (ray.sideDistX < ray.sideDistY)
@@ -124,11 +124,21 @@ int	main(void)
 		if (game.map[game.mapX][game.mapY] > 0)
 			game.hit = 1;
 	}
+// perpWallDist taille de la ligne perpendiculaire a mon plan de camera et touche H, le point qui est raycast, MTN DIFF X ET Y ?
 	if(game.side == 0)
 		ray.perpWallDist = (game.mapX - game.posx + (1 - game.stepX) / 2) / ray.rayDirx;
 	else
 		ray.perpWallDist = (game.mapY - game.posy + (1 - game.stepY) / 2) / ray.rayDiry;
-//	game.lineHeight = 
+// taille de la ligne direct entre la pos et le point qui est raycast
+	ray.lineHeight = (int)(game.vise / ray.perpWallDist);
+	ray.drawstart = -ray.lineHeight / 2 + game.vise / 2;
+	if (ray.drawstart < 0)
+		ray.drawstart = 0;
+	ray.drawend = ray.lineHeight / 2 + game.vise / 2;
+	if (ray.drawend < 0)
+		ray.drawend = game.vise - 1;
+
+
 	
 	return (0);
 }
