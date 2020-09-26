@@ -6,7 +6,7 @@
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/19 19:55:18 by esaci             #+#    #+#             */
-/*   Updated: 2020/09/26 19:47:13 by esaci            ###   ########.fr       */
+/*   Updated: 2020/09/26 21:47:02 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	window_init(t_game *game)
 {
 	game->mlx.mlxptr = mlx_init();
 	game->mlx.win = mlx_new_window(game->mlx.mlxptr, screenWIDTH, screenHEIGHT, "fenetre init");
-	return;
+	game->img.imgptr = mlx_xpm_file_to_image(game->mlx.mlxptr, "wtf.xpm", screenWIDTH / 10, screenHEIGHT / 10);
+	mlx_put_image_to_window(game->mlx.mlxptr, game->win., game->img.imgptr, screenWIDTH / 10, screenHEIGHT / 10);
 }
 
 int		eliasabs(float x)
@@ -42,6 +43,15 @@ void	map_init(t_game *game)
 	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
 	};
 	memcpy(game->map, map, sizeof(int) * ROWS * COLS);
+}
+
+int	touche_appuye(int keycode, int *j)
+{
+	if (keycode == KEY_W)
+		*j = *j + 1;
+	else if(keycode == KEY_ESC)
+		exit(0);
+	return (0);
 }
 
 int	main(void)
@@ -137,8 +147,5 @@ int	main(void)
 	ray.drawend = ray.lineHeight / 2 + game.vise / 2;
 	if (ray.drawend < 0)
 		ray.drawend = game.vise - 1;
-
-
-	
 	return (0);
 }
