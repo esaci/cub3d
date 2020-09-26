@@ -26,19 +26,32 @@ int	touche_appuye(int keycode, int *j)
 	return (0);
 }
 
+typedef struct s_img
+{
+	void		*imgptr;
+	int			*data;
+	int			size_l;
+	int			bpp;
+	int			endian;
+}				t_img;
+
+typedef struct	s_mlx
+{
+	void		*mlxptr;
+	void		*win;
+}				t_mlx;
+
 int	main(void)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		i;
-	int		j;
+	t_mlx	*mlx;
+	t_img	img;
+	int		count_w;
+	int		count_h;
 
-	mlx = mlx_init();
-	j = 0;
-	printf("j vaut %d\n", j);
-	win = mlx_new_window(mlx, 800, 800, "travail");
-	img = mlx_xpm_file_to_image(mlx, "wtf.xpm", &i, &j);
-	mlx_put_image_to_window(mlx, win, img, 50, 50);
-	mlx_loop(mlx);
+	mlx->mlxptr = mlx_init();
+	mlx->win = mlx_new_window(mlx->mlxptr, 1200, 720, "travail");
+	img.imgptr = mlx_xpm_file_to_image(mlx->mlxptr, "wtf.xpm", &count_w, &count_h);
+	mlx_put_image_to_window(mlx->mlxptr, mlx->win, img.imgptr, 40, 40); 
+	mlx_loop(mlx->mlxptr);
+	return (0);
 }
