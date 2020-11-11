@@ -18,7 +18,7 @@ void	window_init(t_game *game)
 	int j;
 	game->mlx.mlxptr = mlx_init();
 	game->mlx.win = mlx_new_window(game->mlx.mlxptr, screenWIDTH, screenHEIGHT, "fenetre init");
-	game->img.imgptr = mlx_xpm_file_to_image(game->mlx.mlxptr, "wtf.xpm", &i, &j);
+	game->img.imgptr = mlx_xpm_file_to_image(game->mlx.mlxptr, "wtf.xpm", &i, &jode);
 	mlx_put_image_to_window(game->mlx.mlxptr, game->mlx.win, game->img.imgptr, screenWIDTH / 10, screenHEIGHT / 10);
 }
 
@@ -149,5 +149,7 @@ int	main(void)
 	ray.drawend = ray.lineHeight / 2 + game.vise / 2;
 	if (ray.drawend < 0)
 		ray.drawend = game.vise - 1;
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+	
 	return (0);
 }
