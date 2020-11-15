@@ -2,7 +2,7 @@ NAME = cub3D
 
 LIBFT = libft.a
 
-MLXD = bibz/minilibx-linux/
+MLXD = fct/minilibx-linux/
 
 CUBD= bibz/libcub.a
 
@@ -14,36 +14,38 @@ COMPILE = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-MINILIBIX =	minilibx-linux/mlx_clear_window.o \
-            minilibx-linux/mlx_destroy_image.o \
-            minilibx-linux/mlx_destroy_window.o  \
-            minilibx-linux/mlx_expose_hook.o  \
-            minilibx-linux/mlx_flush_event.o  \
-            minilibx-linux/mlx_get_color_value.o \
-            minilibx-linux/mlx_get_data_addr.o  \
-            minilibx-linux/mlx_hook.o \
-            minilibx-linux/mlx_init.o  \
-            minilibx-linux/mlx_int_anti_resize_win.o \
-            minilibx-linux/mlx_int_do_nothing.o  \
-            minilibx-linux/mlx_int_get_visual.o \
-            minilibx-linux/mlx_int_param_event.o \
-            minilibx-linux/mlx_int_set_win_event_mask.o \
-            minilibx-linux/mlx_int_str_to_wordtab.o \
-            minilibx-linux/mlx_int_wait_first_expose.o \
-            minilibx-linux/mlx_key_hook.o \
-            minilibx-linux/mlx_loop.o  \
-            minilibx-linux/mlx_loop_hook.o \
-            minilibx-linux/mlx_mouse_hook.o \
-            minilibx-linux/mlx_new_image.o \
-            minilibx-linux/mlx_new_window.o \
-            minilibx-linux/mlx_pixel_put.o \
-            minilibx-linux/mlx_put_image_to_window.o \
-            minilibx-linux/mlx_rgb.o \
-            minilibx-linux/mlx_string_put.o \
-            minilibx-linux/mlx_xpm.o \
+MINILIBIX =	$(MLXD)/mlx_clear_window.o \
+            $(MLXD)/mlx_destroy_image.o \
+            $(MLXD)/mlx_destroy_window.o  \
+            $(MLXD)/mlx_expose_hook.o  \
+            $(MLXD)/mlx_flush_event.o  \
+            $(MLXD)/mlx_get_color_value.o \
+            $(MLXD)/mlx_get_data_addr.o  \
+            $(MLXD)/mlx_hook.o \
+            $(MLXD)/mlx_init.o  \
+            $(MLXD)/mlx_int_anti_resize_win.o \
+            $(MLXD)/mlx_int_do_nothing.o  \
+            $(MLXD)/mlx_int_get_visual.o \
+            $(MLXD)/mlx_int_param_event.o \
+            $(MLXD)/mlx_int_set_win_event_mask.o \
+            $(MLXD)/mlx_int_str_to_wordtab.o \
+            $(MLXD)/mlx_int_wait_first_expose.o \
+            $(MLXD)/mlx_key_hook.o \
+            $(MLXD)/mlx_loop.o  \
+            $(MLXD)/mlx_loop_hook.o \
+            $(MLXD)/mlx_mouse_hook.o \
+            $(MLXD)/mlx_new_image.o \
+            $(MLXD)/mlx_new_window.o \
+            $(MLXD)/mlx_pixel_put.o \
+            $(MLXD)/mlx_put_image_to_window.o \
+            $(MLXD)/mlx_rgb.o \
+            $(MLXD)/mlx_string_put.o \
+            $(MLXD)/mlx_xpm.o \
 
 SRC =		./doss/main.c \
-
+            ./doss/init.c \
+            ./doss/raycast.c \
+            ./doss/mapper.c \
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
@@ -59,7 +61,7 @@ $(NAME) : $(OBJ) doss/main.c
 		ar rc $(CUBD) $(OBJ)
 		/bin/rm -f $(LIBFT)
 		ranlib $(CUBD)
-		$(COMPILE) -g3 -fsanitize=address -o $(NAME) __resources/main.c $(MINILIBIX) $(CUBD) -I$(INCL) -lm  -lXext -lX11 -lbsd
+		$(COMPILE) -g3 -fsanitize=address -o $(NAME) doss/main.c $(MINILIBIX) $(CUBD) -I$(INCL) -lm  -lXext -lX11 -lbsd
 
 clean:
 	rm -rf $(OBJ)

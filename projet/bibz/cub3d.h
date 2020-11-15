@@ -77,3 +77,12 @@ typedef struct	s_ray
 	int		drawend;
 	int		drawstart;
 }				t_ray;
+
+void    	raycat(t_game *game, t_ray *ray, int *x, int *w);
+t_game      game_init(t_game game);
+t_ray       ray_init(t_ray ray);
+void        var_init(int *time, int *oldtime, int *x, int *w);
+void		map_init(t_game *game);
+void		window_init(t_game *game);
+int			eliasabs(float x);
+int			touche_appuye(int keycode, int *j);
