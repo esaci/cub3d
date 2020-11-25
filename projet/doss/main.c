@@ -1,4 +1,4 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../bibz/cub3d.h"
-// Pour eviter les double faut utiliser x et y
 
 int	main(void)
 {
@@ -22,14 +21,13 @@ int	main(void)
 	int		x;
 	int		w;
 
-    game = game_init(game);
-    ray = ray_init(ray);
-    var_init(&time, &oldtime, &x, &w);
+	game = game_init(game);
+	ray = ray_init(ray);
+	var_init(&time, &oldtime, &x, &w);
 	map_init(&game);
 	window_init(&game);
-	raycat(&game, &ray, &x, &w);.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             game, t_ray *ray, int *x, int *w)
-//	step : soit +1 ou -1, direction ou aller
+	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop(game.mlx.mlxptr);
-	
+	ft_printf("ecris stp");
 	return (0);
 }

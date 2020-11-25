@@ -1,0 +1,6 @@
+# define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
+
+les pixels ca commence en haut a gauche
+
+		ft_memset(game->img.data, 0, ft_strlen((const char *)game->img.data));
+

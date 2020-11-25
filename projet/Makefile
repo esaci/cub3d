@@ -2,11 +2,15 @@ NAME = cub3D
 
 LIBFT = libft.a
 
+FTPRINTF = libftprintf.a
+
 MLXD = fct/minilibx-linux/
 
 CUBD= bibz/libcub.a
 
 LIBFTD = fct/libft/
+
+FTPRINTFD = fct/ft_printf/
 
 INCL = bibz
 
@@ -42,10 +46,12 @@ MINILIBIX =	$(MLXD)/mlx_clear_window.o \
             $(MLXD)/mlx_string_put.o \
             $(MLXD)/mlx_xpm.o \
 
-SRC =		./doss/main.c \
-            ./doss/init.c \
-            ./doss/raycast.c \
-            ./doss/mapper.c \
+SRC =		./doss/init.c \
+			./doss/raycast.c \
+			./doss/mapper.c \
+			./doss/main.c \
+			./doss/fct.c \
+
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
@@ -57,9 +63,12 @@ $(NAME) : $(OBJ) doss/main.c
 		rm -rf $(NAME)
 		make -C $(MLXD)
 		make -C $(LIBFTD)
+		make -C $(FTPRINTFD)
 		cp $(LIBFTD)$(LIBFT) ./$(CUBD)
+		cp $(FTPRINTFD)$(FTPRINTF) ./$(CUBD)
 		ar rc $(CUBD) $(OBJ)
 		/bin/rm -f $(LIBFT)
+		/bin/rm -f $(FTPRINTF)
 		ranlib $(CUBD)
 		$(COMPILE) -g3 -fsanitize=address -o $(NAME) doss/main.c $(MINILIBIX) $(CUBD) -I$(INCL) -lm  -lXext -lX11 -lbsd
 
