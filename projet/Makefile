@@ -51,6 +51,8 @@ SRC =		./doss/init.c \
 			./doss/mapper.c \
 			./doss/main.c \
 			./doss/fct.c \
+			./doss/draw.c \
+			./doss/utils.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -77,13 +79,16 @@ clean:
 	rm -rf objects
 	make clean -C $(LIBFTD)
 	make clean -C $(MLXD)
+	make clean -C $(FTPRINTFD)
 
 fclean: clean
 	rm -rf $(NAME)
 	rm -rf $(LIBFT)
 	rm -rf $(CUBD)
+	rm -rf $(FTPRINTF)
 	make fclean -C $(LIBFTD)
+	make fclean -C $(FTPRINTFD)
 
 re: fclean all
 
-.PHONY: clean fclean all re cub3D
+.PHONY: clean fclean all re

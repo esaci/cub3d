@@ -3,4 +3,36 @@
 les pixels ca commence en haut a gauche
 
 		ft_memset(game->img.data, 0, ft_strlen((const char *)game->img.data));
+game->img.data[i][count_h * game->img.width[i] + count_w] = game->img.data[i][count_h * game->img.width[i] + (count_w - 1)];
+
+Raycast :
+
+ROWS = HEIGHT
+COLS = WIDTH
+
+posx/y la position de mon perso
+dx/y direction
+
+La distance entre moi et le mur va definir la hauteur du mur :
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Le mur :	- OU EST IL PLACE dx,dy
+			- Hauteur, longueur game.height[] game.width[] du mur
+			- les couleurs dedans ^^
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Objectif plus tard :
+			- lire une map
+			- rendering
+
+Objectif aujourd'hui :
+			- mlx_loop_hook : comprendre et setup
+			- render scene chez 3ami
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SETUPED:
+
+		- Je crée une image, et je prends sa data, je la detruit en return
+
 
