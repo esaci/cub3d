@@ -12,25 +12,24 @@
 
 #include "../bibz/cub3d.h"
 
-int			setuped(t_game *game)
+int			setuped(t_game *game, t_ray *ray)
 {
 	modifhw(game, 0, SCREENHEIGHT, SCREENWIDTH);
 	initmlxptr(game, 0, game->img.width[0], game->img.height[0]);
-	game->count = 0;
-	while (game->count < game->img.width[0])
+	game->count[0] = 0;
+	while (game->count[0] < game->img.width[0])
 	{
-		raycast_x(g, &rx, game->count, '1');
-		raycast_y(g, &ry, game->count, '1');
-		if (ry.valid != -1 && ry.dist < rx.dist && (dists[i] = ry.dist))
-			draw_column(g, &ry, i, ry.hx);
+		rcx(game, ray, game->count[0]);
+		if (ray->res[0] != -1 && ray->dist[1] < ray->dist[0] && (game->dstncs[game->count[0]] = ray->dist[1]))
+			drawcol(game, ray, game->count[0], 1);
 		else
 		{
-			draw_column(g, &rx, i, rx.hy);
-			dists[i] = rx.dist;
+			drawcol(game, ray, game->count[0], 0);
+			game->dstncs[game->count[0]] = ray->dist[0];
 		}
-		game->count++;
+		game->count[0]++;
 	}
-	render_sprites(g, dists);
+//	render_sprites(g, dists);
 	mlx_put_image_to_window(game->mlx.mlxptr , game->mlx.win, game->img.imgptr[0], 0, 0);
-	return (mlx_destroy_image(game.>mlx.win , game->img.imgptr[0]));
+	return (mlx_destroy_image(game->mlx.win , game->img.imgptr[0]));
 }

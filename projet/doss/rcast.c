@@ -12,30 +12,36 @@
 
 #include "../bibz/cub3d.h"
 
-int			raycast_x(t_game *game, t_ray ray, int c, char object)
+int			rcx(t_game *game, t_ray *ray, int count)
 {
-	char		cell;
+	char		ix;
 
-	cell = 'X';
-	game->count = 0;
-	ray.t = (gd->p_t + TETA / 2.0f - c * ((float)TETA / gd->screen_x)) * RAD;
-	if (cos(r->t) == 0)
+	ray->var[0] = (game->pvar + 0.0174 / 2.0 - count * (40 / game->img.width[0])) * 0.0174;
+	if (cos(ray->var[0]) == 0)
 		return (-1);
-	r->hx = cos(r->t) > 0 ? ceil((float)(gd->p_x) / CELL) * CELL :
-			floor((float)(gd->p_x) / CELL) * CELL;
-	while (cell != object && i < gd->map_size_x)
+	if (cos(ray->var[0]) > 0)
+		ray->x[0] = ceil((float)(game->posx) / 64) * 64;
+	else
+		ray->x[0] = floor((float)(game->posx) / 64) * 64;
+	ix = 'E';
+	game->count[1] = 0;
+	while (ix != '1' && game->count[1] < game->mapx)
 	{
-		r->hx = r->hx + (i != 0 ? sign(cos(r->t)) * CELL : 0);
-		r->hy = abs((gd->p_x - r->hx) / cos(r->t)) * (-sin(r->t)) + gd->p_y;
-		r->dist = ft_dist(gd->p_y - r->hy, gd->p_x - r->hx);
-		if ((r->hy + sign(r->hy - gd->p_y)) / CELL < gd->map_size_y
-			&& (r->hx + sign(r->hx - gd->p_x)) / CELL < gd->map_size_x)
+		ray->x[0] = ray->x[0] + (ix != 0 ? ft_signe(cos(ray->var[0])) * 64 : 0);
+		ray->y[0] = abs((int)((game->posx - ray->x[0]) / cos(ray->var[0]))) * (-sin(ray->var[0])) + game->posy;
+		ray->dist[0] = ft_dist(game->posy - ray->y[0], game->posx - ray->x[0]);
+		if ((ray->y[0] + ft_signe(ray->y[0] - game->posy)) / 64 < game->mapy
+			&& (ray->x[0] + ft_signe(ray->x[0] - game->posx)) / 64 < game->mapx)
 		{
-			cell = gd->map[ft_max(0, (r->hy + sign(r->hy - gd->p_y)) / CELL)]
-					[ft_max(0, (r->hx + sign(r->hx - gd->p_x)) / CELL)];
+			ix = game->map[ft_max(0, (ray->y[0] + ft_signe(ray->y[0] - game->posy)) / 64)]
+					[ft_max(0, (ray->x[0] + ft_signe(ray->x[0] - game->posx)) / 64)];
 		}
-		i++;
+		game->count[1]++;
 	}
-	r->txt = r->hx > gd->p_x ? 2 : 3;
-	return (r->valid = (cell == object));
+	if (ray->x[0] > game->posx)
+		ray->flag[0] = 2;
+	else
+		ray->flag[0] = 3;
+	ray->res[0] = (ix == '1');
+	return (ray->res[0]);
 }

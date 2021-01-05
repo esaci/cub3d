@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 16:03:36 by esaci             #+#    #+#             */
-/*   Updated: 2020/11/22 16:04:04 by esaci            ###   ########.fr       */
+/*   Created: 2020/12/25 16:23:43 by esaci             #+#    #+#             */
+/*   Updated: 2020/12/25 16:23:49 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../bibz/cub3d.h"
 
-t_game		game_init(t_game game)
+int		ft_max(int x, int y)
 {
-	game.vise = 0;
-	game.dx = -1;
-	game.dy = 0;
-	game.posx = 9;
-	game.posy = 9;
-	game.planex = 0;
-	game.planey = 0.66;
-	game.hit = 4;
-	game.step = 1;
-	game.flag = 0;
-	game.count = 0;
-	game.mapx = SCREENWIDTH;
-	game.mapy = SCREENHEIGHT;
-	return(game);
+	if (x > y)
+		return (x);
+	return (y);
 }
 
-t_ray		ray_init(t_ray ray)
+int		ft_min(int x, int y)
 {
-	return (ray);
+	if (x < y)
+		return (x);
+	return (y);
 }
 
-void		var_init(t_game *game)
+float	ft_dist(float x, float y)
 {
-	game->time = 0;
-	game->oldtime = 0;
+	float res;
+
+	res = sqrt(x*x + y*y);
+	return (res);
 }

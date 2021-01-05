@@ -63,6 +63,7 @@ typedef struct	s_pix
 	int			x;
 	int			y;
 	int			count;
+	int			flag;
 }				t_pix;
 
 typedef struct	s_game
@@ -70,8 +71,11 @@ typedef struct	s_game
 	t_mlx		mlx;
 	t_img		img;
 	int			map[ROWS][COLS];
-	float		posx;
-	float		posy;
+	int			mapx;
+	int			mapy;
+	int			posx;
+	int			posy;
+	int			pvar;
 	float		dx;
 	float		dy;
 	float		planex;
@@ -79,8 +83,6 @@ typedef struct	s_game
 	int			time;
 	int			oldtime;
 	float		camerax;
-	int			mapx;
-	int			mapy;
 	int			hit;
 	float		step;
 	int			stepx;
@@ -88,24 +90,18 @@ typedef struct	s_game
 	int			side;
 	float		vise;
 	int			flag;
-	int			count;
+	int			count[10];
+	int			dstncs[SCREENWIDTH];
 }				t_game;
 
 typedef struct	s_ray
 {
-	float		px;
-	float		py;
-	int			pdir;
-	int			raydirx;
-	int			raydiry;
-	float		sidedistx;
-	float		sidedisty;
-	float		deltadistx;
-	float		deltadisty;
-	float		perpwalldist;
-	int			lineheight;
-	int			drawend;
-	int			drawstart;
+	float	var[2];
+	int		x[2];
+	int		y[2];
+	int		flag[2];
+	int		res[2];
+	float	dist[2];
 }				t_ray;
 
 void			raycat(t_game *game, t_ray *ray, int *x, int *w);
@@ -123,4 +119,11 @@ void			drawpix(t_game *game, int i, t_pix pix, unsigned char couleur[4]);
 void			destroyer(t_game game, int j, ...);
 void			modifdxdy(t_game *game, int i, int dx, int dy);
 void			modifhw(t_game *game, int i, int height, int width);
+int				rcx(t_game *game, t_ray *ray, int count);
+int				setuped(t_game *game, t_ray *ray);
+int				ft_signe(float x);
+int				ft_max(int x, int y);
+int				ft_min(int x, int y);
+float			ft_dist(float x, float y);
+void			drawcol(t_game *game, t_ray *ray, int col, int hit);
 #endif

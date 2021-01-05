@@ -38,3 +38,12 @@ void		modifhw(t_game *game, int i, int height, int width)
 	game->img.height[i] = height;
 	game->img.width[i] = width;
 }
+
+int			ft_signe(float x)
+{
+	if (x < 0)
+		return (-1);
+	if (x > 0)
+		return (1);
+	return (0);
+}

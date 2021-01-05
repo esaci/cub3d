@@ -47,12 +47,15 @@ MINILIBIX =	$(MLXD)/mlx_clear_window.o \
             $(MLXD)/mlx_xpm.o \
 
 SRC =		./doss/init.c \
-			./doss/raycast.c \
 			./doss/mapper.c \
 			./doss/main.c \
 			./doss/fct.c \
 			./doss/draw.c \
+			./doss/draw2.c \
 			./doss/utils.c \
+			./doss/utils2.c \
+			./doss/rcast.c \
+			./doss/setup.c \
 
 OBJ = $(SRC:.c=.o)
 
