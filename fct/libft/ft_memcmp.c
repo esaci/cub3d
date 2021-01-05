@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 16:03:36 by esaci             #+#    #+#             */
-/*   Updated: 2020/11/22 16:04:04 by esaci            ###   ########.fr       */
+/*   Created: 2019/12/02 21:45:14 by esaci             #+#    #+#             */
+/*   Updated: 2019/12/02 21:45:15 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../bibz/cub3d.h"
+#include "libft.h"
 
-t_game		game_init(t_game game)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	game.vise = 0;
-	game.dx = -1;
-	game.dy = 0;
-	game.posx = 9;
-	game.posy = 9;
-	game.planex = 0;
-	game.planey = 0.66;
-	game.hit = 4;
-	game.step = 1;
-	game.flag = 0;
-	game.mapx = SCREENWIDTH;
-	game.mapy = SCREENHEIGHT;
-	return(game);
-}
+	size_t	count;
+	int		res;
 
-t_ray		ray_init(t_ray ray)
-{
-	return (ray);
-}
-
-void		var_init(t_game *game)
-{
-	game->time = 0;
-	game->oldtime = 0;
+	res = 0;
+	count = 0;
+	while (count < n)
+	{
+		if (!(*(unsigned char*)s1 == *(unsigned char*)s2))
+		{
+			res = *(unsigned char*)s1 - *(unsigned char*)s2;
+			return (res);
+		}
+		s1++;
+		s2++;
+		count++;
+	}
+	return (0);
 }

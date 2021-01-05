@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 16:03:36 by esaci             #+#    #+#             */
-/*   Updated: 2020/11/22 16:04:04 by esaci            ###   ########.fr       */
+/*   Created: 2020/02/06 22:26:00 by esaci             #+#    #+#             */
+/*   Updated: 2020/02/08 00:20:40 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../bibz/cub3d.h"
+#include "get_next_line.h"
 
-t_game		game_init(t_game game)
+size_t	ft_strlen(const char *s)
 {
-	game.vise = 0;
-	game.dx = -1;
-	game.dy = 0;
-	game.posx = 9;
-	game.posy = 9;
-	game.planex = 0;
-	game.planey = 0.66;
-	game.hit = 4;
-	game.step = 1;
-	game.flag = 0;
-	game.mapx = SCREENWIDTH;
-	game.mapy = SCREENHEIGHT;
-	return(game);
+	int count;
+
+	count = 0;
+	while (*s != '\0')
+	{
+		count++;
+		s++;
+	}
+	return (sizeof(char) * count);
 }
 
-t_ray		ray_init(t_ray ray)
+int		ft_flag(char countu[BUFFER_SIZE + 2])
 {
-	return (ray);
-}
-
-void		var_init(t_game *game)
-{
-	game->time = 0;
-	game->oldtime = 0;
+	if (countu[BUFFER_SIZE + 1] != 'E')
+	{
+		countu[0] = 0;
+		countu[BUFFER_SIZE + 1] = 'E';
+	}
+	else
+		return (1);
+	return (0);
 }

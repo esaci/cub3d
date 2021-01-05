@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   fct.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 16:03:36 by esaci             #+#    #+#             */
-/*   Updated: 2020/11/22 16:04:04 by esaci            ###   ########.fr       */
+/*   Created: 2020/11/22 16:00:41 by esaci             #+#    #+#             */
+/*   Updated: 2020/11/22 16:03:03 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../bibz/cub3d.h"
 
-t_game		game_init(t_game game)
+int	vision(int	keycode, void *ptr)
 {
-	game.vise = 0;
-	game.dx = -1;
-	game.dy = 0;
-	game.posx = 9;
-	game.posy = 9;
-	game.planex = 0;
-	game.planey = 0.66;
-	game.hit = 4;
-	game.step = 1;
-	game.flag = 0;
-	game.mapx = SCREENWIDTH;
-	game.mapy = SCREENHEIGHT;
-	return(game);
-}
+	t_game	*game;
 
-t_ray		ray_init(t_ray ray)
-{
-	return (ray);
-}
-
-void		var_init(t_game *game)
-{
-	game->time = 0;
-	game->oldtime = 0;
+	game = (t_game*)ptr;
+	if (keycode == KEY_ESC)
+	{
+		destroyer(*game, 3, 10, 1, 2);
+		if(game->flag == 1)
+			destroyer(*game, 1, 3);
+		exit(0);
+	}
+	else if (keycode == KEY_Z)
+	{
+	}
+	else if (keycode == KEY_Q)
+	{
+	}
+	else if (keycode == KEY_S)
+	{
+	}
+	else if (keycode == KEY_D)
+	{
+	}
+	return(0);
 }

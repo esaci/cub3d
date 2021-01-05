@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <mlx.h>
-
+#include "/home/elias/Bureau/cubed/cub3d/mlx/mlx.h"
 
 # define X_EVENT_KEY_PRESS			2
 # define X_EVENT_KEY_release		3
@@ -21,7 +20,6 @@ int	touche_appuye(int keycode, int *j)
 		*j = *j + 1;
 	else if(keycode == KEY_ESC)
 		exit(0);
-		printf("pas lu\n");
 	printf("j vaudrait %d\n", *j);
 	return (0);
 }
@@ -45,14 +43,14 @@ typedef struct	s_mlx
 
 int	main(void)
 {
-	t_mlx	*mlx;
+	t_mlx	mlx;
 	t_img	img;
 	int		count_w;
 	int		count_h;
 
-	mlx->mlxptr = mlx_init();
-	mlx->win = mlx_new_window(mlx->mlxptr, 1200, 720, "travail");
-	img.imgptr = mlx_xpm_file_to_image(mlx->mlxptr, "wtf.xpm", &img.width, &img.height);
+	mlx.mlxptr = mlx_init();
+	mlx.win = mlx_new_window(mlx.mlxptr, 1200, 720, "travail");
+	img.imgptr = mlx_xpm_file_to_image(mlx.mlxptr, "wtf.XPM", &img.width, &img.height);
 /*	ca renvoie une chaine de charactere mais int a lair plus pratique */
 	img.data = (int *)mlx_get_data_addr(img.imgptr, &img.bp, &img.size_l, &img.endian);
 	count_h = -1;
@@ -67,7 +65,7 @@ int	main(void)
 				img.data[count_h * img.width + count_w] = 0xFF0000;
 		}
 	}
-	mlx_put_image_to_window(mlx->mlxptr, mlx->win, img.imgptr, 0, 0);			
-	mlx_loop(mlx->mlxptr);
+	mlx_put_image_to_window(mlx.mlxptr, mlx.win, img.imgptr, 0, 0);
+	mlx_loop(mlx.mlxptr);
 	return (0);
 }

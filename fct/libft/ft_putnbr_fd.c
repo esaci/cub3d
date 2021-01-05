@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 16:03:36 by esaci             #+#    #+#             */
-/*   Updated: 2020/11/22 16:04:04 by esaci            ###   ########.fr       */
+/*   Created: 2019/11/24 23:31:59 by esaci             #+#    #+#             */
+/*   Updated: 2019/11/24 23:56:36 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../bibz/cub3d.h"
+#include "libft.h"
 
-t_game		game_init(t_game game)
+void	ft_boucle(long int count, int fd)
 {
-	game.vise = 0;
-	game.dx = -1;
-	game.dy = 0;
-	game.posx = 9;
-	game.posy = 9;
-	game.planex = 0;
-	game.planey = 0.66;
-	game.hit = 4;
-	game.step = 1;
-	game.flag = 0;
-	game.mapx = SCREENWIDTH;
-	game.mapy = SCREENHEIGHT;
-	return(game);
+	char	c;
+
+	if ((count / 10) > 0)
+		ft_boucle(count / 10, fd);
+	c = (count % 10) + '0';
+	write(fd, &c, 1);
 }
 
-t_ray		ray_init(t_ray ray)
+void	ft_putnbr_fd(int n, int fd)
 {
-	return (ray);
-}
+	long int count;
 
-void		var_init(t_game *game)
-{
-	game->time = 0;
-	game->oldtime = 0;
+	count = n;
+	if (count == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (count < 0)
+	{
+		write(fd, "-", 1);
+		count = -count;
+	}
+	ft_boucle(count, fd);
 }

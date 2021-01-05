@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/22 16:03:36 by esaci             #+#    #+#             */
-/*   Updated: 2020/11/22 16:04:04 by esaci            ###   ########.fr       */
+/*   Created: 2019/11/24 22:27:37 by esaci             #+#    #+#             */
+/*   Updated: 2019/11/24 22:48:12 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../bibz/cub3d.h"
+#include "libft.h"
 
-t_game		game_init(t_game game)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	game.vise = 0;
-	game.dx = -1;
-	game.dy = 0;
-	game.posx = 9;
-	game.posy = 9;
-	game.planex = 0;
-	game.planey = 0.66;
-	game.hit = 4;
-	game.step = 1;
-	game.flag = 0;
-	game.mapx = SCREENWIDTH;
-	game.mapy = SCREENHEIGHT;
-	return(game);
-}
+	char	*dst;
+	size_t	count;
 
-t_ray		ray_init(t_ray ray)
-{
-	return (ray);
-}
-
-void		var_init(t_game *game)
-{
-	game->time = 0;
-	game->oldtime = 0;
+	if (!(dst = malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	count = 0;
+	while (count < ft_strlen(s))
+	{
+		dst[count] = (*f)(count, s[count]);
+		count++;
+	}
+	dst[count] = '\0';
+	return (dst);
 }
