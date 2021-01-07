@@ -1,4 +1,4 @@
-ma/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
@@ -136,4 +136,5 @@ void				drawcol(t_game *game, t_ray *ray, int col, int hit);
 int					ft_only(char *line, char *only);
 char				*ft_antiespace(char *line, t_game *game);
 int					bordurerectangle(t_game *game);
+int					nbrjoueurtligne(t_game *game, int i);
 #endif

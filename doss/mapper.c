@@ -15,6 +15,7 @@
 void	map_init(t_game *game, char *pave)
 {
 	ft_rmap(game, pave);
+	ft_rplayer(game);
 }
 
 void	ft_line(char *line, t_game *game)
@@ -61,6 +62,6 @@ void	ft_rmap(t_game *game, char *pave)
 		gd->map[game->c[1]++] = ft_antiespace(line, game);
 	game->map[game->c[1]] = '\0';
 	free(line);
-	if (bordurerectangle(game) && map_validator_2(game, 1))
+	if (bordurerectangle(game) && nbrjoueurtligne(game, 1))
 		game->c[1] = 0;
 }

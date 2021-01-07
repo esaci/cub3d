@@ -17,7 +17,7 @@ int		taillenval(int mapi, int j, t_game *game)
 	int taille;
 
 	taille = ft_strlen(game->map[game->c[mapi]]);
-	if (taille != game->c[j] || taille > ROWS)
+	if (taille != game->c[j] || taille > COLS)
 		return (1);
 	return (0);
 }
@@ -39,7 +39,7 @@ int		bordurerectangle(t_game *game)
 	while (game->map[game->c[6]])
 	{
 		if (taillenval(6,2, game) || (game->c[6]++) * 0 != 0)
-			ft_stop(game, "Taille de la map invalide");
+			ft_stop(game, "Taille de la map invalide(Soit c'est pas un rectangle, soit trop de colonne))";
 		if(game->map[game->c[game->c[6]][0]] != '1' || game->map[game->c[game->c[6]][game->c[2]-1]] != '1')
 			ft_stop(game, "La map n'est pas fermée a gauche ou a droite");
 	}
@@ -59,28 +59,21 @@ int		bordurerectangle(t_game *game)
 	return (1);
 }
 
-int		map_validator_2(t_game *game, int i)
+int		nbrjoueurtligne(t_game *game, int i)
 {
-//  game->c[1] mapsize
-//	game->c[7]		p;
-//	game->c[8]		i;
-//	game->c[9]		j;
-//	game->c[10]		len;
+	int flagpl;
 
-	if (game->c[i] >= ROWS)
-		return (error_message("map is too big", game, 1));
-	while (game->map[i] != NULL)
+	flagpl = 0;
+	if (!(game->c[i] < ROWS))
+		ft_stop(game, "Trop de ligne dans la map");
+	while (game->map[game->c[8]])
 	{
-		j = 0;
-		while (j < ROWS)
-		{
-			if (ft_inset_c(game->map[i][j], "NSEW"))
-				p++;
-			j++;
-		}
-		i++;
+		flagpl += ft_contient(game->map[game->c[8]], "NSWE");
+		game->c[8]++;
 	}
-	if (p != 1)
-		return (error_message("invalid map : too many players", game, 1));
+	if (flagpl == 0)
+		ft_stop("Pas de joueur", game);
+	if (!(flagpl == 1))
+		ft_stop("Un/Plusieurs joueur en trop", game);
 	return (1);
 }

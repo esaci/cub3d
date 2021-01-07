@@ -31,3 +31,26 @@ int		ft_only(char *line, char *only)
 	}
 	return (1);
 }
+
+int		ft_contient(char *line, char *lettres)
+{
+	int 	count;
+	int 	flag;
+	char 	ptr[255];
+
+	count = 0;
+	while(count < 255)
+		ptr[count++] = 0;
+	count = 0;
+	while (lettres[count])
+		ptr[(int)lettres[count++]]++;
+	flag = 0;
+	count = 0;
+	while(line[count])
+	{
+		if (ptr[(int)line[count]] != 0)
+			flag++;
+		count++;
+	}
+	return(flag);
+}
