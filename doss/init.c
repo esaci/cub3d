@@ -13,13 +13,14 @@
 #include "../bibz/cub3d.h"
 
 
-t_game		game_init(t_game game)
+void		game_init(t_game *game, int mode)
 {
 	int i;
-
 	i = 0;
 	while(i < NBRCOUNT && (i++) * 0 == 0)
 		game.c[i] = 0;
+	if (mode = 1)
+		return ();
 	game.flag[0] = 0;
 //	game.vise = 0;
 //	game.dx = -1;
@@ -32,7 +33,6 @@ t_game		game_init(t_game game)
 //	game.step = 1;
 //	game.mapx = SCREENWIDTH;
 //	game.mapy = SCREENHEIGHT;
-	return(game);
 }
 
 t_ray		ray_init(t_ray ray)

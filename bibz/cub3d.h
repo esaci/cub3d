@@ -42,7 +42,8 @@
 # define MIN_X								320
 # define MIN_Y								200
 # define NBRDIMG							10
-# define NBRCOUNT							20
+# define NBRCOUNT							10
+# define TAILLEC							64
 
 typedef struct		s_img
 {
@@ -83,9 +84,9 @@ typedef struct		s_game
 	int				mapx; // largeur map
 	int				mapy; // hauteur map
 	char			**map;
-//	int				posx;
-//	int				posy;
-//	int				pvar;
+	int				posy; // position sur la map map[y][:]
+	int				posx; // position sur la map map[:][x]
+	int				pangle; // p_t (pvar) angle ENWS :: 0 90 180 270
 //	float			dx;
 //	float			dy;
 //	float			planex;
@@ -113,7 +114,7 @@ typedef struct		s_ray
 }					t_ray;
 
 void				raycat(t_game *game, t_ray *ray, int *x, int *w);
-t_game				game_init(t_game game);
+void				game_init(t_game game, int mode);
 t_ray				ray_init(t_ray ray);
 void				map_init(t_game *game);
 void				window_init(t_game *game);
@@ -137,4 +138,6 @@ int					ft_only(char *line, char *only);
 char				*ft_antiespace(char *line, t_game *game);
 int					bordurerectangle(t_game *game);
 int					nbrjoueurtligne(t_game *game, int i);
+void				ft_rplayer(t_game *game);
+int					ft_testc(char c, char *lettres);
 #endif

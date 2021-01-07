@@ -15,6 +15,7 @@
 void	map_init(t_game *game, char *pave)
 {
 	ft_rmap(game, pave);
+	game_init(&game, 0);
 	ft_rplayer(game);
 }
 

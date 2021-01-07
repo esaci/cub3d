@@ -19,7 +19,7 @@ int	main(int argc, char **arg)
 
 	window_init(&game);
 	map_init(&game, argv[1]);
-	game = game_init(game);
+	game_init(&game, 0);
 	ray = ray_init(ray);
 	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &setuped, &game);

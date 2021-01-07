@@ -31,10 +31,6 @@ int		map_val_return(t_game *g, int len, int i)
 
 int		bordurerectangle(t_game *game)
 {
-//	c[6]	i ;
-//	c[2]	len;
-//	c[5]	j;
-
 	game->c[2] = ft_strlen(g->map[game->c[6]]);
 	while (game->map[game->c[6]])
 	{

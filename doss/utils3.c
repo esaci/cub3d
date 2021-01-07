@@ -54,3 +54,19 @@ int		ft_contient(char *line, char *lettres)
 	}
 	return(flag);
 }
+
+int		ft_testc(char c, char *lettres)
+{
+	int 	count;
+	char 	ptr[255];
+
+	count = 0;
+	while(count < 255)
+		ptr[count++] = 0;
+	count = 0;
+	while (lettres[count])
+		ptr[(int)lettres[count++]]++;
+	if (ptr[(int)c] != 0)
+		return(0)
+	return(1);
+}
