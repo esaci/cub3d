@@ -47,6 +47,7 @@ MINILIBIX =	$(MLXD)/mlx_clear_window.o \
             $(MLXD)/mlx_xpm.o \
 
 SRC =		./doss/init.c \
+			./doss/maptest.c \
 			./doss/mapper.c \
 			./doss/reader.c \
 			./doss/main.c \

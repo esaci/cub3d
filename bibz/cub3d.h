@@ -33,8 +33,8 @@ ma/* ************************************************************************** 
 # define KEY_LEFT							65361
 # define KEY_UP								65362
 # define KEY_DOWN							65364
-# define ROWS								8
-# define COLS								8
+# define ROWS								60
+# define COLS								60
 # define SCREENWIDTH						720
 # define SCREENHEIGHT						480
 # define MAX_X								1920
@@ -42,7 +42,7 @@ ma/* ************************************************************************** 
 # define MIN_X								320
 # define MIN_Y								200
 # define NBRDIMG							10
-# define NBRCOUNT							10
+# define NBRCOUNT							20
 
 typedef struct		s_img
 {
@@ -78,8 +78,10 @@ typedef struct		s_game
 	t_img			img;
 	int				c[NBRCOUNT];
 	int				flag[2];
-	int				mapx;
-	int				mapy;
+	int				ecranx; // resolution width
+	int				ecrany; // resolution height
+	int				mapx; // largeur map
+	int				mapy; // hauteur map
 	char			**map;
 //	int				posx;
 //	int				posy;
@@ -133,4 +135,5 @@ float				ft_dist(float x, float y);
 void				drawcol(t_game *game, t_ray *ray, int col, int hit);
 int					ft_only(char *line, char *only);
 char				*ft_antiespace(char *line, t_game *game);
+int					bordurerectangle(t_game *game);
 #endif

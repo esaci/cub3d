@@ -15,27 +15,26 @@
 void	map_init(t_game *game, char *pave)
 {
 	ft_rmap(game, pave);
-	ft_memcpy(game->map, map, sizeof(int) * ROWS * COLS);
 }
 
 void	ft_line(char *line, t_game *game)
 {
-	if (ft_strncmp(line, "Texture Sprite :", 14) == 0)
-		game->img.nom[3] = (ft_strtrim(line + 14, " "));
-	if (ft_strncmp(line, "Texture Ouest :", 16) == 0)
-		game->img.nom[4] = (ft_strtrim(line + 16, " "));
-	if (ft_strncmp(line, "Texture Nord :", 15) == 0)
-		game->img.nom[5] = (ft_strtrim(line + 15, " "));
-	if (ft_strncmp(line, "Texture Est :", 14) == 0)
-		game->img.nom[7] = (ft_strtrim(line + 14, " "));
-	if (ft_strncmp(line, "Texture Sud :", 15) == 0)
-		game->img.nom[7]= (ft_strtrim(line + 15, " "));
-	if (ft_strncmp(line, "Sol :", 6) == 0)
-		read_color(line + 6, (game->img.data[0]));
-	if (ft_strncmp(line, "Toit :", 7) == 0)
-		read_color(line + 7, (game->img.data[1]));
-	if (ft_strncmp(line, "Resolution :", 13) == 0)
-		ft_resolution(line + 13, game);
+	if (ft_strncmp(line, "R ", 3) == 0)
+		ft_resolution(line + 3, game);
+	if (ft_strncmp(line, "NO ", 4) == 0)
+		game->img.nom[5] = (ft_strtrim(line + 4, " "));
+	if (ft_strncmp(line, "SO ", 4) == 0)
+		game->img.nom[7]= (ft_strtrim(line + 4, " "));
+	if (ft_strncmp(line, "WE ", 4) == 0)
+		game->img.nom[4] = (ft_strtrim(line + 4, " "));
+	if (ft_strncmp(line, "EA ", 4) == 0)
+		game->img.nom[7] = (ft_strtrim(line + 4, " "));
+	if (ft_strncmp(line, "S ", 3) == 0)
+		game->img.nom[3] = (ft_strtrim(line + 3, " "));
+	if (ft_strncmp(line, "F ", 3) == 0)
+		read_color(line + 3, (game->img.data[0]));
+	if (ft_strncmp(line, "C ", 3) == 0)
+		read_color(line + 3, (game->img.data[1]));
 }
 
 
@@ -55,12 +54,13 @@ void	ft_rmap(t_game *game, char *pave)
 		ft_line(line,game);
 		free(line);
 	}
-	if (!(game->map = malloc(sizeof(char *) * ROWS * COLS)))
+	if (!(game->map = malloc(sizeof(char *) * ROWS)))
 		ft_stop(game, "Malloc probleme");
-	game->map[game->c[1]++;] = ft_antiespace(line, game);
+	game->map[game->c[1]++] = ft_antiespace(line, game);
 	while (get_next_line(game->c[0], &line))
 		gd->map[game->c[1]++] = ft_antiespace(line, game);
-	gd->map[game->c[1]] = NULL;
+	game->map[game->c[1]] = '\0';
 	free(line);
-	return (map_validator(gd) && map_validator_2(gd, game->c[1]));
+	if (bordurerectangle(game) && map_validator_2(game, 1))
+		game->c[1] = 0;
 }
