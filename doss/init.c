@@ -15,6 +15,12 @@
 
 t_game		game_init(t_game game)
 {
+	int i;
+
+	i = 0;
+	while(i < NBRCOUNT && (i++) * 0 == 0)
+		game.c[i] = 0;
+	game.flag[0] = 0;
 //	game.vise = 0;
 //	game.dx = -1;
 //	game.dy = 0;
@@ -24,7 +30,6 @@ t_game		game_init(t_game game)
 //	game.planey = 0.66;
 //	game.hit = 4;
 //	game.step = 1;
-//	game.flag = 0;
 //	game.mapx = SCREENWIDTH;
 //	game.mapy = SCREENHEIGHT;
 	return(game);
@@ -39,5 +44,5 @@ void	window_init(t_game *game)
 {
 	game->mlx.mlxptr = mlx_init();
 	game->mlx.win = mlx_new_window(game->mlx.mlxptr, SCREENWIDTH, SCREENHEIGHT, "fenetre init");
-	
+
 }

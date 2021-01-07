@@ -48,12 +48,14 @@ MINILIBIX =	$(MLXD)/mlx_clear_window.o \
 
 SRC =		./doss/init.c \
 			./doss/mapper.c \
+			./doss/reader.c \
 			./doss/main.c \
 			./doss/fct.c \
 			./doss/draw.c \
 			./doss/draw2.c \
 			./doss/utils.c \
 			./doss/utils2.c \
+			./doss/utils3.c \
 			./doss/rcast.c \
 			./doss/setup.c \
 

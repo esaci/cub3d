@@ -12,15 +12,15 @@ ke/* ************************************************************************** 
 
 #include "../bibz/cub3d.h"
 
-int	main(void)
+int	main(int argc, char **arg)
 {
 	t_game	game;
 	t_ray	ray;
 
+	window_init(&game);
+	map_init(&game, argv[1]);
 	game = game_init(game);
 	ray = ray_init(ray);
-	map_init(&game);
-	window_init(&game);
 	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &setuped, &game);
 	mlx_loop(game.mlx.mlxptr);

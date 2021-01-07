@@ -1,3 +1,32 @@
+
+1) main :
+	- init permet davoir tout d'initialise (mlx_init();, ).
+	- LA MAP :
+			- Je prends comme entree game et la map sous format char*✔
+			- je lance la fonction pour verifier la map ! [je retire game == NULL, pave doit faire minimum 5 caractere ? (supposition bonne)]
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+game.count[0] = fd;
+[1] = i
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+game.flag[0] = pour mode dans error_message
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ft_strlen(line) > 2 ???? dans mapper
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ft_colo jai inversé en 2 1 0 pck pas compris
+img.data[0] et img.data[1] SOL ET TOIT
+3,4,5,6,7 : ouest nord est sud
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+jreserve game.c[3][4]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 # define TO_COORD(X, Y) ((int)floor(Y) * WIDTH + (int)floor(X))
 
 les pixels ca commence en haut a gauche
