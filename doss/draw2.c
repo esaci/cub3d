@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+s/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   draw2.c                                            :+:      :+:    :+:   */
@@ -18,7 +18,7 @@ void		drawcol(t_game *game, t_ray *ray, int col, int hit)
 	int			height;
 	t_pix		pix;
 
-	dist = abs((int)(ray->dist[0] * cos((ray->var[0] - (float)game->pvar * 0.0174f))));
+	dist = abs((int)(ray->dist[0] * cos((ray->var[0] - (float)game->pangle * 0.0174f))));
 	height = ceil(150 * game->mapy / dist);
 	pix.x = col;
 	pix.flag = hit;

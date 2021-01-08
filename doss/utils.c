@@ -27,6 +27,21 @@ void		destroyer(t_game game, int j, ...)
 	va_end(elias);
 }
 
+void		destroyernom(t_game *game)
+{
+	int i;
+
+	i = 0;
+	while (i <= 1)
+		free(game->img.datac[i]);
+	while (i <= 7)
+		free(game->img.nom[i++]);
+	i = 0;
+	while (game->map[i])
+		free(game->map[i++]);
+	free(game->map);
+}
+
 void		modifdxdy(t_game *game, int i, int dx, int dy)
 {
 	game->img.dx[i] = dx;

@@ -13,11 +13,22 @@
 
 #include "../bibz/cub3d.h"
 
+int		ft_angle(char c)
+{
+	int angle;
+
+	angle = 0;
+	if (c == 'N')
+		angle = 90;
+	if (c == 'W')
+		angle = 180;
+	if (c == 'S')
+		angle = 270;
+	return (angle);
+}
+
 void	ft_rplayer(t_game *game)
 {
-//	game->c[0] i;
-//	game->c[1] j;
-//	game->c[2] b;
 	game->c[2] = 1;
 	while (game->c[2] == 1 && game->c[0] < game->mapy)
 	{
@@ -29,8 +40,7 @@ void	ft_rplayer(t_game *game)
 		}
 		game->c[0]++;
 	}
-	game->p_y = TAILLEC * game->c[0] + TAILLEC / 2;
-	game->p_x = TAILLEC * game->c[1] + TAILLEC / 2;
-	game->pangle = game->map[game->c[0]][game->c[1]] == 'E' ? 0 : 270;
-	game->p_h = 53;
+	game->pangle = ft_angle(game->map[game->c[0]][game->c[1]]);
+	game->posy = TAILLEC * game->c[0] + TAILLEC / 2;
+	game->posx = TAILLEC * game->c[1] + TAILLEC / 2;
 }

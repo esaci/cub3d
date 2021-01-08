@@ -41,14 +41,16 @@
 # define MAX_Y								1020
 # define MIN_X								320
 # define MIN_Y								200
-# define NBRDIMG							10
+# define NBRDIMG							20
 # define NBRCOUNT							10
 # define TAILLEC							64
+# define HAUTEURC							32
 
 typedef struct		s_img
 {
 	void			*imgptr[NBRDIMG];
 	unsigned char	*data[NBRDIMG];
+	unsigned char	datac[2][4];
 	char			*nom[NBRDIMG];
 //	int				size_l[NBRDIMG];
 //	int				bpp[NBRDIMG];
@@ -84,9 +86,10 @@ typedef struct		s_game
 	int				mapx; // largeur map
 	int				mapy; // hauteur map
 	char			**map;
+// ===========================================================================
 	int				posy; // position sur la map map[y][:]
 	int				posx; // position sur la map map[:][x]
-	int				pangle; // p_t (pvar) angle ENWS :: 0 90 180 270
+	int				pangle; // p_t (s) angle ENWS :: 0 90 180 270
 //	float			dx;
 //	float			dy;
 //	float			planex;
@@ -105,9 +108,16 @@ typedef struct		s_game
 
 typedef struct		s_ray
 {
-//	float			var[2];
-//	int				x[2];
-//	int				y[2];
+	float			angle[2]; // r->t C'est je pense l'angle de la camera dans la map
+	int				x[2]; // La position de la camera dans la map
+	int				y[2]; // La position de la camera dans la map
+
+// La hauteur de la caméra HAUTEURC
+
+// Le champ visuel de la camera 60degrés
+
+// La taille de l’écran de projection
+
 //	int				flag[2];
 //	int				res[2];
 //	float			dist[2];
@@ -140,4 +150,8 @@ int					bordurerectangle(t_game *game);
 int					nbrjoueurtligne(t_game *game, int i);
 void				ft_rplayer(t_game *game);
 int					ft_testc(char c, char *lettres);
+void				ft_verif(t_game *game);
+void				ft_chargement(t_game *game);
+void				affichemap(t_game *game);
+void				ft_depart(t_game *game);
 #endif

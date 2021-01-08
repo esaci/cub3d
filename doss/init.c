@@ -18,21 +18,22 @@ void		game_init(t_game *game, int mode)
 	int i;
 	i = 0;
 	while(i < NBRCOUNT && (i++) * 0 == 0)
-		game.c[i] = 0;
+		game->c[i] = 0;
 	if (mode = 1)
 		return ();
-	game.flag[0] = 0;
-//	game.vise = 0;
-//	game.dx = -1;
-//	game.dy = 0;
-//	game.posx = 9;
-//	game.posy = 9;
-//	game.planex = 0;
-//	game.planey = 0.66;
-//	game.hit = 4;
-//	game.step = 1;
-//	game.mapx = SCREENWIDTH;
-//	game.mapy = SCREENHEIGHT;
+	game->flag[0] = 0;
+	game->ph = 53;
+//	game->vise = 0;
+//	game->dx = -1;
+//	game->dy = 0;
+//	game->posx = 9;
+//	game->posy = 9;
+//	game->planex = 0;
+//	game->planey = 0.66;
+//	game->hit = 4;
+//	game->step = 1;
+//	game->mapx = SCREENWIDTH;
+//	game->mapy = SCREENHEIGHT;
 }
 
 t_ray		ray_init(t_ray ray)

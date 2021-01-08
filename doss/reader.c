@@ -29,23 +29,23 @@ void	ft_resolution(char *line, t_game *game)
 	game->ecrany = ft_min(MAX_Y, game->ecrany);
 }
 
-void	ft_color(char *line, unsigned char *data)
+void	ft_color(char *line, unsigned char *datac)
 {
 	game->c[2] = 0;
 	while (line[game->c[2]] == ' ')
 		game->c[2]++;
-	data[0] = (unsigned char)ft_atoi(line + game->c[2]);
+	datac[0] = (unsigned char)ft_atoi(line + game->c[2]);
 	while (ft_isdigit(line[game->c[2]]))
 		game->c[2]++;
 	while (line[game->c[2]] == ' ' || line[game->c[2]] == ',')
 		game->c[2]++;
-	data[1] = (unsigned char)ft_atoi(line + game->c[2]);
+	datac[1] = (unsigned char)ft_atoi(line + game->c[2]);
 	while (ft_isdigit(line[game->c[2]]))
 		game->c[2]++;
 	while (line[game->c[2]] == ' ' || line[game->c[2]] == ',')
 		game->c[2]++;
-	fc[2] = (unsigned char)ft_atoi(line + game->c[2]);
-	fc[3] = '\0';
+	datac[2] = (unsigned char)ft_atoi(line + game->c[2]);
+	datac[3] = '\0';
 	game->c[2] = 0;
 }
 
@@ -61,7 +61,7 @@ char	*ft_antiespace(char *line, t_game *game)
 	str2 = res;
 	while (line[game->c[3]])
 	{
-		while (*(line) == ' ')
+		while (line[game->c[3]] == ' ')
 			game->c[3]++;
 		while (line[game->c[3]] && line[game->c[3]] != ' ')
 			res[game->c[4]++] = line[game->c[3]++];

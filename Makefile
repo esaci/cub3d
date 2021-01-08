@@ -51,7 +51,7 @@ SRC =		./doss/init.c \
 			./doss/mapper.c \
 			./doss/reader.c \
 			./doss/main.c \
-			./doss/players.c \
+			./doss/player.c \
 			./doss/fct.c \
 			./doss/draw.c \
 			./doss/draw2.c \
@@ -60,6 +60,7 @@ SRC =		./doss/init.c \
 			./doss/utils3.c \
 			./doss/rcast.c \
 			./doss/setup.c \
+			./doss/depart.c
 
 OBJ = $(SRC:.c=.o)
 
