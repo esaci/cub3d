@@ -79,6 +79,7 @@ typedef struct		s_game
 {
 	t_mlx			mlx;
 	t_img			img;
+	t_ray			ray;
 	int				c[NBRCOUNT];
 	int				flag[2];
 	int				ecranx; // resolution width
@@ -111,16 +112,12 @@ typedef struct		s_ray
 	float			angle[2]; // r->t C'est je pense l'angle de la camera dans la map
 	int				x[2]; // La position de la camera dans la map
 	int				y[2]; // La position de la camera dans la map
-
+	int				flag[2];
 // La hauteur de la caméra HAUTEURC
-
 // Le champ visuel de la camera 60degrés
-
 // La taille de l’écran de projection
-
-//	int				flag[2];
-//	int				res[2];
-//	float			dist[2];
+	int				res[2];
+	float			dist[2];
 }					t_ray;
 
 void				raycat(t_game *game, t_ray *ray, int *x, int *w);

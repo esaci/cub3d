@@ -85,3 +85,7 @@ Raycast:
 	donc la hauteur percue = distance ecran * hauteurdumure/distancedumur
 
 	[hauteurregard - hauteurpercu/2, hauteurregard - hauteurpercu/2]
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+un cos positive ca signife qu'il regarde vers est nord est ou sud est soit entre [0, 90] et [270, 380(0)]
+ceil(x) : entier((float)x)

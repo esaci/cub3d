@@ -17,18 +17,18 @@ void		ft_depart(t_game *game)
 //	int		i;
 //	t_ray	rx;
 //	t_ray	ry;
-//	float	dists[g->screen_x];
+	float	dists[g->screen_x];
 
 	initmlxptr(game, 7, game->ecranx, game->ecrany);
 	while (game->c[0] < game->ecranx)
 	{
 		rcx(game, game->c[0]);
 		rcy(game, game->c[0]);
-		if (ry.valid != -1 && ry.dist < rx.dist && (dists[game->c[0]] = ry.dist))
-			draw_column(g, &ry,game->c[0], ry.hx);
+		if (game->ray.flag[1] != -1 && game->ray.dist[1] < game->ray.dist[0] && (dists[game->c[0]] = game->ray.dist[1]))
+			draw_column(game, 1,game->c[0], g->ray->x[1]);
 		else
 		{
-			draw_column(g, &rx,game->c[0], rx.hy);
+			draw_column(game, 0,game->c[0], g->ray->y[0]);
 			dists[game->c[0]] = rx.dist;
 		}
 		game->c[0]++;

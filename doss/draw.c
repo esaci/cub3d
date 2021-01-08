@@ -29,36 +29,21 @@ void	drawpix(t_game *game, int i, t_pix pix, unsigned char couleur[4])
 	ft_memcpy(game->img.data[i] + 4 * pix.y * game->img.width[i] + pix.x * 4, couleur, sizeof(int));
 }
 
-void	drawrectimg(t_game	*game, int i, int j, int height, int width, int dx, int dy)
+void	drawrectimg(t_game	*game, int i, int ry)
 {
-	t_pix	pix;
+	float		dist;
+	int			height;
+	t_tuple		img[2];
 
-	/* faire un rectangle dans une fenetre de taille height width et place (dx,dy) dans la fenetre*/
-	game->img.width[i] = width;
-	game->img.height[i] = height;
-	game->img.dx[i] = dx;
-	game->img.dy[i] = dy;
-	pix.y = 0;
-	initmlxptr(game, i, game->img.width[i], game->img.height[i]);
-	while(pix.y < height)
-	{
-		pix.x = 0;
-		pix.count = game->img.width[j] * pix.y;
-		while(pix.x < width)
-		{
-			if(pix.y == (height-1) || pix.y == 0 || pix.x == 0 || pix.x == (width - 1))
-			{
-				drawpix(game, i, pix, (unsigned char*)game->img.data[j]);
-			}
-			else
-			{
-				drawpix(game, i, pix, (unsigned char*)game->img.data[j] + pix.count * 4);
-			}
-			pix.count = pix.count + 1;
-			pix.x++;
-		}
-		pix.y++;
-	}
-	mlx_put_image_to_window(game->mlx.mlxptr, game->mlx.win, game->img.imgptr[i], game->img.dx[i], game->img.dy[i]);
-	mlx_destroy_image(game->mlx.mlxptr, game->img.imgptr[i]);
+	dist = abs(game->ray.dist[i] * cos((r->t - (float)g->p_t * RAD)));
+	height = ceil(WALL_COEFF * g->screen_y / dist);
+	img[0].x = column;
+	img[0].hit = hit;
+	img[0].y = 0;
+	while (img[0].y++ < (g->screen_y - height) / 2)
+		put_pxl_to_img(g, &(img[0]), g->floor);
+	while (img[0].y < (g->screen_y + height) / 2 && img[0].y++ < g->screen_y)
+		put_txt_to_img(g, &(img[0]), r);
+	while (img[0].y++ < (g->screen_y))
+		put_pxl_to_img(g, &(img[0]), g->ceiling);
 }
