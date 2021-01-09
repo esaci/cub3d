@@ -62,26 +62,27 @@ void			rcy(t_game *g,  int count)
 //		g->ray->x[1] = ceil((float)(g->posx) / 64) * 64;
 //	else
 //		g->ray->x[1] = floor((float)(g->posx) / 64) * 64;
-	g->ray->y[1] = ceil((float)(g->posy) / 64) * 64;
+// |(positionx - valbizarre)/sin(de l'angle)| * cos(angle) + position x
+	g->ray.y[1] = ceil((float)(g->posy) / 64) * 64;
 	ix = 'E';
 	while (ix != '1' && g->count[1] < g->mapy)
 	{
 		if(count != 0)
-			g->ray->y[1] = g->ray->y[1] + ft_signe(sin(g->ray->angle[1]) * 64;
-		g->ray->x[1] = abs((int)((g->posx - g->ray->x[1]) / sin(g->ray->angle[1]))) * (cos(g->ray->angle[1])) + g->posx;
-		g->ray->dist[1] = ft_dist(g->posy - g->ray->y[1], g->posx - g->ray->x[1]);
-		if ((g->ray->y[1] + ft_signe(g->ray->y[1] - g->posy)) / 64 < g->mapy
-			&& (g->ray->x[1] + ft_signe(g->ray->x[1] - g->posx)) / 64 < g->mapx)
+			g->ray.y[1] = g->ray.y[1] + ft_signe(sin(g->ray.angle[1]) * 64;
+		g->ray.x[1] = abs((int)((g->posx - g->ray.y[1]) / sin(g->ray.angle[1]))) * (cos(g->ray.angle[1])) + g->posx;
+		g->ray.dist[1] = ft_dist(g->posy - g->ray.y[1], g->posx - g->ray.x[1]);
+		if ((g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64 < g->mapy
+			&& (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx)) / 64 < g->mapx)
 		{
-			ix = g->map[ft_max(0, (g->ray->y[1] + ft_signe(g->ray->y[1] - g->posy)) / 64)]
-					[ft_max(0, (g->ray->x[1] + ft_signe(g->ray->x[1] - g->posx)) / 64)];
+			ix = g->map[ft_max(0, (g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64)]
+					[ft_max(0, (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx)) / 64)];
 		}
 		g->count[1]++;
 	}
-	if (g->ray->x[1] > g->posx)
-		g->ray->flag[1] = 2;
+	if (g->ray.x[1] > g->posx)
+		g->ray.flag[1] = 2;
 	else
-		g->ray->flag[1] = 3;
-	g->ray->res[1] = (ix == '1');
+		g->ray.flag[1] = 3;
+	g->ray.res[1] = (ix == '1');
 	return ();
 }
