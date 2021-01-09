@@ -21,7 +21,9 @@
 # include <math.h>
 # include <unistd.h>
 # include "libft.h"
+# include <fcntl.h>
 # include "ft_printf.h"
+# include "get_next_line.h"
 
 
 # define KEY_ESC							65307
@@ -75,6 +77,19 @@ typedef struct		s_pix
 //	int				flag;
 }					t_pix;
 
+typedef struct		s_ray
+{
+	float			angle[2]; // r->t C'est je pense l'angle de la camera dans la map
+	int				x[2]; // La position de la camera dans la map
+	int				y[2]; // La position de la camera dans la map
+	int				flag[2];
+// La hauteur de la caméra HAUTEURC
+// Le champ visuel de la camera 60degrés
+// La taille de l’écran de projection
+	int				res[2];
+	float			dist[2];
+}					t_ray;
+
 typedef struct		s_game
 {
 	t_mlx			mlx;
@@ -107,26 +122,13 @@ typedef struct		s_game
 //	int				dstncs[SCREENWIDTH];
 }					t_game;
 
-typedef struct		s_ray
-{
-	float			angle[2]; // r->t C'est je pense l'angle de la camera dans la map
-	int				x[2]; // La position de la camera dans la map
-	int				y[2]; // La position de la camera dans la map
-	int				flag[2];
-// La hauteur de la caméra HAUTEURC
-// Le champ visuel de la camera 60degrés
-// La taille de l’écran de projection
-	int				res[2];
-	float			dist[2];
-}					t_ray;
 
 void				raycat(t_game *game, t_ray *ray, int *x, int *w);
-void				game_init(t_game game, int mode);
+void				game_init(t_game *game, int mode);
 t_ray				ray_init(t_ray ray);
-void				map_init(t_game *game);
+void				map_init(t_game *game, char *pave);
 void				window_init(t_game *game);
 int					touche_appuye(int keycode, int *j);
-int					vision(int	keycode, void *ptr);
 void				drawrectimg(t_game	*game, int i, int j, int height, int width, int dx, int dy);
 void				initmlxptr(t_game *game, int i, int width, int height);
 void				initxpmptr(t_game *game, int i, char *str);
@@ -142,6 +144,7 @@ int					ft_min(int x, int y);
 float				ft_dist(float x, float y);
 void				drawcol(t_game *game, t_ray *ray, int col, int hit);
 int					ft_only(char *line, char *only);
+int					ft_contient(char *line, char *lettres);
 char				*ft_antiespace(char *line, t_game *game);
 int					bordurerectangle(t_game *game);
 int					nbrjoueurtligne(t_game *game, int i);
@@ -151,4 +154,10 @@ void				ft_verif(t_game *game);
 void				ft_chargement(t_game *game);
 void				affichemap(t_game *game);
 void				ft_depart(t_game *game);
+void				ft_stop(t_game *game, char *error);
+void				ft_rmap(t_game *game, char *pave);
+void				ft_resolution(char *line, t_game *game);
+void				ft_color(char *line, unsigned char *datac, t_game *game);
+char				*ft_antiespace(char *line, t_game *game);
+int					vision(int	keycode, t_game *game);
 #endif

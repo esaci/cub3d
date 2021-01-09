@@ -17,12 +17,11 @@ void		game_init(t_game *game, int mode)
 {
 	int i;
 	i = 0;
-	while(i < NBRCOUNT && (i++) * 0 == 0)
+	while (i < NBRCOUNT && (i++) * 0 == 0)
 		game->c[i] = 0;
-	if (mode = 1)
-		return ();
+	if (mode == 1)
+		return ;
 	game->flag[0] = 0;
-	game->ph = 53;
 //	game->vise = 0;
 //	game->dx = -1;
 //	game->dy = 0;

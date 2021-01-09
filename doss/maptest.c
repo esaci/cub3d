@@ -22,21 +22,14 @@ int		taillenval(int mapi, int j, t_game *game)
 	return (0);
 }
 
-int		map_val_return(t_game *g, int len, int i)
-{
-	g->map_size_x = len;
-	g->map_size_y = i;
-	return (1);
-}
-
 int		bordurerectangle(t_game *game)
 {
-	game->c[2] = ft_strlen(g->map[game->c[6]]);
+	game->c[2] = ft_strlen(game->map[game->c[6]]);
 	while (game->map[game->c[6]])
 	{
 		if (taillenval(6,2, game) || (game->c[6]++) * 0 != 0)
-			ft_stop(game, "Taille de la map invalide(Soit c'est pas un rectangle, soit trop de colonne))";
-		if(game->map[game->c[game->c[6]][0]] != '1' || game->map[game->c[game->c[6]][game->c[2]-1]] != '1')
+			ft_stop(game, "Taille de la map invalide(Soit c'est pas un rectangle, soit trop de colonne))");
+		if(game->map[game->c[6]][0] != '1' || game->map[game->c[6]][game->c[2]-1] != '1')
 			ft_stop(game, "La map n'est pas fermée a gauche ou a droite");
 	}
 	while (game->c[5] < game->c[2])
@@ -47,11 +40,11 @@ int		bordurerectangle(t_game *game)
 	game->c[2] = 0;
 	while (game->c[2] < game->c[6])
 	{
-		if (!(ft_only(g->map[game->c[2]++], "012NSWE")))
+		if (!(ft_only(game->map[game->c[2]++], "012NSWE")))
 			ft_stop(game, "La map contient un mauvais symbole");
 	}
-	g->mapx = game->c[2];
-	g->mapy = game->c[6];
+	game->mapx = game->c[2];
+	game->mapy = game->c[6];
 	return (1);
 }
 
@@ -68,8 +61,8 @@ int		nbrjoueurtligne(t_game *game, int i)
 		game->c[8]++;
 	}
 	if (flagpl == 0)
-		ft_stop("Pas de joueur", game);
+		ft_stop(game, "Pas de joueur");
 	if (!(flagpl == 1))
-		ft_stop("Un/Plusieurs joueur en trop", game);
+		ft_stop(game, "Un/Plusieurs joueur en trop");
 	return (1);
 }

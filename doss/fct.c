@@ -12,17 +12,10 @@
 
 #include "../bibz/cub3d.h"
 
-int	vision(int	keycode, void *ptr)
+int	vision(int	keycode, t_game *game)
 {
-	t_game	*game;
-
-	game = (t_game*)ptr;
 	if (keycode == KEY_ESC)
 	{
-		destroyer(*game, 3, 10, 1, 2);
-		if(game->flag == 1)
-			destroyer(*game, 1, 3);
-		exit(0);
 	}
 	else if (keycode == KEY_Z)
 	{
@@ -36,5 +29,5 @@ int	vision(int	keycode, void *ptr)
 	else if (keycode == KEY_D)
 	{
 	}
-	return(0);
+	return(game->c[0]);
 }

@@ -12,16 +12,15 @@
 
 #include "../bibz/cub3d.h"
 
-int	main(int argc, char **arg)
+int	main(int argc, char **argv)
 {
 	t_game	game;
-	t_ray	ray;
 
 	window_init(&game);
 	map_init(&game, argv[1]);
 	game_init(&game, 0);
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
-		render_bitmap(&game);
+		ft_depart(&game);
 	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &setuped, &game);
 	mlx_loop(game.mlx.mlxptr);

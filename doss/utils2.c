@@ -34,9 +34,9 @@ float	ft_dist(float x, float y)
 	return (res);
 }
 
-void	ft_stop(t_game *game, char *log)
+void	ft_stop(t_game *game, char *error)
 {
-	ft_printf("Error :\n%s\n", log);
+	ft_printf("Error :\n%s\n", error);
 	if (game.flag[0] == 1)
 		destroy_game_data(g);
 	if (game.flag[0] == 2)

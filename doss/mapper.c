@@ -15,11 +15,10 @@
 void	map_init(t_game *game, char *pave)
 {
 	ft_rmap(game, pave);
-	game_init(&game, 0);
+	game_init(game, 0);
 	ft_rplayer(game);
 	ft_verif(game);
 	ft_chargement(game);
-	(game);
 }
 
 void	ft_line(char *line, t_game *game)
@@ -37,9 +36,9 @@ void	ft_line(char *line, t_game *game)
 	if (ft_strncmp(line, "S ", 3) == 0)
 		game->img.nom[2] = (ft_strtrim(line + 3, " "));
 	if (ft_strncmp(line, "F ", 3) == 0)
-		read_color(line + 3, (game->img.datac[0]));
+		ft_color(line + 3, (game->img.datac[0]));
 	if (ft_strncmp(line, "C ", 3) == 0)
-		read_color(line + 3, (game->img.datac[1]));
+		ft_color(line + 3, (game->img.datac[1]));
 }
 
 
@@ -63,7 +62,7 @@ void	ft_rmap(t_game *game, char *pave)
 		ft_stop(game, "Malloc probleme");
 	game->map[game->c[1]++] = ft_antiespace(line, game);
 	while (get_next_line(game->c[0], &line))
-		gd->map[game->c[1]++] = ft_antiespace(line, game);
+		game->map[game->c[1]++] = ft_antiespace(line, game);
 	game->map[game->c[1]] = '\0';
 	free(line);
 	if (bordurerectangle(game) && nbrjoueurtligne(game, 1))
@@ -74,7 +73,7 @@ void		affichemap(t_game *game)
 {
 	int i;
 
-	ft_printf("R  %d * %d\n", game->map.ecranx, game->map.ecrany);
+	ft_printf("R  %d * %d\n", game->ecranx, game->ecrany);
 	ft_printf("NO  %s\n", game->img.nom[4]);
 	ft_printf("SO  %s\n", game->img.nom[6]);
 	ft_printf("WE  %s\n", game->img.nom[5]);
@@ -87,10 +86,10 @@ void		affichemap(t_game *game)
 	ft_printf("%s,", (game->img.datac[1][1]));
 	ft_printf("%s\n", (game->img.datac[1][2]));
 	i = 0;
-	while (game->map[i] && map->map[i][0] != '\n')
+	while (game->map[i] && game->map[i][0] != '\n')
 	{
 		ft_printf("%s - %d\n", game->map[i], i);
 		i++;
 	}
-	ft_printf("Taille map = %d * %d\n", map->mapx, map->mapy);
+	ft_printf("Taille map = %d * %d\n", game->mapx, game->mapy);
 }

@@ -29,7 +29,7 @@ void	ft_resolution(char *line, t_game *game)
 	game->ecrany = ft_min(MAX_Y, game->ecrany);
 }
 
-void	ft_color(char *line, unsigned char *datac)
+void	ft_color(char *line, unsigned char *datac, t_game *game)
 {
 	game->c[2] = 0;
 	while (line[game->c[2]] == ' ')
@@ -53,12 +53,10 @@ char	*ft_antiespace(char *line, t_game *game)
 {
 	char *res;
 	char *str;
-	char *str2;
 
 	str = line;
 	if (!(res = malloc(sizeof(char) * ft_strlen(line))))
 		ft_stop(game, "Malloc probleme");
-	str2 = res;
 	while (line[game->c[3]])
 	{
 		while (line[game->c[3]] == ' ')
@@ -68,5 +66,5 @@ char	*ft_antiespace(char *line, t_game *game)
 	}
 	res[game->c[4]] = '\0';
 	free(str);
-	return (tmp2);
+	return (res);
 }
