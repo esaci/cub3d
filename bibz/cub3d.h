@@ -51,16 +51,17 @@
 typedef struct		s_img
 {
 	void			*imgptr[NBRDIMG];
-	unsigned char	*data[NBRDIMG];
+	char			*data[NBRDIMG];
 	unsigned char	datac[2][4];
 	char			*nom[NBRDIMG];
-//	int				size_l[NBRDIMG];
-//	int				bpp[NBRDIMG];
-//	int				endian[NBRDIMG];
-//	int				width[NBRDIMG];
-//	int				height[NBRDIMG];
-//	int				dx[NBRDIMG];
-//	int				dy[NBRDIMG];
+	int				size_l[NBRDIMG];
+	int				bpp[NBRDIMG];
+	int				endian[NBRDIMG];
+	int				width[NBRDIMG];
+	int				height[NBRDIMG];
+// asuppr
+	int				dx[NBRDIMG];
+	int				dy[NBRDIMG];
 }					t_img;
 
 typedef struct		s_mlx
@@ -106,8 +107,6 @@ typedef struct		s_game
 	int				posy; // position sur la map map[y][:]
 	int				posx; // position sur la map map[:][x]
 	int				pangle; // p_t (s) angle ENWS :: 0 90 180 270
-//	float			dx;
-//	float			dy;
 //	float			planex;
 //	float			planey;
 //	int				time;
@@ -120,6 +119,8 @@ typedef struct		s_game
 //	int				side;
 //	float			vise;
 //	int				dstncs[SCREENWIDTH];
+//	float			dx;
+//	float			dy;
 }					t_game;
 
 
@@ -136,13 +137,14 @@ void				drawpix(t_game *game, t_pix pix, unsigned char couleur[4]);
 void				destroyer(t_game game, int j, ...);
 void				modifdxdy(t_game *game, int i, int dx, int dy);
 void				modifhw(t_game *game, int i, int height, int width);
-int					rcx(t_game *game, t_ray *ray, int count);
-int					setuped(t_game *game, t_ray *ray);
+void				rcx(t_game *g,  int count);
+void				rcy(t_game *g,  int count);
+// int					setuped(t_game *game, t_ray *ray);
 int					ft_signe(float x);
 int					ft_max(int x, int y);
 int					ft_min(int x, int y);
 float				ft_dist(float x, float y);
-void				drawcol(t_game *game, t_ray *ray, int col, int hit);
+// void				drawcol(t_game *game, t_ray *ray, int col, int hit);
 int					ft_only(char *line, char *only);
 int					ft_contient(char *line, char *lettres);
 char				*ft_antiespace(char *line, t_game *game);

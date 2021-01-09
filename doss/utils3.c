@@ -67,6 +67,6 @@ int		ft_testc(char c, char *lettres)
 	while (lettres[count])
 		ptr[(int)lettres[count++]]++;
 	if (ptr[(int)c] != 0)
-		return(0)
+		return(0);
 	return(1);
 }

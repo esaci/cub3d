@@ -54,13 +54,11 @@ SRC =		./doss/init.c \
 			./doss/player.c \
 			./doss/fct.c \
 			./doss/draw.c \
-			./doss/draw2.c \
 			./doss/utils.c \
 			./doss/utils2.c \
 			./doss/utils3.c \
 			./doss/rcast.c \
-			./doss/setup.c \
-			./doss/depart.c
+			./doss/debut.c \
 
 OBJ = $(SRC:.c=.o)
 

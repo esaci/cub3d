@@ -14,7 +14,7 @@
 
 int			setuped(t_game *game, t_ray *ray)
 {
-	modifhw(t_game *game, int i, int height, int width)
+	modifhw(t_game *game, int i, int height, int width);
 	initmlxptr(game, 0, game->img.width[0], game->img.height[0]);
 	game->count[0] = 0;
 	while (game->count[0] < game->img.width[0])

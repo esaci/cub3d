@@ -37,13 +37,11 @@ float	ft_dist(float x, float y)
 void	ft_stop(t_game *game, char *error)
 {
 	ft_printf("Error :\n%s\n", error);
-	if (game.flag[0] == 1)
-		destroy_game_data(g);
-	if (game.flag[0] == 2)
+	if (game->flag[0] == 1)
+		ft_printf("flag 1\n");
+	if (game->flag[0] == 2)
 	{
-		mlx_destroy_image(g->mlx, g->image);
-		mlx_destroy_window(g->mlx, g->window);
+		ft_printf("flag 2\n");
 	}
 	exit(0);
-	return (-1);
 }

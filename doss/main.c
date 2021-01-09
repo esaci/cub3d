@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
 		ft_depart(&game);
 	mlx_key_hook (game.mlx.win, &vision, &game);
-	mlx_loop_hook(game.mlx.mlxptr, &setuped, &game);
+//	mlx_loop_hook(game.mlx.mlxptr, &setuped, &game);
 	mlx_loop(game.mlx.mlxptr);
 	return (0);
 }

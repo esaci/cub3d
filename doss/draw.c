@@ -26,43 +26,23 @@ void	initxpmptr(t_game *game, int i, char *str)
 
 void	drawpix(t_game *game, t_pix pix, unsigned char couleur[4])
 {
-	ft_memcpy(game->data[7] + 4 * game->ecranx * pix->y + pix->x * 4, couleur, sizeof(int));
+	ft_memcpy(game->img.data[7] + 4 * game->ecranx * pix.y + pix.x * 4, couleur, sizeof(int));
 }
 
-void		drawrectimg(t_game	*game, int i, int ry)
+void		drawrectimg(t_game	*g, int i, int ry)
 {
 	float		dist;
 	int			height;
 	t_pix		pix;
 
-	dist = abs(g->ray.dist[1] * cos((g->ray.angle[1] - (float)g->pangle * 0.0174)));
+	dist = fabs(g->ray.dist[1] * cos((g->ray.angle[1] - (float)g->pangle * 0.0174f)));
 	height = ceil(150 * g->ecrany / dist);
 	pix.x = i;
-	pix.flag = g->ray->x[ry];
+	pix.flag = g->ray.x[ry];
 	pix.y = 0;
 	while (pix.y++ < (g->ecrany - height) / 2)
-		drawpix(g, pix, g->datac[0]);
+		drawpix(g, pix, g->img.datac[0]);
 	while (pix.y++ < (g->ecrany))
-		drawpix(g, pix, g->datac[1]);
+		drawpix(g, pix, g->img.datac[1]);
 }
 
-
-
-void	drawrectimg(t_game	*game, int i, int ry)
-{
-	float		dist;
-	int			height;
-	t_tuple		img[2];
-
-	dist = abs(game->ray.dist[i] * cos((r->t - (float)g->p_t * RAD)));
-	height = ceil(WALL_COEFF * g->screen_y / dist);
-	img[0].x = column;
-	img[0].hit = hit;
-	img[0].y = 0;
-	while (img[0].y++ < (g->screen_y - height) / 2)
-		put_pxl_to_img(g, &(img[0]), g->floor);
-	while (img[0].y < (g->screen_y + height) / 2 && img[0].y++ < g->screen_y)
-		put_txt_to_img(g, &(img[0]), r);
-	while (img[0].y++ < (g->screen_y))
-		put_pxl_to_img(g, &(img[0]), g->ceiling);
-}

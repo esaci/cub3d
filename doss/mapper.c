@@ -36,9 +36,9 @@ void	ft_line(char *line, t_game *game)
 	if (ft_strncmp(line, "S ", 3) == 0)
 		game->img.nom[2] = (ft_strtrim(line + 3, " "));
 	if (ft_strncmp(line, "F ", 3) == 0)
-		ft_color(line + 3, (game->img.datac[0]));
+		ft_color(line + 3, (game->img.datac[0]), game);
 	if (ft_strncmp(line, "C ", 3) == 0)
-		ft_color(line + 3, (game->img.datac[1]));
+		ft_color(line + 3, (game->img.datac[1]), game);
 }
 
 
