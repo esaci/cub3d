@@ -29,12 +29,9 @@ void		ft_depart(t_game *game)
 		else
 		{
 			draw_column(game, 0,game->c[0], g->ray->y[0]);
-			dists[game->c[0]] = rx.dist;
+			dists[game->c[0]] = game->ray.dist[0];
 		}
 		game->c[0]++;
 	}
-	render_sprites(g, dists);
-	write_bmp("full.bmp", g);
-	g->window = NULL;
-	destroy_game_data_full(g, 1);
+	ft_stop(game, "tout est bon");
 }
