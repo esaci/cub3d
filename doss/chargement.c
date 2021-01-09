@@ -26,11 +26,7 @@ void		ft_verif(t_game *game)
 
 void	ft_chargement(t_game *game)
 {
-	int		cell;
-	int		bpp;
-	int		size;
-	int		endian;
-	int		i;
+	int i;
 
 	i = 2;
 	while(i <= 6)

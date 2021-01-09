@@ -59,6 +59,9 @@ SRC =		./doss/init.c \
 			./doss/utils3.c \
 			./doss/rcast.c \
 			./doss/debut.c \
+			./doss/chargement.c \
+			./fct/GNL/get_next_line.c \
+			./fct/GNL/get_next_line_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

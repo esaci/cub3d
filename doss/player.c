@@ -35,7 +35,7 @@ void	ft_rplayer(t_game *game)
 		if (ft_contient(game->map[game->c[0]], "NSWE") >= 1)
 		{
 			game->c[2] = 0;
-			while(ft_testc(game->map[game->c[0]][game->c[1]], "NSWE"))
+			while(ft_testchar(game->map[game->c[0]][game->c[1]], "NSWE"))
 				game->c[1]++;
 		}
 		game->c[0]++;

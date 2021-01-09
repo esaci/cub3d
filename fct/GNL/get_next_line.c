@@ -14,7 +14,7 @@
 
 int		ft_test(int fd, char **line, char *countb)
 {
-	if (line == 0 || BUFFER_SIZE < 1 || fd >= OPEN_MAX || fd < 0)
+	if (line == 0 || BUFFER_SIZE < 1 || fd >= FOPEN_MAX || fd < 0)
 		return (-'E');
 	if (!(*line = malloc(sizeof(char) * 1)))
 		return (-'E');
@@ -90,7 +90,7 @@ void	ft_fin(char *line, char *countu)
 
 int		get_next_line(int fd, char **line)
 {
-	static	char	countu[OPEN_MAX][BUFFER_SIZE + 2];
+	static	char	countu[FOPEN_MAX][BUFFER_SIZE + 2];
 	char			countb[BUFFER_SIZE + 1];
 	int				ct;
 	int				count2;

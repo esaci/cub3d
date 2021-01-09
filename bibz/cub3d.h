@@ -151,7 +151,7 @@ char				*ft_antiespace(char *line, t_game *game);
 int					bordurerectangle(t_game *game);
 int					nbrjoueurtligne(t_game *game, int i);
 void				ft_rplayer(t_game *game);
-int					ft_testc(char c, char *lettres);
+int					ft_testchar(char c, char *lettres);
 void				ft_verif(t_game *game);
 void				ft_chargement(t_game *game);
 void				affichemap(t_game *game);

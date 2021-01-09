@@ -55,7 +55,7 @@ int		ft_contient(char *line, char *lettres)
 	return(flag);
 }
 
-int		ft_testc(char c, char *lettres)
+int		ft_testchar(char c, char *lettres)
 {
 	int 	count;
 	char 	ptr[255];
