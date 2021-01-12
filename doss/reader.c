@@ -55,6 +55,8 @@ char	*ft_antiespace(char *line, t_game *game)
 	char *str;
 
 	str = line;
+	game->c[4] = 0;
+	game->c[3] = 0;
 	if (!(res = malloc(sizeof(char) * ft_strlen(line))))
 		ft_stop(game, "Malloc probleme");
 	while (line[game->c[3]])

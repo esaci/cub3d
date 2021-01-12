@@ -18,16 +18,17 @@ int		ft_only(char *line, char *only)
 	int		i;
 
 	i = 0;
-	while(tab[i++])
-		tab[i] = 0;
+	while(i < 255)
+		tab[i++] = 0;
 	i = 0;
-	while(only[i++])
-		tab[(int)only[i]]++;
+	while(only[i])
+		tab[(int)only[i++]]++;
 	i = 0;
-	while (line[i++])
+	while (line[i])
 	{
 		if(tab[(int)line[i]] == 0)
 			return(0);
+		i++;
 	}
 	return (1);
 }

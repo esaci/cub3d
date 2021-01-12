@@ -24,13 +24,15 @@ int		taillenval(int mapi, int j, t_game *game)
 
 int		bordurerectangle(t_game *game)
 {
+	game->c[6] = 0;
 	game->c[2] = ft_strlen(game->map[game->c[6]]);
 	while (game->map[game->c[6]])
 	{
-		if (taillenval(6,2, game) || (game->c[6]++) * 0 != 0)
+		if (taillenval(6,2, game))
 			ft_stop(game, "Taille de la map invalide(Soit c'est pas un rectangle, soit trop de colonne))");
 		if(game->map[game->c[6]][0] != '1' || game->map[game->c[6]][game->c[2]-1] != '1')
 			ft_stop(game, "La map n'est pas fermée a gauche ou a droite");
+		game->c[6]++;
 	}
 	while (game->c[5] < game->c[2])
 	{
@@ -52,6 +54,7 @@ int		nbrjoueurtligne(t_game *game, int i)
 {
 	int flagpl;
 
+	game->c[8] = 0;
 	flagpl = 0;
 	if (!(game->c[i] < ROWS))
 		ft_stop(game, "Trop de ligne dans la map");

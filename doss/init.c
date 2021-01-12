@@ -16,9 +16,10 @@
 void		game_init(t_game *game, int mode)
 {
 	int i;
+
 	i = 0;
-	while (i < NBRCOUNT && (i++) * 0 == 0)
-		game->c[i] = 0;
+	while (i < NBRCOUNT)
+		game->c[i++] = 0;
 	if (mode == 1)
 		return ;
 	game->flag[0] = 0;
