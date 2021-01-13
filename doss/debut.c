@@ -12,20 +12,21 @@
 
 #include "../bibz/cub3d.h"
 
-void		ft_depart(t_game *game)
+int		ft_depart(t_game *game)
 {
-//	int		i;
-//	t_ray	rx;
-//	t_ray	ry;
 	float	dists[game->ecranx];
 
 	initmlxptr(game, 7, game->ecranx, game->ecrany);
+	game->c[0] = 0;
 	while (game->c[0] < game->ecranx)
 	{
 		rcx(game, game->c[0]);
 		rcy(game, game->c[0]);
 		if (game->ray.flag[1] != -1 && game->ray.dist[1] < game->ray.dist[0] && (dists[game->c[0]] = game->ray.dist[1]))
+		{
+			dists[game->c[0]] = game->ray.dist[1];
 			drawrectimg(game, game->c[0], 1);
+		}
 		else
 		{
 			drawrectimg(game, game->c[0], 0);
@@ -33,5 +34,8 @@ void		ft_depart(t_game *game)
 		}
 		game->c[0]++;
 	}
-	ft_stop(game, "tout est bon");
+	ft_remplir(game,dists);
+	ft_stop(game, "ok test");
+	mlx_put_image_to_window(game->mlx.mlxptr, game->mlx.win, game->img.imgptr[7],0,0);
+	return(mlx_destroy_image(game->mlx.mlxptr, game->img.imgptr[7]));
 }

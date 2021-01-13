@@ -14,20 +14,12 @@
 
 void		ft_verif(t_game *game)
 {
-	int i;
-
 	game->c[2] = open(game->img.nom[2], O_RDONLY);
 	game->c[3] = open(game->img.nom[3], O_RDONLY);
 	game->c[4] = open(game->img.nom[4], O_RDONLY);
 	game->c[5] = open(game->img.nom[5], O_RDONLY);
 	game->c[6] = open(game->img.nom[6], O_RDONLY);
 	game->flag[0] = 1;
-	i = 2;
-	while(i < 7)
-		{
-			ft_printf("%s et %d \n", game->img.nom[i], game->c[i]);
-			i++;
-		}
 	if (game->c[2] < 0 || game->c[3] < 0 || game->c[4] < 0 || game->c[5] < 0 || game->c[6] < 0)
 		ft_stop(game, "Pas pu charger NSEW ou le sprite\n");
 }

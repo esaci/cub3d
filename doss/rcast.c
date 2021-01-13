@@ -32,6 +32,7 @@ void			rcx(t_game *g,  int count)
 		if(count != 0)
 			g->ray.x[0] = g->ray.x[0] + ft_signe(cos(g->ray.angle[0])) * 64;
 		g->ray.y[0] = abs((int)((g->posx - g->ray.x[0]) / cos(g->ray.angle[0]))) * (-sin(g->ray.angle[0])) + g->posy;
+		ft_printf("posy %d ray.y %d posx %d ray.x %d \n", g->posy, g->ray.y[0], g->posy, g->ray.x[0]);
 		g->ray.dist[0] = ft_dist(g->posy - g->ray.y[0], g->posx - g->ray.x[0]);
 		if ((g->ray.y[0] + ft_signe(g->ray.y[0] - g->posy)) / 64 < g->mapy
 			&& (g->ray.x[0] + ft_signe(g->ray.x[0] - g->posx)) / 64 < g->mapx)

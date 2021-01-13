@@ -74,8 +74,10 @@ typedef struct		s_pix
 {
 	int				x;
 	int				y;
-//	int				count;
+	float			dist;
+	float			angle;
 	int				flag;
+	char			carac;
 }					t_pix;
 
 typedef struct		s_ray
@@ -155,11 +157,14 @@ int					ft_testchar(char c, char *lettres);
 void				ft_verif(t_game *game);
 void				ft_chargement(t_game *game);
 void				affichemap(t_game *game);
-void				ft_depart(t_game *game);
+int					ft_depart(t_game *game);
 void				ft_stop(t_game *game, char *error);
 void				ft_rmap(t_game *game, char *pave);
 void				ft_resolution(char *line, t_game *game);
 void				ft_color(char *line, unsigned char *datac, t_game *game);
 char				*ft_antiespace(char *line, t_game *game);
 int					vision(int	keycode, t_game *game);
+void				ft_dessin(t_game *game, float *dists);
+void				ft_remplir(t_game *game, float *dists);
+void				drawsprite(t_game *game, float *dists, t_pix *pix, int count);
 #endif

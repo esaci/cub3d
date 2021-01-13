@@ -19,6 +19,7 @@ void	map_init(t_game *game, char *pave)
 	ft_rplayer(game);
 	ft_verif(game);
 	ft_chargement(game);
+	affichemap(game);
 }
 
 void	ft_line(char *line, t_game *game)
@@ -80,12 +81,12 @@ void		affichemap(t_game *game)
 	ft_printf("WE  %s\n", game->img.nom[5]);
 	ft_printf("EA  %s\n", game->img.nom[3]);
 	ft_printf("S  %s\n", game->img.nom[2]);
-	ft_printf("F  %s,", (game->img.datac[0][0]));
-	ft_printf("%s,", (game->img.datac[0][1]));
-	ft_printf("%s\n", (game->img.datac[0][2]));
-	ft_printf("C  %s,", (game->img.datac[1][0]));
-	ft_printf("%s,", (game->img.datac[1][1]));
-	ft_printf("%s\n", (game->img.datac[1][2]));
+	ft_printf("F  %d,", (game->img.datac[0][0]));
+	ft_printf("%d,", (game->img.datac[0][1]));
+	ft_printf("%d\n", (game->img.datac[0][2]));
+	ft_printf("C  %d,", (game->img.datac[1][0]));
+	ft_printf("%d,", (game->img.datac[1][1]));
+	ft_printf("%d\n", (game->img.datac[1][2]));
 	i = 0;
 	while (game->map[i] && game->map[i][0] != '\n')
 	{

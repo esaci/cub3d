@@ -16,12 +16,14 @@ int	vision(int	keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
 	{
+		ft_stop(game, "echap");
 	}
 	else if (keycode == KEY_Z)
 	{
 	}
 	else if (keycode == KEY_Q)
 	{
+		game->pangle = (game->pangle + 10) % 360;
 	}
 	else if (keycode == KEY_S)
 	{
@@ -29,5 +31,5 @@ int	vision(int	keycode, t_game *game)
 	else if (keycode == KEY_D)
 	{
 	}
-	return(game->c[0]);
+	return(0);
 }
