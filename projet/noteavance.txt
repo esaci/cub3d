@@ -100,4 +100,8 @@ ceil(x) : entier((float)x)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-game->ray.dist[1] = ft_dist(g->posy - g->ray.y[0], g->posx - g->ray.x[0])
+game->ray.dist[1] = ft_dist(g->posy - g->ray.y[0], g->posx - g->ray.x[0]) resolu
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~é
+
+Il faut encore  m'occuper des murs

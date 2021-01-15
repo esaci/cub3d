@@ -45,7 +45,6 @@
 # define MIN_Y								200
 # define NBRDIMG							20
 # define NBRCOUNT							10
-# define TAILLEC							64
 # define HAUTEURC							32
 
 typedef struct		s_img
@@ -166,5 +165,5 @@ char				*ft_antiespace(char *line, t_game *game);
 int					vision(int	keycode, t_game *game);
 void				ft_dessin(t_game *game, float *dists);
 void				ft_remplir(t_game *game, float *dists);
-void				drawsprite(t_game *game, float *dists, t_pix *pix, int count);
+void				drawsprite(t_game *game, t_pix *pix, int height);
 #endif

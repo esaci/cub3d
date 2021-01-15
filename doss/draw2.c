@@ -35,7 +35,7 @@ void		drawimg(t_game *game, int index, int n, int height)
 		i++;
 	}
 }
-
+/*
 void		drawsprite(t_game *game, float *dists, t_pix *pix, int count)
 {
 	int		width;
@@ -61,4 +61,4 @@ void		drawsprite(t_game *game, float *dists, t_pix *pix, int count)
 		i++;
 	}
 }
-
+*/
