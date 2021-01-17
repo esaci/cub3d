@@ -12,6 +12,34 @@
 
 #include "../bibz/cub3d.h"
 
+void	ft_elias(t_game *game)
+{
+	int i;
+	int j;
+
+	i = 0;
+	ft_printf("\n\n\n\n\n");
+	while (game->map[i] && game->map[i][0] != '\n')
+	{
+		if (i == game->posy / 64)
+		{
+			j = 0;
+			while(game->map[i][j])
+			{
+				if (j == game->posx / 64)
+					ft_printf("X");
+				else
+					ft_printf("%c", game->map[i][j]);
+				j++;
+			}
+			ft_printf(" - %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
+		}
+		else
+			ft_printf("%s -\n", game->map[i]);
+		i++;
+	}
+}
+
 void		deplacement(t_game *game, int key, int key2)
 {
 	int		count1;
@@ -19,7 +47,7 @@ void		deplacement(t_game *game, int key, int key2)
 	char	mapc;
 	int 	flag;
 
-	flag = 0;
+	flag = 10;
 	if (key2 == 'E')
 		flag = 5;
 	count1 = game->posx;
@@ -31,6 +59,11 @@ void		deplacement(t_game *game, int key, int key2)
 		mapc = game->map[count2 / 64][count1 / 64];
 		if (mapc != '1' && mapc != '2' && key2 != 'E')
 			deplacement(game, key, 'E');
+		else
+		{
+			return ;
+		}
+
 	}
 	if (key == KEY_S)
 	{
@@ -39,6 +72,10 @@ void		deplacement(t_game *game, int key, int key2)
 		mapc = game->map[count2 / 64][count1 / 64];
 		if (mapc != '1' && mapc != '2' && key2 != 'E')
 			deplacement(game, key, 'E');
+		else
+		{
+			return ;
+		}
 	}
 	game->posx = count1;
 	game->posy = count2;
@@ -50,6 +87,8 @@ int	vision(int	keycode, t_game *game)
 	int	test;
 
 	test = 0;
+//	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
+//	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
 	if (keycode == KEY_ESC)
 	{
 		ft_stop(game, "echap");
@@ -57,7 +96,7 @@ int	vision(int	keycode, t_game *game)
 	else if (keycode == KEY_Z)
 	{
 		deplacement(game, KEY_Z, 0);
-	}
+		}
 	else if (keycode == KEY_Q)
 	{
 		test += 10;
@@ -72,6 +111,6 @@ int	vision(int	keycode, t_game *game)
 	}
 	test = test % 360;
 	game->pangle += test;
-	ft_printf("%d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
+	ft_elias(game);
 	return(0);
 }

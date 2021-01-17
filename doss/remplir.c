@@ -113,7 +113,7 @@ void			ft_remplir(t_game *game, float *dists)
 	game->c[0] = 0;
 	while (pix[game->c[0]].dist != -1)
 	{
-		drawsprite(game, dists, pix, game->c[0]);
+		drawspritee(game, dists, pix, game->c[0]);
 		game->c[0]++;
 	}
 }

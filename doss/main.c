@@ -18,9 +18,9 @@ int	main(int argc, char **argv)
 
 	window_init(&game);
 	map_init(&game, argv[1]);
-	game_init(&game, 0);
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
 		ft_depart(&game);
+	ft_elias(&game);
 	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &ft_depart, &game);
 	mlx_loop(game.mlx.mlxptr);

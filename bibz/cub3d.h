@@ -166,4 +166,6 @@ int					vision(int	keycode, t_game *game);
 void				ft_dessin(t_game *game, float *dists);
 void				ft_remplir(t_game *game, float *dists);
 void				drawsprite(t_game *game, t_pix *pix, int height);
+void				drawspritee(t_game *game, float *dists, t_pix *pix, int count);
+void				ft_elias(t_game *game);
 #endif

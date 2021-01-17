@@ -16,7 +16,8 @@ void			rcx(t_game *g,  int count)
 {
 	char		ix;
 
-	g->ray.angle[0] = (float)g->pangle;
+	g->ray.angle[0] = (g->pangle + 40 / 2.0f - g->c[0] * ((float)40 / g->ecranx)) * 0.0174;
+//	g->ray.angle[0] = (float)g->pangle;
 	g->c[1] = 0;
 //	g->ray.angle[0] = (g->pangle + 0.0174 / 2.0 - count * (40 / g->img.width[7])) * 0.0174;
 //	if (cos(g->ray.angle[0]) == 0)
@@ -65,7 +66,11 @@ void			rcy(t_game *g,  int count)
 //	else
 //		g->ray.x[1] = floor((float)(g->posx) / 64) * 64;
 // |(positionx - valbizarre)/sin(de l'angle)| * cos(angle) + position x
-	g->ray.angle[1] = (float)g->pangle;
+	g->ray.angle[1] = (g->pangle + 40 / 2.0f - g->c[0] * ((float)40 / g->ecranx)) * 0.0174;
+	if (cos(g->ray.angle[1]) > 0)
+		g->ray.x[1] = ceil((float)(g->posx) / 64) * 64;
+	else
+		g->ray.x[1] = floor((float)(g->posx) / 64) * 64;
 	if (sin(g->ray.angle[1]) == 0)
 		return ;
 	g->c[1] = 0;

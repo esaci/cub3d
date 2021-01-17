@@ -32,21 +32,20 @@ void	drawpix(t_game *game, t_pix pix, unsigned char couleur[4])
 void	drawsprite(t_game *game, t_pix *pix, int height)
 {
 	int		countp;
-	unsigned char	color[4];
+	unsigned char	color[3];
 
 	if (pix->x >= game->ecranx || pix->y >= game->ecrany)
 		return ;
 	countp = (pix->y - (game->ecrany - height) / 2) * 64 / height;
 	countp = (pix->flag % 64) * 4 + (countp % 64) * game->img.size_l[2];
+//	countp = pix->y  * game->img.size_l[2] + height * 0;
 	countp = ft_max(0, countp);
 	game->c[8] = 0;
 	while (game->c[8] < 3)
 	{
 		color[game->c[8]] = (unsigned char)game->img.data[2][countp + game->c[8]];
 		game->c[8]++;
-//		ft_printf("%d ",(int)color[game->c[8]]);
 	}
-	color[game->c[8]] = 0;
 	ft_memcpy(game->img.data[7] + 4 * game->ecranx * pix->y + pix->x * 4, color, sizeof(int));
 }
 
@@ -57,8 +56,8 @@ void		drawrectimg(t_game	*game, int i, int ry)
 	t_pix			pix;
 
 	dist = fabs(game->ray.dist[ry] * cos((game->ray.angle[ry] - (float)game->pangle * 0.0174f)));
-	if (dist == 0)
-		dist = 2;
+	if (dist <= 1)
+		dist = 1;
 //	ft_stop(game, ft_itoa(game->ray.dist[1]));
 	height = ceil(128 * (game->ecrany / dist));
 	pix.x = i;
@@ -75,4 +74,5 @@ void		drawrectimg(t_game	*game, int i, int ry)
 	}
 	while (pix.y++ < (game->ecrany))
 		drawpix(game, pix, game->img.datac[1]);
+//	ft_printf("0 - %d - %d - %d\n", (game->ecrany - height) / 2, (game->ecrany + height) / 2, game->ecrany);
 }
