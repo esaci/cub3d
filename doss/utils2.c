@@ -41,7 +41,7 @@ void	ft_stop(t_game *game, char *error)
 		ft_printf("flag 1\n");
 	if (game->flag[0] == 2)
 	{
-		ft_printf("flag 2\n");
+		destroyer(*game, 4, 2, 3, 4, 5);
 	}
 	exit(0);
 }

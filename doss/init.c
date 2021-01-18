@@ -22,7 +22,7 @@ void		game_init(t_game *game, int mode)
 		game->c[i++] = 0;
 	if (mode == 1)
 		return ;
-	game->flag[0] = 0;
+	game->flag[1] = -1;
 }
 
 t_ray		ray_init(t_ray ray)
@@ -33,5 +33,6 @@ t_ray		ray_init(t_ray ray)
 void	window_init(t_game *game)
 {
 	game->mlx.mlxptr = mlx_init();
-	game->mlx.win = mlx_new_window(game->mlx.mlxptr, SCREENWIDTH, SCREENHEIGHT, "fenetre init");
+	game->mlx.win = mlx_new_window(game->mlx.mlxptr, game->ecranx, game->ecrany, "fenetre init");
+	game->flag[0] = 0;
 }

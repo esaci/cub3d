@@ -82,8 +82,8 @@ typedef struct		s_pix
 typedef struct		s_ray
 {
 	float			angle[2]; // r->t C'est je pense l'angle de la camera dans la map
-	int				x[2]; // La position de la camera dans la map (x[1] hit ??)
-	int				y[2]; // La position de la camera dans la map (y[0] hit ??)
+	int				x[2]; // La position de l'ecran x
+	int				y[2]; // La position de l'ecran y
 	int				flag[2];
 // La hauteur de la caméra HAUTEURC
 // Le champ visuel de la camera 60degrés

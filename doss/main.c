@@ -16,7 +16,6 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	window_init(&game);
 	map_init(&game, argv[1]);
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
 		ft_depart(&game);

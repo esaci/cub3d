@@ -112,5 +112,7 @@ int	vision(int	keycode, t_game *game)
 	test = test % 360;
 	game->pangle += test;
 	ft_elias(game);
+	ft_printf("x %d / y  %d\n",(game->ray.y[0] + ft_signe(game->ray.y[0] - game->posy)) / 64, (game->ray.x[0] + ft_signe(game->ray.x[0] - game->posx)) / 64);
+	ft_printf("x %d / y  %d\n",(game->ray.y[1] + ft_signe(game->ray.y[1] - game->posy)) / 64, (game->ray.x[1] + ft_signe(game->ray.x[1] - game->posx)) / 64);
 	return(0);
 }

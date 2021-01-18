@@ -100,9 +100,31 @@ ceil(x) : entier((float)x)
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+J'ai deux ray : y => ray.[1]
+				x => ray.[0]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~é
 
 - Je peux depasser les murs de ma map :
 
+~~~~~~~~~~~~~~~~~~~~
+rcy
+//	g->ray.angle[1] = (g->pangle + 0.0174 / 2.0 - count * (40 / g->img.width[7])) * 0.0174;
+//	si il regarde vers la droite alors tu prends lentier au dessus sinon en dessous ?
+//	if (cos(g->ray.angle[1]) > 0)
+//		g->ray.x[1] = ceil((float)(g->posx) / 64) * 64;
+//	else
+//		g->ray.x[1] = floor((float)(g->posx) / 64) * 64;
+// |(positionx - valbizarre)/sin(de l'angle)| * cos(angle) + position x
+
+rcx
+//	g->ray.angle[0] = (float)g->pangle;
+	g->c[1] = 0;
+//	g->ray.angle[0] = (g->pangle + 0.0174 / 2.0 - count * (40 / g->img.width[7])) * 0.0174;
+//	if (cos(g->ray.angle[0]) == 0)
+//		return ();
+//	si il regarde vers la droite alors tu prends lentier au dessus sinon en dessous ?
+//	if (cos(g->ray.angle[0]) > 0)
+//		g->ray.x[0] = ceil((float)(g->posx) / 64) * 64;
+//	else
+//		g->ray.x[0] = floor((float)(g->posx) / 64) * 64;
