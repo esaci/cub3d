@@ -51,16 +51,16 @@ void	drawsprite(t_game *game, t_pix *pix, int height)
 pix->y++;
 }
 
-void		drawrectimg(t_game	*game, int i, int ry)
+void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 {
 	float			dist;
 	int				height;
 	t_pix			pix;
 
-	dist = fabs(game->ray.dist[ry] * cos((game->ray.angle[ry] - (float)game->pangle * 0.0174f)));
+	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle[ryc] - (float)game->pangle * 0.0174f)));
 	height = ceil(128 * (game->ecrany / dist));
 	pix.x = i;
-	pix.flag = game->ray.x[ry];
+	pix.flag = ry;
 	pix.y = 0;
 	while (pix.y++ < (game->ecrany - height) / 2 && pix.y < game->ecrany)
 		drawpix(game, pix, game->img.datac[0]);
@@ -73,6 +73,33 @@ void		drawrectimg(t_game	*game, int i, int ry)
 	while (pix.y < (game->ecrany))
 	{
 		drawpix(game, pix, game->img.datac[1]);
+		pix.y++;
+	}
+//	ft_printf("0 - %d - %d - %d\n", (game->ecrany - height) / 2, (game->ecrany + height) / 2, game->ecrany);
+}
+
+void		drawrectimg2(t_game	*game, int i, int ry, int ryc)
+{
+	float			dist;
+	int				height;
+	t_pix			pix;
+
+	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle[ryc] - (float)game->pangle * 0.0174f)));
+	height = ceil(128 * (game->ecrany / dist));
+	pix.x = i;
+	pix.flag = ry;
+	pix.y = 0;
+	while (pix.y++ < (game->ecrany - height) / 2 && pix.y < game->ecrany)
+		drawpix(game, pix, game->img.datac[7]);
+	while (pix.y < (game->ecrany + height) / 2 && pix.y < game->ecrany)
+	{
+//		ft_stop(game,"etape");
+		drawsprite(game, &pix, height);
+		pix.y++;
+	}
+	while (pix.y < (game->ecrany))
+	{
+		drawpix(game, pix, game->img.datac[7]);
 		pix.y++;
 	}
 //	ft_printf("0 - %d - %d - %d\n", (game->ecrany - height) / 2, (game->ecrany + height) / 2, game->ecrany);

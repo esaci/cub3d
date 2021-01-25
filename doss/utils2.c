@@ -30,7 +30,8 @@ float	ft_dist(float x, float y)
 {
 	float res;
 
-	res = sqrt(x*x + y*y);
+	res = x*x + y*y;
+	res = sqrt(res);
 	return (res);
 }
 

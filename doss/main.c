@@ -19,9 +19,9 @@ int	main(int argc, char **argv)
 	map_init(&game, argv[1]);
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
 		ft_depart(&game);
-	ft_elias(&game);
 	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &ft_depart, &game);
+	ft_elias(&game);
 	mlx_loop(game.mlx.mlxptr);
 	return (0);
 }

@@ -14,7 +14,7 @@
 
 void	map_init(t_game *game, char *pave)
 {
-	game_init(game, 0);
+	game_init(game, 3);
 	ft_rmap(game, pave);
 	window_init(game);
 	game_init(game, 1);
