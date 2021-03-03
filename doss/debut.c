@@ -22,7 +22,11 @@ int		ft_depart(t_game *game)
 	{
 		rcx(game, game->c[0]);
 		rcy(game, game->c[0]);
-		if (game->ray.flag[1] != -1 && game->ray.dist[1] < game->ray.dist[0])
+		if(game->flag[2] == 1)
+		{
+			printf("gd->p_t %d _ rayangle %f _dist %d [1] - dist %d [0] ?\n", game->pangle, game->ray.angle[0], (int)game->ray.dist[1], (int)game->ray.dist[0]);
+		}
+		if ((game->ray.flag[1] != -1 && game->ray.dist[1] < game->ray.dist[0]))
 		{
 //			soucis ici quand je dep avec les murs qui s'affichent mal
 			dists[game->c[0]] = game->ray.dist[1];
@@ -42,5 +46,6 @@ int		ft_depart(t_game *game)
 	if(0 == 1)
 		ft_remplir(game,dists);
 	mlx_put_image_to_window(game->mlx.mlxptr, game->mlx.win, game->img.imgptr[7],0,0);
+	game->flag[2] = 0;
 	return(mlx_destroy_image(game->mlx.mlxptr, game->img.imgptr[7]));
 }

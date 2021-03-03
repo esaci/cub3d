@@ -51,6 +51,28 @@ void	drawsprite(t_game *game, t_pix *pix, int height)
 pix->y++;
 }
 
+void	drawsprite2(t_game *game, t_pix *pix, int height)
+{
+	int		countp;
+	unsigned char	color[3];
+
+	pix->y--;
+	if (pix->x >= game->ecranx || pix->y >= game->ecrany)
+		return ;
+	countp = (pix->y - (game->ecrany - height) / 2) * 64 / height;
+	countp = (pix->flag % 64) * 4 + (countp % 64) * game->img.size_l[2];
+//	countp = pix->y  * game->img.size_l[2] + height * 0;
+	countp = ft_max(0, countp);
+	game->c[8] = 0;
+	while (game->c[8] < 3)
+	{
+		color[game->c[8]] = (unsigned char)game->img.data[4][countp + game->c[8]];
+		game->c[8]++;
+	}
+	ft_memcpy(game->img.data[7] + 4 * game->ecranx * pix->y + pix->x * 4, color, sizeof(int));
+pix->y++;
+}
+
 void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 {
 	float			dist;
@@ -58,7 +80,7 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 	t_pix			pix;
 
 	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle[ryc] - (float)game->pangle * 0.0174f)));
-	height = ceil(128 * (game->ecrany / dist));
+	height = ceil(150 * (game->ecrany / dist));
 	pix.x = i;
 	pix.flag = ry;
 	pix.y = 0;
@@ -85,21 +107,21 @@ void		drawrectimg2(t_game	*game, int i, int ry, int ryc)
 	t_pix			pix;
 
 	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle[ryc] - (float)game->pangle * 0.0174f)));
-	height = ceil(128 * (game->ecrany / dist));
+	height = ceil(150 * (game->ecrany / dist));
 	pix.x = i;
 	pix.flag = ry;
 	pix.y = 0;
 	while (pix.y++ < (game->ecrany - height) / 2 && pix.y < game->ecrany)
-		drawpix(game, pix, game->img.datac[7]);
+		drawpix(game, pix, game->img.datac[0]);
 	while (pix.y < (game->ecrany + height) / 2 && pix.y < game->ecrany)
 	{
 //		ft_stop(game,"etape");
-		drawsprite(game, &pix, height);
+		drawsprite2(game, &pix, height);
 		pix.y++;
 	}
 	while (pix.y < (game->ecrany))
 	{
-		drawpix(game, pix, game->img.datac[7]);
+		drawpix(game, pix, game->img.datac[1]);
 		pix.y++;
 	}
 //	ft_printf("0 - %d - %d - %d\n", (game->ecrany - height) / 2, (game->ecrany + height) / 2, game->ecrany);

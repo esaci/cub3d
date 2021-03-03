@@ -128,3 +128,11 @@ rcx
 //		g->ray.x[0] = ceil((float)(g->posx) / 64) * 64;
 //	else
 //		g->ray.x[0] = floor((float)(g->posx) / 64) * 64;
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Je passe a travers le mur a cause de rcy ?
+
+
+/////////////////////////////////////////////////:
+Info : taille d'un mur normalement : 150

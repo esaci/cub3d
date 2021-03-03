@@ -48,15 +48,15 @@ void		deplacement(t_game *game, int key, int key2)
 	char	mapc;
 	int 	flag;
 
-	flag = 16;
+	flag = 10;
 	if (key2 == 'E')
-		flag = 8;
+		flag = 5;
 	count1 = game->posx;
 	count2 = game->posy;
 	if (key == KEY_Z)
 	{
-		count1 += (10 + flag) * cos(game->pangle * 0.0174f);
-		count2 += (10 + flag) * -sin(game->pangle * 0.0174f);
+		count1 += (12 + flag) * cos(game->pangle * 0.0174f);
+		count2 += (12 + flag) * -sin(game->pangle * 0.0174f);
 		mapc = game->map[count2 / 64][count1 / 64];
 		if (mapc != '1' && mapc != '2' && key2 != 'E')
 			deplacement(game, key, 'E');
@@ -66,8 +66,8 @@ void		deplacement(t_game *game, int key, int key2)
 	}
 	if (key == KEY_S)
 	{
-		count1 -= (10 + flag) * cos(game->pangle * 0.0174f);
-		count2 -= (10 + flag) * -sin(game->pangle * 0.0174f);
+		count1 -= (12 + flag) * cos(game->pangle * 0.0174f);
+		count2 -= (12 + flag) * -sin(game->pangle * 0.0174f);
 		mapc = game->map[count2 / 64][count1 / 64];
 		if (mapc != '1' && mapc != '2' && key2 != 'E')
 			deplacement(game, key, 'E');
@@ -86,9 +86,9 @@ void		deplacement2(t_game *game, int key, int key2)
 	char	mapc;
 	int 	flag;
 
-	flag = 32;
+	flag = 10;
 	if (key2 == 'E')
-		flag = 16;
+		flag = 5;
 	count1 = game->posx;
 	count2 = game->posy;
 	if (key == KEY_Q)
@@ -97,7 +97,7 @@ void		deplacement2(t_game *game, int key, int key2)
 		count1 += flag * -sin(game->pangle * 0.0174f);
 		mapc = game->map[count2 / 64][count1 / 64];
 		if (mapc != '1' && mapc != '2' && key2 != 'E')
-			deplacement2(game, key, 'E');
+			deplacement(game, key, 'E');
 		else
 			return ;
 	}
@@ -121,7 +121,7 @@ int	vision(int	keycode, t_game *game)
 	int	test;
 
 	test = 0;
-//	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
+	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
 //	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
 	if (keycode == KEY_ESC)
 	{
@@ -130,29 +130,35 @@ int	vision(int	keycode, t_game *game)
 	else if (keycode == KEY_LEFT)
 	{
 		test += 10;
+		game->flag[2] = 1;
 	}
 	else if (keycode == KEY_RIGHT)
 	{
 		test -= 10;
+		game->flag[2] = 1;
 	}
 	else if (keycode == KEY_S)
 	{
 		deplacement(game, KEY_S, 0);
+		game->flag[2] = 1;
 	}
 	else if (keycode == KEY_Z)
 	{
 		deplacement(game, KEY_Z, 0);
+		game->flag[2] = 1;
 	}
-	game->pangle += test;
-	game->pangle = game->pangle % 360;
 	if (keycode == KEY_Q)
 	{
 		deplacement2(game, KEY_Q, 0);
+		game->flag[2] = 1;
 	}
 	else if (keycode == KEY_D)
 	{
 		deplacement2(game, KEY_D, 0);
+		game->flag[2] = 1;
 	}
+	game->pangle += test;
+	game->pangle = game->pangle % 360;
 //	ft_printf("%d [0], %d [1] \n", game->ray.y[0], game->ray.y[1]);
 //	ft_printf("x %d / y  %d\n",(game->ray.y[0] + ft_signe(game->ray.y[0] - game->posy)) / 64, (game->ray.x[0] + ft_signe(game->ray.x[0] - game->posx)) / 64);
 //	ft_printf("x %d / y  %d\n",(game->ray.y[1] + ft_signe(game->ray.y[1] - game->posy)) / 64, (game->ray.x[1] + ft_signe(game->ray.x[1] - game->posx)) / 64);
