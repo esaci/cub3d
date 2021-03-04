@@ -24,7 +24,7 @@ int		ft_depart(t_game *game)
 		rcy(game, game->c[0]);
 		if(game->flag[2] == 1)
 		{
-			printf("gd->p_t %d _ rayangle %f _dist %d [1] - dist %d [0] ?\n", game->pangle, game->ray.angle[0], (int)game->ray.dist[1], (int)game->ray.dist[0]);
+			printf("----------------------------------------------------------------- \n Angle :  %d° \n Angle Ecran : %f \n DistanceX : %d [1] \n DistanceY : %d [0] \n----------------------------------------------------------------- \n\n", game->pangle, game->ray.angle*(1/0.0174), (int)game->ray.dist[1], (int)game->ray.dist[0]);
 		}
 		if ((game->ray.flag[1] != -1 && game->ray.dist[1] < game->ray.dist[0]))
 		{

@@ -79,7 +79,7 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 	int				height;
 	t_pix			pix;
 
-	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle[ryc] - (float)game->pangle * 0.0174f)));
+	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle - (float)game->pangle * 0.0174f)));
 	height = ceil(150 * (game->ecrany / dist));
 	pix.x = i;
 	pix.flag = ry;
@@ -106,7 +106,7 @@ void		drawrectimg2(t_game	*game, int i, int ry, int ryc)
 	int				height;
 	t_pix			pix;
 
-	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle[ryc] - (float)game->pangle * 0.0174f)));
+	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle - (float)game->pangle * 0.0174f)));
 	height = ceil(150 * (game->ecrany / dist));
 	pix.x = i;
 	pix.flag = ry;

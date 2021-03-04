@@ -7,10 +7,10 @@
 
 
 	int				panglemin; // inutile a supp
-	int				panglemax; // inutile a supp
+	int				panglemax; // inutile a suppgame->c[0] (colonne de ton ecran) , g->ray->x[1] (posx?));
+~~~~~~~~~~~~~~~~~~~~
 	int				ph; // p_h vaut juste 53, a suppr si rien de plus important
-draw_column(game, 1,game->c[0] (colonne de ton ecran) , g->ray->x[1] (posx?));
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+draw_column(game, 1,~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 0 1 2 3 4 5 6 7 8 pas a  0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 game.count[0] = fd;
@@ -136,3 +136,12 @@ Je passe a travers le mur a cause de rcy ?
 
 /////////////////////////////////////////////////:
 Info : taille d'un mur normalement : 150
+
+
+//////////////////////////////////////////////////////////////////////////////////:
+
+320 x 200 donc milieu 160x100
+
+
+On recupere l'angle de rotation : game->pangle
+ray.angle : angle de rotation auquel on soustrait plus le pixel est a droite plus en soustrait

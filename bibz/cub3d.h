@@ -46,6 +46,7 @@
 # define NBRDIMG							20
 # define NBRCOUNT							10
 # define HAUTEURC							32
+# define HAUTEURMUR							150
 
 typedef struct		s_img
 {
@@ -81,7 +82,7 @@ typedef struct		s_pix
 
 typedef struct		s_ray
 {
-	float			angle[2]; // r->t C'est je pense l'angle de la camera dans la map
+	float			angle; // r->t C'est je pense l'angle de la camera dans la map
 	int				x[2]; // La position de l'ecran x
 	int				y[2]; // La position de l'ecran y
 	int				flag[2];
