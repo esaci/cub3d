@@ -24,7 +24,9 @@ int		ft_depart(t_game *game)
 		rcy(game, game->c[0]);
 		if(game->flag[2] == 1)
 		{
-			printf("----------------------------------------------------------------- \n Angle :  %d° \n Angle Ecran : %f \n DistanceX : %d [1] \n DistanceY : %d [0] \n----------------------------------------------------------------- \n\n", game->pangle, game->ray.angle*(1/0.0174), (int)game->ray.dist[1], (int)game->ray.dist[0]);
+			printf("----------------------------------------------------------------- \n Position : %d \n Ecranx[0] : %d \n Angle :  %d° \n Angle Ecran : %f \n Cos Angle ecran : %f\n DistanceX : %d [1] \n DistanceY : %d [0] \n----------------------------------------------------------------- \n\n", game->posx, game->ray.x[0], game->pangle, game->ray.angle*(1/0.0174), cos(game->ray.angle),(int)game->ray.dist[1], (int)game->ray.dist[0]);
+			if(game->ray.x[0] < 0)
+				ft_printf("Premier calcul : %d \n Deuxieme calcul : %d \n", ceil((float)(game->posx / 64)) * 64,ceil((float)(game->posx / 64)) * 64 + ft_signe(cos(game->ray.angle)) * 64);
 		}
 		if ((game->ray.flag[1] != -1 && game->ray.dist[1] < game->ray.dist[0]))
 		{
@@ -39,7 +41,7 @@ int		ft_depart(t_game *game)
 		}
 		game->c[0]++;
 	}
-//	ft_printf("\n posy %d \n g->ray.x[0] %d \n posx %d \n ray.y %d \n", game->posy, game->ray.x[0], game->posy, game->ray.y[0]);
+//	ft_printf("\n posy %d \n game->ray.x[0] %d \n posx %d \n ray.y %d \n", game->posy, game->ray.x[0], game->posy, game->ray.y[0]);
 //	ft_printf("dist %d [1] < dist %d [0] ?\n", (int)game->ray.dist[1], (int)game->ray.dist[0]);
 //	ft_printf("dist %d \n", game->ray.dist[0]);
 //	ft_printf("test %d \n", (int)ft_dist(5, 5));

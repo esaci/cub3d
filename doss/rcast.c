@@ -26,10 +26,8 @@ void			rcx(t_game *g,  int count)
 	g->ray.angle = (float)((float)g->pangle + (float)20 - (float)40 * (float)((float)count / g->ecranx)) * 0.0174;
 	if (cos(g->ray.angle) > 0)
 		g->ray.x[0] = ceil((float)(g->posx / 64)) * 64;
-	if (cos(g->ray.angle) < 0)
+	if (cos(g->ray.angle) <= 0)
 		g->ray.x[0] = floor((float)(g->posx / 64)) * 64;
-	if (cos(g->ray.angle) == 0)
-		return ;
 	g->c[1] = 0;
 	ix = 'E';
 	while (ix != '1' && g->c[1] < g->mapx)
@@ -60,9 +58,7 @@ void			rcy(t_game *g,  int count)
 
 
 //	si il regarde vers devant alors il regarde la case la plus proche c a dire en face
-	if (sin(g->ray.angle) == 0)
-		return;
-	if (sin(g->ray.angle) > 0)
+	if (sin(g->ray.angle) >= 0)
 		g->ray.y[1] = floor((float)(g->posy / 64)) * 64;
 	if (sin(g->ray.angle) < 0)
 		g->ray.y[1] = ceil((float)(g->posy / 64)) * 64;

@@ -134,14 +134,7 @@ rcx
 Je passe a travers le mur a cause de rcy ?
 
 
-/////////////////////////////////////////////////:
-Info : taille d'un mur normalement : 150
-
-
-//////////////////////////////////////////////////////////////////////////////////:
-
-320 x 200 donc milieu 160x100
-
-
-On recupere l'angle de rotation : game->pangle
-ray.angle : angle de rotation auquel on soustrait plus le pixel est a droite plus en soustrait
+Ray.ange, calcul l'angle de chaque pixel, la range de de l'ecran, je mets 40
+Pour x :
+		calcul du cos de l'angle donc son projeté sur x : si elle est positive tu regardes a droite, negative a gauche et nulle signifie un bug
+		ray.x[0] prochain bloc en visu
