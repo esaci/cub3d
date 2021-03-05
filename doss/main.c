@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 		ft_depart(&game);
 	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &ft_depart, &game);
-	ft_elias(&game);
 	mlx_loop(game.mlx.mlxptr);
 	return (0);
 }

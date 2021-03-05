@@ -141,7 +141,7 @@ void				destroyer(t_game game, int j, ...);
 void				modifdxdy(t_game *game, int i, int dx, int dy);
 void				modifhw(t_game *game, int i, int height, int width);
 void				rcx(t_game *g,  int count);
-void				rcy(t_game *g,  int count);
+void				rcy(t_game *g);
 // int					setuped(t_game *game, t_ray *ray);
 int					ft_signe(float x);
 int					ft_max(int x, int y);
@@ -171,4 +171,5 @@ void				drawsprite(t_game *game, t_pix *pix, int height);
 void				drawspritee(t_game *game, float *dists, t_pix *pix, int count);
 void				ft_elias(t_game *game);
 float				ft_abs(float x);
+void				ft_rayinit(t_game *game);
 #endif

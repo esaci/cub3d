@@ -138,3 +138,15 @@ Ray.ange, calcul l'angle de chaque pixel, la range de de l'ecran, je mets 40
 Pour x :
 		calcul du cos de l'angle donc son projeté sur x : si elle est positive tu regardes a droite, negative a gauche et nulle signifie un bug
 		ray.x[0] prochain bloc en visu
+		Adjacent sur l'hypthenus : donne le cos :> adjacent sur cos donne hypothenus : >
+
+
+Comparaison X et Y :
+
+				On prend le cos de l'angle // On prend son sin
+				ON parse par la largeur de la map // On parse par sa longueur
+				Selon l'angle ON parse par la droite ou par la gauche les cases // Selon l'angle on parse verse le haut ou vers la bas
+					Positif droite donc augmente vs negatif gauche donc reduit// Positif alors on avance, donc on reduit Negatif alors on recule donc on ajoute
+				 On calcul la longueur de la ligne entre nous et ce bloc
+				 	y[0] : adjacent/cos(angle) = hypothenuse :> * sin(angle) :> longueur opposé :> + posy :> pose du prochain mur sur y
+					x[1] : opposé/sin(angle) = hypothenuse :> * cos(angle) :> longueur aadjacent :> + posx :> pose du prochain mur sur x

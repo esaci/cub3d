@@ -56,9 +56,12 @@ void		modifhw(t_game *game, int i, int height, int width)
 
 int			ft_signe(float x)
 {
+	int y;
+
+	y = 0;
 	if (x < 0)
-		return (-1);
+		y = -1;
 	if (x > 0)
-		return (1);
-	return (0);
+		y = 1;
+	return (y);
 }

@@ -55,8 +55,8 @@ void		deplacement(t_game *game, int key, int key2)
 	count2 = game->posy;
 	if (key == KEY_Z)
 	{
-		count1 += (12 + flag) * cos(game->pangle * 0.0174f);
-		count2 += (12 + flag) * -sin(game->pangle * 0.0174f);
+		count1 += (12 + flag) * cos(game->pangle * 0.0174);
+		count2 += (12 + flag) * -sin(game->pangle * 0.0174);
 		mapc = game->map[count2 / 64][count1 / 64];
 		if (mapc != '1' && mapc != '2' && key2 != 'E')
 			deplacement(game, key, 'E');
