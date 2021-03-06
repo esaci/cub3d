@@ -81,8 +81,8 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 	int				height;
 	t_pix			pix;
 
-	dist = fabs(game->ray.dist[ryc] * cos((game->ray.angle - (float)game->pangle * 0.0174f)));
-	height = ceil(150 * (game->ecrany / dist));
+	dist = ft_abs(game->ray.dist[ryc] * cos((game->ray.angle - (float)game->pangle * 0.0174f)));
+	height = ceil(150 * ((float)game->ecrany / dist));
 	pix.x = i;
 	pix.flag = ry;
 	pix.y = 0;
@@ -90,6 +90,8 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 		drawpix(game, pix, game->img.datac[0]);
 	while (pix.y < (game->ecrany + height) / 2 && pix.y < game->ecrany)
 	{
+		if(game->ray.flag[ryc] == 2)
+			printf("%f\n",game->ray.dist[ryc] - game->ray.dist[(ryc == 0) ? 1 : 0]);
 		drawsprite(game, &pix, height, ryc);
 		pix.y++;
 	}

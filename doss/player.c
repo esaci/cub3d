@@ -30,6 +30,7 @@ int		ft_angle(char c)
 void	ft_rplayer(t_game *game)
 {
 	game->c[2] = 1;
+	game->c[0] = 0;
 	while (game->c[2] == 1 && game->c[0] < game->mapy)
 	{
 		if (ft_contient(game->map[game->c[0]], "NSWE") >= 1)
@@ -38,7 +39,8 @@ void	ft_rplayer(t_game *game)
 			while(ft_testchar(game->map[game->c[0]][game->c[1]], "NSWE"))
 				game->c[1]++;
 		}
-		game->c[0]++;
+		else
+			game->c[0]++;
 	}
 	game->pangle = ft_angle(game->map[game->c[0]][game->c[1]]);
 	game->posy = 64 * game->c[0] + 32;
