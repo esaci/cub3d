@@ -24,7 +24,6 @@ void	map_init(t_game *game, char *pave)
 	game_init(game, 0);
 	ft_chargement(game);
 	game_init(game, 0);
-//	affichemap(game);
 }
 
 void	ft_line(char *line, t_game *game)

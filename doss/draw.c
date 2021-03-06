@@ -29,22 +29,24 @@ void	drawpix(t_game *game, t_pix pix, unsigned char couleur[4])
 	ft_memcpy(game->img.data[7] + 4 * game->ecranx * pix.y + pix.x * 4, couleur, sizeof(int));
 }
 
-void	drawsprite(t_game *game, t_pix *pix, int height)
+void	drawsprite(t_game *game, t_pix *pix, int height, int ryc)
 {
-	int		countp;
+	int				countp;
 	unsigned char	color[3];
+	int				i;
 
+	i = game->ray.flag[ryc];
 	pix->y--;
 	if (pix->x >= game->ecranx || pix->y >= game->ecrany)
 		return ;
 	countp = (pix->y - (game->ecrany - height) / 2) * 64 / height;
-	countp = (pix->flag % 64) * 4 + (countp % 64) * game->img.size_l[2];
+	countp = (pix->flag % 64) * 4 + (countp % 64) * game->img.size_l[i];
 //	countp = pix->y  * game->img.size_l[2] + height * 0;
 	countp = ft_max(0, countp);
 	game->c[8] = 0;
 	while (game->c[8] < 3)
 	{
-		color[game->c[8]] = (unsigned char)game->img.data[2][countp + game->c[8]];
+		color[game->c[8]] = (unsigned char)game->img.data[i][countp + game->c[8]];
 		game->c[8]++;
 	}
 	ft_memcpy(game->img.data[7] + 4 * game->ecranx * pix->y + pix->x * 4, color, sizeof(int));
@@ -88,8 +90,7 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 		drawpix(game, pix, game->img.datac[0]);
 	while (pix.y < (game->ecrany + height) / 2 && pix.y < game->ecrany)
 	{
-//		ft_stop(game,"etape");
-		drawsprite(game, &pix, height);
+		drawsprite(game, &pix, height, ryc);
 		pix.y++;
 	}
 	while (pix.y < (game->ecrany))
@@ -97,7 +98,6 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 		drawpix(game, pix, game->img.datac[1]);
 		pix.y++;
 	}
-//	ft_printf("0 - %d - %d - %d\n", (game->ecrany - height) / 2, (game->ecrany + height) / 2, game->ecrany);
 }
 
 void		drawrectimg2(t_game	*game, int i, int ry, int ryc)

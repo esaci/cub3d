@@ -26,6 +26,7 @@ int		bordurerectangle(t_game *game)
 {
 	game->c[6] = 0;
 	game->c[2] = ft_strlen(game->map[game->c[6]]);
+	game->mapx = game->c[2];
 	while (game->map[game->c[6]])
 	{
 		if (taillenval(6,2, game))
@@ -34,6 +35,7 @@ int		bordurerectangle(t_game *game)
 			ft_stop(game, "La map n'est pas fermée a gauche ou a droite");
 		game->c[6]++;
 	}
+	game->mapy = game->c[6];
 	while (game->c[5] < game->c[2])
 	{
 		if ((int)game->map[0][game->c[5]] != '1' || (int)game->map[game->c[1] - 1][game->c[5]] != '1')
@@ -46,8 +48,6 @@ int		bordurerectangle(t_game *game)
 		if (!(ft_only(game->map[game->c[2]++], "012NSWE")))
 			ft_stop(game, "La map contient un mauvais symbole");
 	}
-	game->mapx = game->c[2];
-	game->mapy = game->c[6];
 	return (1);
 }
 

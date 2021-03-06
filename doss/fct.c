@@ -33,7 +33,6 @@ void	ft_elias(t_game *game)
 					ft_printf("%c", game->map[i][j]);
 				j++;
 			}
-			ft_printf(" - %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
 		}
 		else
 			ft_printf("%s -\n", game->map[i]);

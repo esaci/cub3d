@@ -167,9 +167,8 @@ char				*ft_antiespace(char *line, t_game *game);
 int					vision(int	keycode, t_game *game);
 void				ft_dessin(t_game *game, float *dists);
 void				ft_remplir(t_game *game, float *dists);
-void				drawsprite(t_game *game, t_pix *pix, int height);
+void				drawsprite(t_game *game, t_pix *pix, int height, int ryc);
 void				drawspritee(t_game *game, float *dists, t_pix *pix, int count);
 void				ft_elias(t_game *game);
 float				ft_abs(float x);
-void				ft_rayinit(t_game *game);
 #endif

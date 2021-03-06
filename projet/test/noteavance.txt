@@ -132,7 +132,11 @@ rcx
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Je passe a travers le mur a cause de rcy ?
-
+/!\ sprite 2
+	Nord 4 Brique (je vois du nord a l'est, jvois du nord a l'ouest, donc g->ray.dist[1]>g->ray.dist[0] et )
+	Est 3 Bois (pas de soucis)
+	Ouest 5 Herbe (je vois de l'ouest a l'est)
+	Sud 6 Marbre
 
 Ray.ange, calcul l'angle de chaque pixel, la range de de l'ecran, je mets 40
 Pour x :
@@ -150,3 +154,7 @@ Comparaison X et Y :
 				 On calcul la longueur de la ligne entre nous et ce bloc
 				 	y[0] : adjacent/cos(angle) = hypothenuse :> * sin(angle) :> longueur opposé :> + posy :> pose du prochain mur sur y
 					x[1] : opposé/sin(angle) = hypothenuse :> * cos(angle) :> longueur aadjacent :> + posx :> pose du prochain mur sur x
+
+
+
+

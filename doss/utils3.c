@@ -71,19 +71,3 @@ int		ft_testchar(char c, char *lettres)
 		return(0);
 	return(1);
 }
-
-void	ft_rayinit(t_game *game)
-{
-	int i;
-
-	i = 0;
-	while(i < 2)
-	{
-		game->ray.angle = 0;
-		game->ray.x[i] = 0;
-		game->ray.y[i] = 0;
-		game->ray.flag[i] = 0;
-		game->ray.res[i] = 0;
-		game->ray.dist[i] = 0;
-	}
-}

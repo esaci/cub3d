@@ -22,20 +22,21 @@ int		ft_depart(t_game *game)
 	{
 		rcx(game, game->c[0]);
 		rcy(game);
-		if(game->flag[2] == 1)
+		if(game->flag[2] == 1 && 1 == 2)
 		{
 			printf("----------------------------------------------------------------- \n");
-			printf("Position : %d \n Mur coté[0] : %d\n Mur coté[1] : %d \n Angle :  %d° \n Angle Ecran : %f \n Cos Angle ecran : %f\n", game->posx, game->ray.x[0],game->ray.x[1], game->pangle, game->ray.angle*(1/0.0174), cos(game->ray.angle));
-			printf("Distance[0] : %f \n Distance[1] : %f \n", game->ray.dist[0], game->ray.dist[1]);
-			printf("----------------------------------------------------------------- \n\n");
-			printf("Distance[0] : %f \n Distance[1] : %f \n", game->ray.dist[0], game->ray.dist[1]);
+			printf("Position : X %d/%d -  Y %d/%d\n", game->posx / 64, game->mapx , game->posy / 64, game->mapy);
+			printf("Pos Murcoté [0] : %d\nPos Murcoté [1] : %d\n",game->ray.x[0] / 64,game->ray.x[1] / 64);
+			printf("Pos Murligne[0] : %d\nPos Murligne[1] : %d\n", game->ray.y[0]/ 64,game->ray.y[1] / 64);
+			printf("Angle :  %d° \nAngle Ecran : %f° \n", game->pangle, game->ray.angle*(1/0.0174));
+ 			printf("Cos Angle ecran : %f\nSin Angle ecran : %f\n", cos(game->ray.angle), sin(game->ray.angle));
+			printf("Distance[0] : %f \nDistance[1] : %f \n", game->ray.dist[0], game->ray.dist[1]);
 			printf("----------------------------------------------------------------- \n\n");
 		}
-		if ((game->ray.flag[1] != -1 && game->ray.dist[1] < game->ray.dist[0]))
+		if ((game->ray.dist[1] < game->ray.dist[0]))
 		{
-//			soucis ici quand je dep avec les murs qui s'affichent mal
 			dists[game->c[0]] = game->ray.dist[1];
-			drawrectimg2(game, game->c[0], game->ray.x[1], 1);
+			drawrectimg(game, game->c[0], game->ray.x[1], 1);
 		}
 		else
 		{
@@ -44,10 +45,6 @@ int		ft_depart(t_game *game)
 		}
 		game->c[0]++;
 	}
-//	ft_printf("\n posy %d \n game->ray.x[0] %d \n posx %d \n ray.y %d \n", game->posy, game->ray.x[0], game->posy, game->ray.y[0]);
-//	ft_printf("dist %d [1] < dist %d [0] ?\n", (int)game->ray.dist[1], (int)game->ray.dist[0]);
-//	ft_printf("dist %d \n", game->ray.dist[0]);
-//	ft_printf("test %d \n", (int)ft_dist(5, 5));
 	if(0 == 1)
 		ft_remplir(game,dists);
 	mlx_put_image_to_window(game->mlx.mlxptr, game->mlx.win, game->img.imgptr[7],0,0);
