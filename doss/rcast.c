@@ -23,7 +23,7 @@ void			rcx(t_game *g,  int count)
 {
 	char		ix;
 
-	g->ray.angle = ((g->pangle + (float)20) - count * ((float)40 / g->ecranx)) * 0.0174f;
+	g->ray.angle = ((g->pangle + (float)20) - (float)40 * ((float)count / g->ecranx)) * 0.0174f;
 	if(cos(g->ray.angle) == 0.0)
 		return;
 	if (cos(g->ray.angle) > 0)
@@ -52,7 +52,7 @@ void			rcx(t_game *g,  int count)
 		g->ray.flag[0] = 5;
 	if(g->c[1] <= 1)
 	{
-		g->ray.flag[0] = 2;
+//		g->ray.flag[0] = 2;
 	}
 	g->ray.res[0] = (ix == '1');
 	return ;
@@ -95,7 +95,7 @@ void			rcy(t_game *g)
 	else
 		g->ray.flag[1] = 4;
 	if(g->c[1] <= 1)
-		g->ray.flag[1] = 2;
+//		g->ray.flag[1] = 2;
 	g->ray.res[1] = (ix == '1');
 	return ;
 }

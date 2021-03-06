@@ -22,7 +22,7 @@ int		ft_depart(t_game *game)
 	{
 		rcx(game, game->c[0]);
 		rcy(game);
-		if(game->flag[2] == 1 && 1 == 2)
+		if(game->flag[2] == 1)
 		{
 			printf("----------------------------------------------------------------- \n");
 			printf("Position : X %d/%d -  Y %d/%d\n", game->posx / 64, game->mapx , game->posy / 64, game->mapy);
