@@ -22,15 +22,15 @@ int		ft_depart(t_game *game)
 	{
 		rcx(game, game->c[0]);
 		rcy(game);
-		if(game->flag[2] == 1)
+		if(game->flag[2] == 1 && (game->ray.dist[1] < game->ray.dist[0]) && (game->ray.flag[1] == 2))
 		{
 			printf("----------------------------------------------------------------- \n");
 			printf("Position : X %d/%d -  Y %d/%d\n", game->posx / 64, game->mapx , game->posy / 64, game->mapy);
-			printf("Pos Murcoté [0] : %d\nPos Murcoté [1] : %d\n",game->ray.x[0] / 64,game->ray.x[1] / 64);
-			printf("Pos Murligne[0] : %d\nPos Murligne[1] : %d\n", game->ray.y[0]/ 64,game->ray.y[1] / 64);
+			printf("Pos Murcoté [0] : %d\nPos Murligne[0] : %d\n",(game->ray.x[0] ) - game->posx , game->ray.y[0] - game->posy);
+			printf("Pos Murcoté [1] : %d\nPos Murligne[1] : %d\n", (game->ray.x[1] ) - game->posx,game->ray.y[1]  - game->posy );
 			printf("Angle :  %d° \nAngle Ecran : %f° \n", game->pangle, game->ray.angle*(1/0.0174));
  			printf("Cos Angle ecran : %f\nSin Angle ecran : %f\n", cos(game->ray.angle), sin(game->ray.angle));
-			printf("Distance[0] : %f \nDistance[1] : %f \n", game->ray.dist[0], game->ray.dist[1]);
+			printf("Distance[0] : %f \nDistance[1] : %f \n", game->ray.dist[0] / 64, game->ray.dist[1] / 64);
 			printf("----------------------------------------------------------------- \n\n");
 		}
 		if ((game->ray.dist[1] < game->ray.dist[0]))

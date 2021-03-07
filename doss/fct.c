@@ -19,10 +19,10 @@ void	ft_elias(t_game *game)
 	int j;
 
 	i = 0;
-	ft_printf("\n\n\n\n\n");
+	ft_printf("\n");
 	while (game->map[i] && game->map[i][0] != '\n')
 	{
-		if (i == game->posy / 64)
+		if (i == (int)(game->posy / 64))
 		{
 			j = 0;
 			while(game->map[i][j])
@@ -33,6 +33,7 @@ void	ft_elias(t_game *game)
 					ft_printf("%c", game->map[i][j]);
 				j++;
 			}
+			printf("\n");
 		}
 		else
 			ft_printf("%s -\n", game->map[i]);

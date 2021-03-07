@@ -51,9 +51,7 @@ void			rcx(t_game *g,  int count)
 	else
 		g->ray.flag[0] = 5;
 	if(g->c[1] <= 1)
-	{
-//		g->ray.flag[0] = 2;
-	}
+		g->ray.flag[0] = 2;
 	g->ray.res[0] = (ix == '1');
 	return ;
 }
@@ -70,7 +68,7 @@ void			rcy(t_game *g)
 		return;
 	}
 	if (sin(g->ray.angle) > 0)
-		g->ray.y[1] = (int)((float)(g->posy / 64)) * 64;
+		g->ray.y[1] = floor((float)(g->posy / 64)) * 64;
 	if (sin(g->ray.angle) < 0)
 		g->ray.y[1] = ceil((float)(g->posy / 64)) * 64;
 	g->c[1] = 0;
@@ -95,7 +93,7 @@ void			rcy(t_game *g)
 	else
 		g->ray.flag[1] = 4;
 	if(g->c[1] <= 1)
-//		g->ray.flag[1] = 2;
+		g->ray.flag[1] = 2;
 	g->ray.res[1] = (ix == '1');
 	return ;
 }
