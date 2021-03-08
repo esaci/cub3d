@@ -24,7 +24,7 @@ void			rcx(t_game *g,  int count)
 	int			i;
 	char		ix;
 
-	g->ray.angle = (g->pangle + 40 / 2.0f - count * ((float)40 / g->ecranx)) * 0.0174f;
+	g->ray.angle = ((g->pangle + (float)20) - (float)40 * ((float)count / g->ecranx)) * 0.0174f;
 	ix = 'X';
 	i = 0;
 	if (cos(g->ray.angle) == 0)
