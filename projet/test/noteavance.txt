@@ -133,10 +133,10 @@ rcx
 
 Je passe a travers le mur a cause de rcy ?
 /!\ sprite 2
-	Nord 4 Brique (je vois du nord a l'est, jvois du nord a l'ouest, donc g->ray.dist[1]>g->ray.dist[0] et )
+	Nord 4 Brique rcy (je vois du nord a l'est, jvois du nord a l'ouest, donc g->ray.dist[1]>g->ray.dist[0] et )
 	Est 3 Bois (pas de soucis)
 	Ouest 5 Herbe (je vois de l'ouest a l'est)
-	Sud 6 Marbre
+	Sud 6 Marbre rcy
 
 Ray.ange, calcul l'angle de chaque pixel, la range de de l'ecran, je mets 40
 Pour x :

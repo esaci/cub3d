@@ -121,8 +121,8 @@ int	vision(int	keycode, t_game *game)
 	int	test;
 
 	test = 0;
-	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
-//	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
+/* 	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle); */
+	ft_printf("Emplacement : %d / %d : %d / %d - %d°\n", game->posx / 64, game->mapx, game->posy / 64, game->mapy, game->pangle);
 	if (keycode == KEY_ESC)
 	{
 		ft_stop(game, "echap");
