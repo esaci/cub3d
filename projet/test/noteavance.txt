@@ -134,8 +134,8 @@ rcx
 Je passe a travers le mur a cause de rcy ?
 /!\ sprite 2
 	Nord 4 Brique rcy (je vois du nord a l'est, jvois du nord a l'ouest, donc g->ray.dist[1]>g->ray.dist[0] et )
-	Est 3 Bois (pas de soucis)
-	Ouest 5 Herbe (je vois de l'ouest a l'est)
+	Est 3 Bois (pas de soucis) rcx
+	Ouest 5 Herbe (je vois de l'ouest a l'est) rcx
 	Sud 6 Marbre rcy
 
 Ray.ange, calcul l'angle de chaque pixel, la range de de l'ecran, je mets 40
@@ -157,4 +157,17 @@ Comparaison X et Y :
 
 
 
-
+/* 		if(game->flag[2] == 1 && (game->ray.dist[1] < game->ray.dist[0]) && (game->ray.flag[1] == 2))
+		{
+			printf("----------------------------------------------------------------- \n");
+			printf("Position : X %d/%d -  Y %d/%d\n", game->posx / 64, game->mapx , game->posy / 64, game->mapy);
+			printf("Pos Murcoté [0] : %f\nPos Murligne[0] : %f\n",(float)((game->ray.x[0] ) - game->posx) / 64 , (float)(game->ray.y[0] - game->posy)/64);
+			printf("Pos Murcoté [1] : %f\nPos Murligne[1] : %f\n", (float)((game->ray.x[1] ) - game->posx) / 64 , (float)(game->ray.y[1] - game->posy)/64);
+			printf("Pos Murcoté [0] : %d\nPos Murligne[0] : %d\n", (game->ray.x[0] )/64, (game->ray.y[0] )/64);
+			printf("Pos Murcoté [1] : %d\nPos Murligne[1] : %d\n", (game->ray.x[1] ) /64 , (game->ray.y[1] )/64);
+			printf("Angle :  %d° \nAngle Ecran : %f° \n", game->pangle, game->ray.angle*(1/0.0174));
+ 			printf("Cos Angle ecran : %f\nSin Angle ecran : %f\n", cos(game->ray.angle), sin(game->ray.angle));
+			printf("Distance[0] : %f \nDistance[1] : %f \n", game->ray.dist[0] / 64, game->ray.dist[1] / 64);
+			printf("Case 1 : %d/%d\n", (game->ray.x[1] + ft_signe(game->ray.x[1] - game->posx)) / 64 , (game->ray.y[1] + ft_signe(game->ray.y[1] - game->posy)) / 64);
+			printf("----------------------------------------------------------------- \n\n");
+		} */
