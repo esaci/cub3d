@@ -44,7 +44,7 @@
 # define MIN_X								320
 # define MIN_Y								200
 # define NBRDIMG							20
-# define NBRCOUNT							10
+# define NBRCOUNT							20
 # define HAUTEURC							32
 # define HAUTEURMUR							150
 
@@ -79,6 +79,16 @@ typedef struct		s_pix
 	int				flag;
 	char			carac;
 }					t_pix;
+
+typedef struct		s_sprite
+{
+/* 	char			c; type inutile pour moi */
+	int				x; /* posx du sprite */
+	int				y; /* posy du sprite */
+	float			angle;
+	float			dist;
+}					t_sprite;
+
 
 typedef struct		s_ray
 {
@@ -166,9 +176,10 @@ void				ft_color(char *line, unsigned char *datac, t_game *game);
 char				*ft_antiespace(char *line, t_game *game);
 int					vision(int	keycode, t_game *game);
 void				ft_dessin(t_game *game, float *dists);
-void				ft_remplir(t_game *game, float *dists);
+void				ft_sprite(t_game *game, float *dists);
 void				drawsprite(t_game *game, t_pix *pix, int height, int ryc);
 void				drawspritee(t_game *game, float *dists, t_pix *pix, int count);
 void				ft_elias(t_game *game);
 float				ft_abs(float x);
+
 #endif

@@ -47,7 +47,7 @@ int		ft_depart(t_game *game)
 		game->c[0]++;
 	}
 	if(0 == 1)
-		ft_remplir(game,dists);
+		ft_sprite(game,dists);
 	mlx_put_image_to_window(game->mlx.mlxptr, game->mlx.win, game->img.imgptr[7],0,0);
 	game->flag[2] = 0;
 	return(mlx_destroy_image(game->mlx.mlxptr, game->img.imgptr[7]));

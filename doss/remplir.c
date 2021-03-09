@@ -56,62 +56,71 @@ void			pixmodif(t_game *game, t_pix *pix)
 	}
 }
 
-void			init_sprite(t_game *game, t_pix *pix, int ligne, int col)
+void			loadsprite(t_game *game, t_sprite *s, int ligne, int col)
 {
-	pix->x = col * 64 + 64 / 2;
-	pix->y = ligne * 64 + 64 / 2;
-	pix->dist = ft_dist((float)(game->posy - pix->y), (float)(game->posx - pix->x));
-	if (pix->dist == 0)
-		pix->angle = 0;
-	else if (pix->x >= game->posx)
-		pix->angle = asin((game->posy - pix->y) / pix->dist);
+	s->x = col * 64 + 32;
+	s->y = ligne * 64 + 32;
+	s->dist = ft_dist((float)(game->posy - s->y), (float)(game->posx - s->x));
+	if (s->dist == 0)
+		s->angle = 0;
+	/* arcsin renvoie l'angle en rad grace au rapport distance parcourue sur y / distance parcourue */
+	/* arcsin(opposé/hypotenuse) :> angle */
+/* 	pas compris le deuxieme elseif */
+/* 	si le sprite est plus a gauche de nous alors */
+	else if (s->x >= game->posx)
+		s->angle = asin((game->posy - s->y) / s->dist);
 	else
-		pix->angle = -asin((game->posy - pix->y) / pix->dist) + M_PI;
-	game->c[4] = pix->dist * (cos(pix->angle - (float)game->pangle * 0.0174f));
-	pix->dist = abs(game->c[4]);
-	pix->angle = game->pangle * 0.0174f - pix->angle;
-	while (pix->angle > M_PI)
-		pix->angle -= 2 * M_PI;
-	while (pix->angle < -M_PI)
-		pix->angle += 2 * M_PI;
+		s->angle = -asin((game->posy - s->y) / s->dist) + M_PI;
+	game->c[14] = s->dist * (cos(s->angle - (float)game->pangle * 0.0174f));
+	s->dist = abs(game->c[4]);
+	s->angle = game->pangle * 0.0174f - s->angle;
+	while (s->angle > M_PI)
+		s->angle -= 2 * M_PI;
+	while (s->angle < -M_PI)
+		s->angle += 2 * M_PI;
 }
 
-void			remp(t_game *game, t_pix *pix)
+void			cherchesprite(t_game *game, t_sprite *s)
 {
 //	int i;
 //	int j;
 //	int k;
 
-	game->c[2] = 0;
-	while (game->c[2] < game->mapx * game->mapy)
-		pix[game->c[2]++].dist = -1;
-	game->c[1] = 0;
-	game->c[3] = 0;
-	while (game->c[1] < game->mapy)
+	game->c[11] = 0;
+	while (game->c[11] < game->mapx * game->mapy)
+		pix[game->c[11]++].dist = -1;
+	game->c[11] = 0;
+	game->c[12] = 0;
+	game->c[13] = 0;
+	while (game->c[11] < game->mapy)
 	{
-		game->c[2] = 0;
-		while (game->c[2] < game->mapx)
+		game->c[12] = 0;
+		while (game->c[12] < game->mapx)
 		{
-			if (game->map[game->c[1]][game->c[2]] == '2')
+			if (game->map[game->c[11]][game->c[12]] == '2')
 			{
-				init_sprite(game, pix + game->c[3], game->c[1], game->c[2]);
-				pix[game->c[3]].carac = game->map[game->c[1]][game->c[2]];
-				game->c[3]++;
+				loadsprite(game, s[game->c[13]], game->c[11], game->c[12]);
+				game->c[13]++;
 			}
 			game->c[2]++;
 		}
 		game->c[1]++;
 	}
+/* 	ici------------------------------------------------------------------------------------------ */
 	pixmodif(game, pix);
 }
 
-void			ft_remplir(t_game *game, float *dists)
+void			ft_sprite(t_game *game, float *dists)
 {
-	t_pix		pix[game->mapy * game->mapx];
+	t_sprite	s[game->mapy * game->mapx];
 
-	remp(game, pix);
-	game->c[0] = 0;
-	while (pix[game->c[0]].dist != -1)
+/* 	game->c[11] : [0, mapy]
+	game->c[12] : [0, mapx]
+	game->c[13] : [0, nbr de sprite]
+	game->c[10] : [0, jsp] */
+	game->c[10] = 0;
+	cherchesprite(game, pix);
+	while (pix[game->c[10]].dist != -1)
 	{
 		drawspritee(game, dists, pix, game->c[0]);
 		game->c[0]++;
