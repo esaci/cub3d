@@ -48,9 +48,9 @@ void		deplacement(t_game *game, int key, int key2)
 	char	mapc;
 	int 	flag;
 
-	flag = 20;
+	flag = 10;
 	if (key2 == 'E')
-		flag = 10;
+		flag = 5;
 	count1 = game->posx;
 	count2 = game->posy;
 	if (key == KEY_Z)
@@ -121,8 +121,8 @@ int	vision(int	keycode, t_game *game)
 	int	test;
 
 	test = 0;
-/* 	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle); */
-	ft_printf("Emplacement : %d / %d : %d / %d - %d°\n", game->posx / 64, game->mapx, game->posy / 64, game->mapy, game->pangle);
+/*  	ft_printf("Emplacement : %d / %d  - %d°\n", game->posx / 64, game->posy / 64, game->pangle);
+	ft_printf("Emplacement : %d / %d : %d / %d - %d°\n", game->posx / 64, game->mapx, game->posy / 64, game->mapy, game->pangle); */
 	if (keycode == KEY_ESC)
 	{
 		ft_stop(game, "echap");

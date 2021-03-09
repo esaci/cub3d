@@ -43,6 +43,6 @@ void	ft_rplayer(t_game *game)
 			game->c[0]++;
 	}
 	game->pangle = ft_angle(game->map[game->c[0]][game->c[1]]);
-	game->posy = 64 * game->c[0] + 32;
-	game->posx = 64 * game->c[1] + 32;
+	game->posy = 64 * game->c[0] + 30;
+	game->posx = 64 * game->c[1] + 30;
 }

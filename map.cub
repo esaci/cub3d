@@ -9,7 +9,7 @@ WE ./doss/image/ouest.xpm
 EA ./doss/image/est.xpm
 
 
-S ./doss/image/door.xpm
+S ./doss/image/sprite.xpm
 
 
 F  125,255,255

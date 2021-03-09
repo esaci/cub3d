@@ -12,6 +12,14 @@
 
 #include "../bibz/cub3d.h"
 
+/* void			ft_coin(t_game *g, int ix)
+{
+	return;
+	if(ix == '1' && g->ray.dist[1] < g->ray.dist[0] && g->map[ft_max(0, yr)][ft_max(0, xr - ft_signe(g->ray.x[1] - g->posx))] == '1')
+
+	if(ix == '1' && g->ray.dist[1] >= g->ray.dist[0] && g->map[ft_max(0, yr - ft_signe(g->ray.y[1] - g->posy))][ft_max(0, xr)] == '1')
+	g->ray.flag[1] = g->ray.flag[(int)ft_abs(1 -1)];
+} */
 
 float			ft_abs(float x)
 {
@@ -22,9 +30,11 @@ float			ft_abs(float x)
 void			rcx(t_game *g,  int count)
 {
 	char		ix;
+	int			xr;
+	int			yr;
 
 	g->ray.angle = ((g->pangle + (float)20) - (float)40 * ((float)count / g->ecranx)) * 0.0174f;
-	if(cos(g->ray.angle) == 0.0)
+	if (cos(g->ray.angle) == 0)
 		return;
 	if (cos(g->ray.angle) > 0)
 		g->ray.x[0] = ceil((float)g->posx / 64) * 64;
@@ -38,18 +48,20 @@ void			rcx(t_game *g,  int count)
 			g->ray.x[0] = g->ray.x[0] + ft_signe(cos(g->ray.angle)) * 64;
 		g->ray.y[0] = g->posy + ft_abs((g->posx - g->ray.x[0]) / cos(g->ray.angle)) * sin(g->ray.angle) * (-1);
 		g->ray.dist[0] = ft_dist(g->posy - g->ray.y[0], g->posx - g->ray.x[0]);
-		if (((g->ray.y[0]  + ft_signe(g->ray.y[0] - g->posy)) < g->mapy * 64)
-			&& (g->ray.x[0] + ft_signe(g->ray.x[0] - g->posx)) < g->mapx * 64)
-		{
-			ix = g->map[ft_max(0, (g->ray.y[0] + ft_signe(g->ray.y[0] - g->posy)) / 64)]
-					[ft_max(0, (g->ray.x[0] + ft_signe(g->ray.x[0] - g->posx)) / 64)];
-		}
+		yr = (g->ray.y[0] + ft_signe(g->ray.y[0] - g->posy)) / 64;
+		xr = (g->ray.x[0] + ft_signe(g->ray.x[0] - g->posx)) / 64;
+		if (yr < g->mapy && xr < g->mapx)
+			ix = g->map[ft_max(0, yr)][ft_max(0, xr)];
 		g->c[1]++;
 	}
 	if (g->ray.x[0] > g->posx)
 		g->ray.flag[0] = 3;
 	else
 		g->ray.flag[0] = 5;
+	if(cos(g->ray.angle) == 0.0)
+	{
+		g->ray.flag[0] = 2;
+	}
 	g->ray.res[0] = (ix == '1');
 	return ;
 }
@@ -57,10 +69,10 @@ void			rcx(t_game *g,  int count)
 void			rcy(t_game *g)
 {
 	char		ix;
+	int			xr;
+	int			yr;
 
-
-//	si il regarde vers devant alors il regarde la case la plus proche c a dire en face
-	if (sin(g->ray.angle) == 0.0)
+	if (sin(g->ray.angle) == 0)
 		return;
 	if (sin(g->ray.angle) > 0)
 		g->ray.y[1] = floor((float)g->posy / 64) * 64;
@@ -75,22 +87,17 @@ void			rcy(t_game *g)
 			g->ray.y[1] = g->ray.y[1] - ft_signe(sin(g->ray.angle)) * 64;
 		g->ray.x[1] = g->posx + (ft_abs((g->posy - g->ray.y[1]) / sin(g->ray.angle)) * cos(g->ray.angle));
 		g->ray.dist[1] = ft_dist(g->posy - g->ray.y[1], g->posx - g->ray.x[1]);
-		if ((g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64 < g->mapy
-			&& (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx)) / 64 < g->mapx )
-		{
-			ix = g->map[ft_max(0, (g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64)]
-					[ft_max(0, (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx)) / 64)];
-		}
+		yr = (g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64;
+		xr = (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx)) / 64;
+		if (yr < g->mapy && xr < g->mapx)
+			ix = g->map[ft_max(0, yr)][ft_max(0, xr)];
 		g->c[1]++;
 	}
 	if (g->ray.y[1] > g->posy)
 		g->ray.flag[1] = 6;
 	else
 		g->ray.flag[1] = 4;
-	if(ix == '1' && g->map[ft_max(0, (g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64)]
-		[ft_max(0, (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx) ) / 64) + ft_signe(g->ray.x[1] - g->posx)] == '1' && g->ray.dist[0] <= g->ray.dist[1])
-		printf("gere ca stp\n");
-	/* 	ft_coin(game); */
-	g->ray.res[0] = (ix == '1');
+	/* ft_coin(g); */
+	g->ray.res[1] = (ix == '1');
 	return ;
 }

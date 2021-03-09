@@ -27,14 +27,11 @@ void		ft_verif(t_game *game)
 void	ft_chargement(t_game *game)
 {
 	int i;
-	char *test;
 	i = 2;
 	while(i <= 6)
 	{
 		initxpmptr(game, i, game->img.nom[i]);
 		i++;
 	}
-	test = "./doss/image/test.xpm";
-	initxpmptr(game, 8, test);
 	game->flag[0] = 2;
 }
