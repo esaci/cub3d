@@ -40,7 +40,7 @@ void			sorder(t_game *game, t_sprite *s)
 	{
 		game->c[15] = 0;
 		game->c[16] = 0;
-		while (s[game->c[6] + 1].dist != -1)
+		while (s[game->c[6] + 1].dist != -'E')
 		{
 			if (s[game->c[6] + 1].dist > s[game->c[6]].dist)
 			{
@@ -81,13 +81,9 @@ void			loadsprite(t_game *game, t_sprite *s, int ligne, int col)
 
 void			cherchesprite(t_game *game, t_sprite *s)
 {
-//	int i;
-//	int j;
-//	int k;
-
 	game->c[11] = 0;
 	while (game->c[11] < game->mapx * game->mapy)
-		s[game->c[11]++].dist = -1;
+		s[game->c[11]++].dist = -'E';
 	game->c[11] = 0;
 	game->c[12] = 0;
 	game->c[13] = 0;
@@ -117,12 +113,13 @@ void			ft_sprite(t_game *game, float *dists)
 	game->c[13] : [0, nbr de sprite]
 	game->c[10] : [0, nbr de sprite]
 	game->c[14] : distance sur y mais pas compris le cos
+	dists       : associe a chaque colonne [0, ecranx] la distance vers le prochain mur
 */
 	game->c[10] = 0;
 	cherchesprite(game, s);
-	while (s[game->c[10]].dist != -1)
+	while (s[game->c[10]].dist != -'E')
 	{
-		drawsprite(game, dists, s, game->c[10]);
+		drawsprite(game, dists, s);
 		game->c[10]++;
 	}
 }

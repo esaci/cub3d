@@ -178,7 +178,7 @@ int					vision(int	keycode, t_game *game);
 void				ft_dessin(t_game *game, float *dists);
 void				ft_sprite(t_game *game, float *dists);
 void				draw(t_game *game, t_pix *pix, int height, int ryc);
-void				drawsprite(t_game *game, float *dists, t_sprite *s, int count);
+void				drawsprite(t_game *game, float *dists, t_sprite *s);
 void				ft_elias(t_game *game);
 float				ft_abs(float x);
 

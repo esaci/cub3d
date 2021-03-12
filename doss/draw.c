@@ -82,4 +82,3 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 		pix.y++;
 	}
 }
-

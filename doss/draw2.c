@@ -36,27 +36,33 @@ void		drawimg(t_game *game, int index, int n, int height)
 	}
 }
 
-void		drawsprite(t_game *game, float *dists, t_sprite *s, int count)
+void		drawsprite(t_game *game, float *dists, t_sprite *s)
 {
-	int		width;
-	int		i;
-	float	rt;
-	float	index;
+/* 	height : taille du mur proportionnelement a la taille de l'ecran et la distance entre moi et l'objet
+	i      : compteur entre [0, hauteur de l'objet]
+	le raycasting se fait de bas en haut
+	sangle : même principe que le fov sauf qu'on ne fait plus par le cos mais par le tan
+	countp : -1
+*/
+	int		height;
+	int		hcount;
+	float	sangle;
+	float	countp;
 
-	width = ceil(150 * game->ecrany / s[count].dist);
-	i = 0;
-	while (i < width && width < game->ecranx * 3 && (index = -1) + 2)
+	height = ceil(game->ecrany *  150 / s[game->c[10]].dist);
+	hcount = 0;
+	while (hcount < height && height < game->ecranx * 5)
 	{
-		rt = s[count].angle + atan(64 / (2 * s[count].dist)) -
-			i * 2 * atan(64 / (2 * s[count].dist)) / (float)width;
-		if (rt < 40 * 0.0174f / 2 && rt > -40 * 0.0174f / 2)
-			index = (game->ecranx / 2) + (rt / (40 * 0.0174f)) * game->ecranx;
-		if (dists[(int)index] > s[count].dist)
+		countp = -1;
+		sangle = s[game->c[10]].angle + (1 - ((float)hcount / (float)height)) * atan((float)64 / s[game->c[10]].dist);
+		if (sangle < 20 * 0.0174f && sangle > -20 * 0.0174f)
+			countp = (game->ecranx / 2) + (sangle / (40 * 0.0174f)) * game->ecranx;
+		if (dists[(int)countp] > s[game->c[10]].dist)
 		{
-			drawimg(game, (int)index, i * 64 / width, width);
-			drawimg(game, (int)index + 1, i * 64 / width, width);
+			drawimg(game, (int)countp, hcount * 64 / height, height);
+			drawimg(game, (int)countp + 1, hcount * 64 / height, height);
 		}
-		i++;
+		hcount++;
 	}
 }
 
