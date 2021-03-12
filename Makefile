@@ -61,6 +61,7 @@ SRC =		./doss/init.c \
 			./doss/rcast.c \
 			./doss/debut.c \
 			./doss/chargement.c \
+			./doss/bmp.c \
 			./doss/remplir.c \
 			./fct/GNL/get_next_line.c \
 			./fct/GNL/get_next_line_utils.c \

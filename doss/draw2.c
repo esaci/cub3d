@@ -12,25 +12,25 @@
 
 #include "../bibz/cub3d.h"
 
-void		drawimg(t_game *game, int index, int n, int height)
+void		drawimg(t_game *game, int colecr, int wcount, int height)
 {
 	int		i;
-	int		ri;
+	int		larg;
 	int		y;
-
+/*
+	i 		: [0, taille du sprite]
+	larg		: largeur du sprite
+	y 			: [ecranx*ecrany/2  ]
+ */
 	i = 0;
 	while (i < height)
 	{
-		ri = i * 64 / height;
-		y = game->ecranx * 4 * (i + game->ecrany / 2 - (height / 2));
-		if (!(y > game->ecranx * game->ecrany * 4 || y < -index * 4))
+		larg = 64 * i / height;
+		y = game->ecranx * (i  + ((game->ecrany  - height) / 2)) * 4;
+		if (!(y > game->ecranx * game->ecrany * 4 || y < -colecr * 4))
 		{
-			if (ft_strncmp(game->img.data[7],
-					game->img.data[2] + n * 4 + ri * 64 * 4, 4) != 0)
-			{
-				ft_memcpy(game->img.data[7] + index * 4 + y,
-						&(game->img.data[2][n * 4 + ri * 64 * 4]), 4);
-			}
+			if (ft_strncmp(game->img.data[2], game->img.data[2] + wcount * 4 + larg * 64 * 4, 4) != 0)
+				ft_memcpy(game->img.data[7] + colecr * 4 + y, &(game->img.data[2][wcount * 4 + larg * 64 * 4]), 4);
 		}
 		i++;
 	}
@@ -42,25 +42,25 @@ void		drawsprite(t_game *game, float *dists, t_sprite *s)
 	i      : compteur entre [0, hauteur de l'objet]
 	le raycasting se fait de bas en haut
 	sangle : même principe que le fov sauf qu'on ne fait plus par le cos mais par le tan
-	countp : -1
+	colecr : -1 ou [0, 1]* ecranx
 */
 	int		height;
 	int		hcount;
 	float	sangle;
-	float	countp;
+	float	colecr;
 
-	height = ceil(game->ecrany *  150 / s[game->c[10]].dist);
+	height = ceil(game->ecranx * 150 / s[game->c[10]].dist);
 	hcount = 0;
 	while (hcount < height && height < game->ecranx * 5)
 	{
-		countp = -1;
+		colecr = -1;
 		sangle = s[game->c[10]].angle + (1 - ((float)hcount / (float)height)) * atan((float)64 / s[game->c[10]].dist);
 		if (sangle < 20 * 0.0174f && sangle > -20 * 0.0174f)
-			countp = (game->ecranx / 2) + (sangle / (40 * 0.0174f)) * game->ecranx;
-		if (dists[(int)countp] > s[game->c[10]].dist)
+			colecr = (game->ecranx / 2) + (sangle / (40 * 0.0174f)) * game->ecranx;
+		if (dists[(int)colecr] > s[game->c[10]].dist)
 		{
-			drawimg(game, (int)countp, hcount * 64 / height, height);
-			drawimg(game, (int)countp + 1, hcount * 64 / height, height);
+			drawimg(game, (int)colecr, ((float)hcount / height) * 64, height);
+			drawimg(game, (int)colecr + 1, ((float)hcount / height) * 64, height);
 		}
 		hcount++;
 	}

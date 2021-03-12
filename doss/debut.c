@@ -12,17 +12,9 @@
 
 #include "../bibz/cub3d.h"
 
-int		ft_depart(t_game *game)
+void	ft_show(t_game *game)
 {
-	float	dists[game->ecranx];
-
-	initmlxptr(game, 7, game->ecranx, game->ecrany);
-	game_init(game, 0);
-	while (game->c[0] < game->ecranx)
-	{
-		rcx(game, game->c[0]);
-		rcy(game);
-		if(game->flag[2] == 1)
+	if(game->flag[2] == 1)
 		{
 			printf("----------------------------------------------------------------- \n");
 			printf("Position : X %d/%d - Y   %d/%d\n", game->posx / 64, game->mapx , game->posy / 64, game->mapy);
@@ -34,6 +26,19 @@ int		ft_depart(t_game *game)
 			printf("Case 1 : %d/%d\n", (game->ray.x[1] + ft_signe(game->ray.x[1] - game->posx)) / 64 , (game->ray.y[1] + ft_signe(game->ray.y[1] - game->posy)) / 64);
 			printf("----------------------------------------------------------------- \n\n");
 		}
+}
+
+int		ft_depart(t_game *game)
+{
+	float	dists[game->ecranx];
+
+	initmlxptr(game, 7, game->ecranx, game->ecrany);
+	game_init(game, 0);
+	while (game->c[0] < game->ecranx)
+	{
+		rcx(game, game->c[0]);
+		rcy(game);
+		ft_show(game);
 		if ((game->ray.dist[1] < game->ray.dist[0]) && game->ray.res[1] == 1)
 		{
 			dists[game->c[0]] = game->ray.dist[1];

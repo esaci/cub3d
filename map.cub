@@ -12,10 +12,10 @@ EA ./doss/image/est.xpm
 S ./doss/image/sprite.xpm
 
 
-F  125,255,255
+F  128,128,128
 
 
-C 125,125,125
+C  255,255,255
 
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1

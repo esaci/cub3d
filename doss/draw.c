@@ -67,7 +67,7 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 	pix.flag = ry;
 	pix.y = 0;
 	while (pix.y++ < (game->ecrany - height) / 2 && pix.y < game->ecrany)
-		drawpix(game, pix, game->img.datac[0]);
+		drawpix(game, pix, game->img.datac[1]);
 	while (pix.y < (game->ecrany + height) / 2 && pix.y < game->ecrany)
 	{
 /*		if(game->ray.flag[ryc] == 2)
@@ -78,7 +78,7 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 	}
 	while (pix.y < (game->ecrany))
 	{
-		drawpix(game, pix, game->img.datac[1]);
+		drawpix(game, pix, game->img.datac[0]);
 		pix.y++;
 	}
 }

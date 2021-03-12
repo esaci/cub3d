@@ -82,7 +82,6 @@ typedef struct		s_pix
 
 typedef struct		s_sprite
 {
-/* 	char			c; type inutile pour moi */
 	int				x; /* posx du sprite */
 	int				y; /* posy du sprite */
 	float			angle;
