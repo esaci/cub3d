@@ -26,34 +26,32 @@ void		drawimg(t_game *game, int index, int n, int height)
 		if (!(y > game->ecranx * game->ecrany * 4 || y < -index * 4))
 		{
 			if (ft_strncmp(game->img.data[7],
-					game->img.data[7] + n * 4 + ri * 64 * 4, 4) != 0)
+					game->img.data[2] + n * 4 + ri * 64 * 4, 4) != 0)
 			{
 				ft_memcpy(game->img.data[7] + index * 4 + y,
-						&(game->img.data[7][n * 4 + ri * 64 * 4]), 4);
+						&(game->img.data[2][n * 4 + ri * 64 * 4]), 4);
 			}
 		}
 		i++;
 	}
 }
 
-void		drawspritee(t_game *game, float *dists, t_pix *pix, int count)
+void		drawsprite(t_game *game, float *dists, t_sprite *s, int count)
 {
 	int		width;
 	int		i;
 	float	rt;
 	float	index;
 
-	width = ceil(150 * game->ecrany / pix[count].dist);
+	width = ceil(150 * game->ecrany / s[count].dist);
 	i = 0;
 	while (i < width && width < game->ecranx * 3 && (index = -1) + 2)
 	{
-		rt = pix[count].angle + atan(64 / (2 * pix[count].dist)) -
-			i * 2 * atan(64 / (2 * pix[count].dist)) / (float)width;
+		rt = s[count].angle + atan(64 / (2 * s[count].dist)) -
+			i * 2 * atan(64 / (2 * s[count].dist)) / (float)width;
 		if (rt < 40 * 0.0174f / 2 && rt > -40 * 0.0174f / 2)
 			index = (game->ecranx / 2) + (rt / (40 * 0.0174f)) * game->ecranx;
-	//	if (i%100 == 0)
-	//		ft_printf("%d > %d \n", dists[(int)index], pix[count].dist);
-		if (dists[(int)index] > pix[count].dist)
+		if (dists[(int)index] > s[count].dist)
 		{
 			drawimg(game, (int)index, i * 64 / width, width);
 			drawimg(game, (int)index + 1, i * 64 / width, width);

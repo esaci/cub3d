@@ -176,4 +176,4 @@ Comparaison X et Y :
 _______________________________________________________________________________________________________
 
 J'ai ecranx distances, je crée mapx*mapy struct sprite (nombre de case)
-/* 	pas compris le deuxieme elseif */
+/* 	pas compris le deuxieme elseif  du coup je modifie
