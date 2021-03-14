@@ -177,3 +177,35 @@ ________________________________________________________________________________
 
 J'ai ecranx distances, je crée mapx*mapy struct sprite (nombre de case)
 /* 	pas compris le deuxieme elseif  du coup je modifie
+
+void	ft_show(t_game *game)
+{
+	if(game->flag[2] == 1)
+		{
+			printf("----------------------------------------------------------------- \n");
+			printf("Position : X %d/%d - Y   %d/%d\n", game->posx / 64, game->mapx , game->posy / 64, game->mapy);
+			printf("Ray	 : X[0] : %f\nRay      : Y[0] : %f\n",(float)(game->ray.x[0]) / 64 , (float)(game->ray.y[0])/64);
+			printf("Ray	 : X[1] : %f\nRay      : Y[1] : %f\n",(float)(game->ray.x[1]) / 64 , (float)(game->ray.y[1])/64);
+			printf("Angle :  %d° \nAngle Ecran : %f° \n", game->pangle, game->ray.angle*(1/0.0174));
+ 			printf("Cos Angle ecran : %f\nSin Angle ecran : %f\n", cos(game->ray.angle), sin(game->ray.angle));
+			printf("Distance[0] : %f \nDistance[1] : %f \n", game->ray.dist[0] / 64, game->ray.dist[1] / 64);
+			printf("Case 1 : %d/%d\n", (game->ray.x[1] + ft_signe(game->ray.x[1] - game->posx)) / 64 , (game->ray.y[1] + ft_signe(game->ray.y[1] - game->posy)) / 64);
+			printf("----------------------------------------------------------------- \n\n");
+		}
+}
+
+--------------------------------------------------------------------------------------------------------------
+J'ai choisit 32 bpp
+
+
+
+
+cquil me reste a faire /
+
+La gestion des fenêtres doit être parfaite : gestion de la minimalisation, du passage
+d’une autre fenetre, etc
+Cliquer sur la croix rouge de la fenêtre doit fermer la fenêtre et quitter le
+programme proprement
+Si la taille de fenêtre demandée dans la map est plus grande que celle de l’écran,
+la taille de fenêtre doit être celle de l’écran.
+L’utilisation d’images de la minilibX est fortement recommandée

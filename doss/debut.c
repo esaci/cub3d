@@ -12,21 +12,6 @@
 
 #include "../bibz/cub3d.h"
 
-void	ft_show(t_game *game)
-{
-	if(game->flag[2] == 1)
-		{
-			printf("----------------------------------------------------------------- \n");
-			printf("Position : X %d/%d - Y   %d/%d\n", game->posx / 64, game->mapx , game->posy / 64, game->mapy);
-			printf("Ray	 : X[0] : %f\nRay      : Y[0] : %f\n",(float)(game->ray.x[0]) / 64 , (float)(game->ray.y[0])/64);
-			printf("Ray	 : X[1] : %f\nRay      : Y[1] : %f\n",(float)(game->ray.x[1]) / 64 , (float)(game->ray.y[1])/64);
-			printf("Angle :  %d° \nAngle Ecran : %f° \n", game->pangle, game->ray.angle*(1/0.0174));
- 			printf("Cos Angle ecran : %f\nSin Angle ecran : %f\n", cos(game->ray.angle), sin(game->ray.angle));
-			printf("Distance[0] : %f \nDistance[1] : %f \n", game->ray.dist[0] / 64, game->ray.dist[1] / 64);
-			printf("Case 1 : %d/%d\n", (game->ray.x[1] + ft_signe(game->ray.x[1] - game->posx)) / 64 , (game->ray.y[1] + ft_signe(game->ray.y[1] - game->posy)) / 64);
-			printf("----------------------------------------------------------------- \n\n");
-		}
-}
 
 int		ft_depart(t_game *game)
 {
@@ -38,7 +23,6 @@ int		ft_depart(t_game *game)
 	{
 		rcx(game, game->c[0]);
 		rcy(game);
-		ft_show(game);
 		if ((game->ray.dist[1] < game->ray.dist[0]) && game->ray.res[1] == 1)
 		{
 			dists[game->c[0]] = game->ray.dist[1];

@@ -16,9 +16,16 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
+		game.flag[3] = 1;
+	else
+		game.flag[3] = 0;
 	map_init(&game, argv[1]);
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
-		ft_depart(&game);
+	{
+		ft_bmp(&game);
+		ft_stop(&game, "aucun soucis");
+	}
 	mlx_key_hook (game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &ft_depart, &game);
 	mlx_loop(game.mlx.mlxptr);

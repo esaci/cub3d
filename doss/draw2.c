@@ -20,7 +20,7 @@ void		drawimg(t_game *game, int colecr, int wcount, int height)
 /*
 	i 		: [0, taille du sprite]
 	larg		: largeur du sprite
-	y 			: [ecranx*ecrany/2  ]
+	posyecr 			: [ecranx*ecrany/2  ]
  */
 	i = 0;
 	while (i < height)
@@ -29,8 +29,8 @@ void		drawimg(t_game *game, int colecr, int wcount, int height)
 		y = game->ecranx * (i  + ((game->ecrany  - height) / 2)) * 4;
 		if (!(y > game->ecranx * game->ecrany * 4 || y < -colecr * 4))
 		{
-			if (ft_strncmp(game->img.data[2], game->img.data[2] + wcount * 4 + larg * 64 * 4, 4) != 0)
-				ft_memcpy(game->img.data[7] + colecr * 4 + y, &(game->img.data[2][wcount * 4 + larg * 64 * 4]), 4);
+			if (ft_strncmp(game->img.data[2], game->img.data[2] + wcount * 4 + larg * 64 * 4, 3) != 0)
+				ft_memcpy(game->img.data[7] + y + colecr * 4, &(game->img.data[2][wcount * 4 + larg * 64 * 4]), 4);
 		}
 		i++;
 	}

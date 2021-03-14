@@ -108,7 +108,7 @@ typedef struct		s_game
 	t_img			img;
 	t_ray			ray;
 	int				c[NBRCOUNT];
-	int				flag[3];
+	int				flag[4];
 	int				ecranx; // resolution width
 	int				ecrany; // resolution height
 	int				mapx; // largeur map
@@ -180,5 +180,10 @@ void				draw(t_game *game, t_pix *pix, int height, int ryc);
 void				drawsprite(t_game *game, float *dists, t_sprite *s);
 void				ft_elias(t_game *game);
 float				ft_abs(float x);
+int					ft_bmp(t_game *game);
+void				headbmp2(t_game *game, char *str, int i);
+void				headbmp(t_game *game, char *str, int np);
+void				swapbmp(t_game *game, char *str);
+void				divid(char *str, int *i, int np);
 
 #endif
