@@ -13,6 +13,38 @@
 #include "../bibz/cub3d.h"
 
 
+void	ft_show(t_game *game)
+{
+	int		c;
+	int		s;
+	int		temp[4];
+
+	c = ft_signe(cos(game->ray.angle));
+	s = ft_signe(sin(game->ray.angle));
+	temp[0] = ft_max(0, game->ray.x[0] / 64);
+	temp[1] = ft_max(0, game->ray.y[0] / 64);
+	temp[2] = ft_max(0, game->ray.x[1] / 64);
+	temp[3] = ft_max(0, game->ray.y[1] / 64);
+	if(game->ray.dist[1] < game->ray.dist[0] && c + s < 10 && game->ray.res[1] == 1)
+	{
+		if(temp[1] > game->mapy || temp[0] > game->mapx)
+			return;
+ 		if (game->map[temp[1]][temp[0]] == '1')
+			game->ray.flag[1] = game->ray.flag[1];
+		else
+			game->ray.flag[1] = game->ray.flag[0];
+	}
+	else
+	{
+	if(temp[3] > game->mapy || temp[2] > game->mapx)
+			return;
+	if (game->map[temp[3]][temp[2]] == '1')
+		game->ray.flag[0] = game->ray.flag[0];
+	else
+			game->ray.flag[0] = game->ray.flag[1];
+	}
+}
+
 int		ft_depart(t_game *game)
 {
 	float	dists[game->ecranx];

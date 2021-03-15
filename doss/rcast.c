@@ -33,20 +33,20 @@ void			rcx(t_game *g,  int count)
 	int			xr;
 	int			yr;
 
-	g->ray.angle = ((g->pangle + (float)20) - (float)40 * ((float)count / g->ecranx)) * 0.0174f;
+	g->ray.angle = ((g->pangle + (float)20) - (float)40 * ((float)count / (float)g->ecranx)) * (float)0.0174f;
 	if (cos(g->ray.angle) == 0)
 		return;
 	if (cos(g->ray.angle) > 0)
 		g->ray.x[0] = ceil((float)g->posx / 64) * 64;
 	if (cos(g->ray.angle) < 0)
-		g->ray.x[0] = (int)((float)(g->posx) / 64) * 64;
+		g->ray.x[0] = floor((float)(g->posx) / 64) * 64;
 	g->c[1] = 0;
 	ix = 'E';
 	while (ix != '1' && g->c[1] < g->mapx)
 	{
 		if(g->c[1] != 0)
 			g->ray.x[0] = g->ray.x[0] + ft_signe(cos(g->ray.angle)) * 64;
-		g->ray.y[0] = g->posy + ft_abs((g->posx - g->ray.x[0]) / cos(g->ray.angle)) * sin(g->ray.angle) * (-1);
+		g->ray.y[0] = g->posy + ft_abs((float)(g->posx - g->ray.x[0]) / (float)cos(g->ray.angle)) * (float)sin(g->ray.angle) * (-1);
 		g->ray.dist[0] = ft_dist(g->posy - g->ray.y[0], g->posx - g->ray.x[0]);
 		yr = (g->ray.y[0] + ft_signe(g->ray.y[0] - g->posy)) / 64;
 		xr = (g->ray.x[0] + ft_signe(g->ray.x[0] - g->posx)) / 64;
@@ -58,10 +58,6 @@ void			rcx(t_game *g,  int count)
 		g->ray.flag[0] = 3;
 	else
 		g->ray.flag[0] = 5;
-	if(cos(g->ray.angle) == 0.0)
-	{
-		g->ray.flag[0] = 2;
-	}
 	g->ray.res[0] = (ix == '1');
 	return ;
 }
@@ -85,7 +81,7 @@ void			rcy(t_game *g)
 	{
 		if(g->c[1] != 0)
 			g->ray.y[1] = g->ray.y[1] - ft_signe(sin(g->ray.angle)) * 64;
-		g->ray.x[1] = g->posx + (ft_abs((g->posy - g->ray.y[1]) / sin(g->ray.angle)) * cos(g->ray.angle));
+		g->ray.x[1] = g->posx + (ft_abs((float)(g->posy - g->ray.y[1]) / (float)sin(g->ray.angle)) * (float)cos(g->ray.angle));
 		g->ray.dist[1] = ft_dist(g->posy - g->ray.y[1], g->posx - g->ray.x[1]);
 		yr = (g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64;
 		xr = (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx)) / 64;
@@ -97,7 +93,6 @@ void			rcy(t_game *g)
 		g->ray.flag[1] = 6;
 	else
 		g->ray.flag[1] = 4;
-	/* ft_coin(g); */
 	g->ray.res[1] = (ix == '1');
 	return ;
 }
