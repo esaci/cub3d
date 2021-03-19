@@ -32,7 +32,11 @@ void			rcx(t_game *g,  int count)
 	char		ix;
 	int			xr;
 	int			yr;
+	int			wr;
 
+	wr = 1;
+	if(cos(g->ray.angle) >= 0)
+		wr = 0;
 	g->ray.angle = ((g->pangle + (float)20) - (float)40 * ((float)count / (float)g->ecranx)) * (float)0.0174f;
 	if (cos(g->ray.angle) == 0)
 		return;
@@ -48,8 +52,8 @@ void			rcx(t_game *g,  int count)
 			g->ray.x[0] = g->ray.x[0] + ft_signe(cos(g->ray.angle)) * 64;
 		g->ray.y[0] = g->posy + ft_abs((float)(g->posx - g->ray.x[0]) / (float)cos(g->ray.angle)) * (float)sin(g->ray.angle) * (-1);
 		g->ray.dist[0] = ft_dist(g->posy - g->ray.y[0], g->posx - g->ray.x[0]);
-		yr = (g->ray.y[0] + ft_signe(g->ray.y[0] - g->posy)) / 64;
-		xr = (g->ray.x[0] + ft_signe(g->ray.x[0] - g->posx)) / 64;
+		yr = (g->ray.y[0] + wr * ft_signe(g->ray.y[0] - g->posy)) / 64;
+		xr = (g->ray.x[0] + wr * ft_signe(g->ray.x[0] - g->posx)) / 64;
 		if (yr < g->mapy && xr < g->mapx)
 			ix = g->map[ft_max(0, yr)][ft_max(0, xr)];
 		g->c[1]++;
@@ -67,7 +71,11 @@ void			rcy(t_game *g)
 	char		ix;
 	int			xr;
 	int			yr;
+	int			wr;
 
+	wr = 0;
+	if (sin(g->ray.angle) > 0)
+		wr = 1;
 	if (sin(g->ray.angle) == 0)
 		return;
 	if (sin(g->ray.angle) > 0)
@@ -83,8 +91,8 @@ void			rcy(t_game *g)
 			g->ray.y[1] = g->ray.y[1] - ft_signe(sin(g->ray.angle)) * 64;
 		g->ray.x[1] = g->posx + (ft_abs((float)(g->posy - g->ray.y[1]) / (float)sin(g->ray.angle)) * (float)cos(g->ray.angle));
 		g->ray.dist[1] = ft_dist(g->posy - g->ray.y[1], g->posx - g->ray.x[1]);
-		yr = (g->ray.y[1] + ft_signe(g->ray.y[1] - g->posy)) / 64;
-		xr = (g->ray.x[1] + ft_signe(g->ray.x[1] - g->posx)) / 64;
+		yr = (g->ray.y[1] + wr * ft_signe(g->ray.y[1] - g->posy)) / 64;
+		xr = (g->ray.x[1] + wr * ft_signe(g->ray.x[1] - g->posx)) / 64;
 		if (yr < g->mapy && xr < g->mapx)
 			ix = g->map[ft_max(0, yr)][ft_max(0, xr)];
 		g->c[1]++;

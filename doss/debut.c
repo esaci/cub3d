@@ -55,7 +55,7 @@ int		ft_depart(t_game *game)
 	{
 		rcx(game, game->c[0]);
 		rcy(game);
-		if ((game->ray.dist[1] < game->ray.dist[0]) && game->ray.res[1] == 1)
+		if ((game->ray.dist[1] < game->ray.dist[0]))
 		{
 			dists[game->c[0]] = game->ray.dist[1];
 			drawrectimg(game, game->c[0], game->ray.x[1], 1);
