@@ -12,24 +12,29 @@
 
 #include "../bibz/cub3d.h"
 
-void	initmlxptr(t_game *game, int i, int width, int height)
+void		initmlxptr(t_game *game, int i, int width, int height)
 {
-	game->img.imgptr[i] = mlx_new_image(game->mlx.mlxptr, width, height);
-	game->img.data[i] = mlx_get_data_addr(game->img.imgptr[i], &game->img.bpp[i], &game->img.size_l[i], &game->img.endian[i]);
+	game->img.imgptr[i] = mlx_new_image(
+			game->mlx.mlxptr, width, height);
+	game->img.data[i] = mlx_get_data_addr(game->img.imgptr[i],
+			&game->img.bpp[i], &game->img.size_l[i], &game->img.endian[i]);
 }
 
-void	initxpmptr(t_game *game, int i, char *str)
+void		initxpmptr(t_game *game, int i, char *str)
 {
-	game->img.imgptr[i] = mlx_xpm_file_to_image(game->mlx.mlxptr, str, &game->img.width[i], &game->img.height[i]);
-	game->img.data[i] = mlx_get_data_addr(game->img.imgptr[i], &game->img.bpp[i], &game->img.size_l[i], &game->img.endian[i]);
+	game->img.imgptr[i] = mlx_xpm_file_to_image(game->mlx.mlxptr, str,
+		&game->img.width[i], &game->img.height[i]);
+	game->img.data[i] = mlx_get_data_addr(game->img.imgptr[i],
+		&game->img.bpp[i], &game->img.size_l[i], &game->img.endian[i]);
 }
 
-void	drawpix(t_game *game, t_pix pix, unsigned char couleur[4])
+void		drawpix(t_game *game, t_pix pix, unsigned char couleur[4])
 {
-	ft_memcpy(game->img.data[7] + 4 * game->ecranx * pix.y + pix.x * 4, couleur, sizeof(int));
+	ft_memcpy(game->img.data[7] + 4 * game->ecranx
+		* pix.y + pix.x * 4, couleur, sizeof(int));
 }
 
-void	draw(t_game *game, t_pix *pix, int height, int ryc)
+void		draw(t_game *game, t_pix *pix, int height, int ryc)
 {
 	int				countp;
 	unsigned char	color[3];
@@ -41,25 +46,27 @@ void	draw(t_game *game, t_pix *pix, int height, int ryc)
 		return ;
 	countp = (pix->y - (game->ecrany - height) / 2) * 64 / height;
 	countp = (pix->flag % 64) * 4 + (countp % 64) * game->img.size_l[i];
-//	countp = pix->y  * game->img.size_l[2] + height * 0;
 	countp = ft_max(0, countp);
 	game->c[8] = 0;
 	while (game->c[8] < 3)
 	{
-		color[game->c[8]] = (unsigned char)game->img.data[i][countp + game->c[8]];
+		color[game->c[8]] =
+			(unsigned char)game->img.data[i][countp + game->c[8]];
 		game->c[8]++;
 	}
-	ft_memcpy(game->img.data[7] + 4 * game->ecranx * pix->y + pix->x * 4, color, sizeof(int));
-pix->y++;
+	ft_memcpy(game->img.data[7] + 4 *
+		game->ecranx * pix->y + pix->x * 4, color, sizeof(int));
+	pix->y++;
 }
 
-void		drawrectimg(t_game	*game, int i, int ry, int ryc)
+void		drawrectimg(t_game *game, int i, int ry, int ryc)
 {
 	float			dist;
 	int				height;
 	t_pix			pix;
 
-	dist = game->ray.dist[ryc] * cos((game->ray.angle - (float)game->pangle * 0.0174f));
+	dist = game->ray.dist[ryc] *
+		cos((game->ray.angle - (float)game->pangle * 0.0174f));
 	if (dist < 0)
 		ft_stop(game, "dist dans draw negatif");
 	height = ceil((float)game->ecrany * (150 / dist));
@@ -70,9 +77,6 @@ void		drawrectimg(t_game	*game, int i, int ry, int ryc)
 		drawpix(game, pix, game->img.datac[1]);
 	while (pix.y < (game->ecrany + height) / 2 && pix.y < game->ecrany)
 	{
-/*		if(game->ray.flag[ryc] == 2)
-			printf("%f\n",game->ray.dist[ryc] - game->ray.dist[(ryc == 0) ? 1 : 0]);
-*/
 		draw(game, &pix, height, ryc);
 		pix.y++;
 	}

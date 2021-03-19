@@ -12,8 +12,6 @@
 
 #include "../bibz/cub3d.h"
 
-
-
 void			swapper(t_sprite *s1, t_sprite *s2)
 {
 	t_sprite swap;
@@ -60,11 +58,6 @@ void			loadsprite(t_game *game, t_sprite *s, int ligne, int col)
 	s->dist = ft_dist((float)(game->posy - s->y), (float)(game->posx - s->x));
 	if (s->dist == 0)
 		s->angle = 0;
-	/* arcsin renvoie l'angle en rad grace au rapport distance parcourue sur y / distance parcourue */
-	/* arcsin(opposé/hypotenuse) :> angle */
-	/* 	pas compris le deuxieme elseif */
-	/* 	si le sprite est plus a gauche de nous alors on rajoute pi pour que l'angle soit correctement placé*/
-	/* s->angle angle auquel je vois mon sprite  puis difference entre l'angle que j'ai et l'angle du sprite*/
 	if (s->x >= game->posx)
 		s->angle = asin((game->posy - s->y) / s->dist);
 	else
@@ -72,7 +65,6 @@ void			loadsprite(t_game *game, t_sprite *s, int ligne, int col)
 	game->c[14] = s->dist * (cos(s->angle - (float)game->pangle * 0.0174f));
 	s->dist = abs(game->c[14]);
 	s->angle = game->pangle * 0.0174f - s->angle;
-/* 	s->angle positif ca signifie que mon sprite est a ma droite et donc .... */
 	while (s->angle > M_PI)
 		s->angle -= 2 * M_PI;
 	while (s->angle < -M_PI)
@@ -108,13 +100,6 @@ void			ft_sprite(t_game *game, float *dists)
 {
 	t_sprite	s[game->mapy * game->mapx];
 
-/* 	game->c[11] : [0, mapy]
-	game->c[12] : [0, mapx]
-	game->c[13] : [0, nbr de sprite]
-	game->c[10] : [0, nbr de sprite]
-	game->c[14] : distance sur y mais pas compris le cos
-	dists       : associe a chaque colonne [0, ecranx] la distance vers le prochain mur
-*/
 	game->c[10] = 0;
 	cherchesprite(game, s);
 	while (s[game->c[10]].dist != -'E')

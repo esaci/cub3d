@@ -20,15 +20,17 @@ void		ft_verif(t_game *game)
 	game->c[5] = open(game->img.nom[5], O_RDONLY);
 	game->c[6] = open(game->img.nom[6], O_RDONLY);
 	game->flag[0] = 1;
-	if (game->c[2] < 0 || game->c[3] < 0 || game->c[4] < 0 || game->c[5] < 0 || game->c[6] < 0)
+	if (game->c[2] < 0 || game->c[3] < 0 || game->c[4] < 0
+		|| game->c[5] < 0 || game->c[6] < 0)
 		ft_stop(game, "Pas pu charger NSEW ou le sprite\n");
 }
 
-void	ft_chargement(t_game *game)
+void		ft_chargement(t_game *game)
 {
-	int i;
+	int		i;
+
 	i = 2;
-	while(i <= 6)
+	while (i <= 6)
 	{
 		initxpmptr(game, i, game->img.nom[i]);
 		i++;

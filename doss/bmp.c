@@ -14,15 +14,15 @@
 
 int		databmp(char *str, t_game *game)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 54;
 	j = 0;
 	while (i < game->ecrany * game->ecranx * 4 + 54)
 	{
-		if(i)
-		str[i] = (unsigned char)game->img.data[7][j];
+		if (i)
+			str[i] = (unsigned char)game->img.data[7][j];
 		i++;
 		j++;
 	}
@@ -34,7 +34,7 @@ void	divid(char *str, int *i, int np)
 	int		j;
 
 	j = 0;
-	while(j < 4)
+	while (j < 4)
 	{
 		str[*i] = np % 256;
 		np = np / 256;
@@ -43,8 +43,6 @@ void	divid(char *str, int *i, int np)
 	}
 }
 
-
-
 void	createbmp(t_game *game, char *nomfichier)
 {
 	int		np;
@@ -52,7 +50,7 @@ void	createbmp(t_game *game, char *nomfichier)
 	char	*str;
 
 	np = game->ecranx * game->ecrany * 4;
-	if(!(fd1 = open(nomfichier, O_CREAT | O_TRUNC | O_RDWR, 0777)))
+	if (!(fd1 = open(nomfichier, O_CREAT | O_TRUNC | O_RDWR, 0777)))
 		ft_stop(game, "Pas reussi a creer le bmp");
 	if (!(str = malloc(sizeof(char) * (np + 55))))
 		ft_stop(game, "Malloc fonctionne pas creation du bmp");
@@ -63,29 +61,30 @@ void	createbmp(t_game *game, char *nomfichier)
 	free(str);
 }
 
-int		ft_bmp(t_game *game)
+int		ft_bmp(t_game *g)
 {
-	float	dists[game->ecranx];
+	float	dists[g->ecranx];
 
-	initmlxptr(game, 7, game->ecranx, game->ecrany);
-	game_init(game, 0);
-	while (game->c[0] < game->ecranx)
+	initmlxptr(g, 7, g->ecranx, g->ecrany);
+	game_init(g, 0);
+	while (g->c[0] < g->ecranx)
 	{
-		rcx(game, game->c[0]);
-		rcy(game);
-		if ((game->ray.dist[1] < game->ray.dist[0]) && game->ray.res[1] == 1)
-		{
-			dists[game->c[0]] = game->ray.dist[1];
-			drawrectimg(game, game->c[0], game->ray.x[1], 1);
-		}
+		g->ray.angle = ((g->pangle + (float)20) -
+			(float)40 * ((float)g->c[0] / (float)g->ecranx)) * (float)0.0174f;
+		rcx(g, 1, 'E');
+		if (!(sin(g->ray.angle) == 0))
+			rcy(g, 0, 'E');
+		dists[g->c[0]] = g->ray.dist[1];
+		if ((g->ray.dist[1] < g->ray.dist[0]) && g->ray.res[1] == 1)
+			drawrectimg(g, g->c[0], g->ray.x[1], 1);
 		else
 		{
-			drawrectimg(game, game->c[0], game->ray.y[0], 0);
-			dists[game->c[0]] = game->ray.dist[0];
+			drawrectimg(g, g->c[0], g->ray.y[0], 0);
+			dists[g->c[0]] = g->ray.dist[0];
 		}
-		game->c[0]++;
+		g->c[0]++;
 	}
-	ft_sprite(game,dists);
-	createbmp(game, "result.bmp");
-	return(1);
+	ft_sprite(g, dists);
+	createbmp(g, "result.bmp");
+	return (1);
 }

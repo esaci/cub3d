@@ -18,16 +18,16 @@ int		ft_only(char *line, char *only)
 	int		i;
 
 	i = 0;
-	while(i < 255)
+	while (i < 255)
 		tab[i++] = 0;
 	i = 0;
-	while(only[i])
+	while (only[i])
 		tab[(int)only[i++]]++;
 	i = 0;
 	while (line[i])
 	{
-		if(tab[(int)line[i]] == 0)
-			return(0);
+		if (tab[(int)line[i]] == 0)
+			return (0);
 		i++;
 	}
 	return (1);
@@ -35,39 +35,39 @@ int		ft_only(char *line, char *only)
 
 int		ft_contient(char *line, char *lettres)
 {
-	int 	count;
-	int 	flag;
-	char 	ptr[255];
+	int		count;
+	int		flag;
+	char	ptr[255];
 
 	count = 0;
-	while(count < 255)
+	while (count < 255)
 		ptr[count++] = 0;
 	count = 0;
 	while (lettres[count])
 		ptr[(int)lettres[count++]]++;
 	flag = 0;
 	count = 0;
-	while(line[count])
+	while (line[count])
 	{
 		if (ptr[(int)line[count]] != 0)
 			flag++;
 		count++;
 	}
-	return(flag);
+	return (flag);
 }
 
 int		ft_testchar(char c, char *lettres)
 {
-	int 	count;
-	char 	ptr[255];
+	int		count;
+	char	ptr[255];
 
 	count = 0;
-	while(count < 255)
+	while (count < 255)
 		ptr[count++] = 0;
 	count = 0;
 	while (lettres[count])
 		ptr[(int)lettres[count++]]++;
 	if (ptr[(int)c] != 0)
-		return(0);
-	return(1);
+		return (0);
+	return (1);
 }

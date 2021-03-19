@@ -12,37 +12,37 @@
 
 #include "../bibz/cub3d.h"
 
-
-int	ft_windz(t_game *game)
+int		ft_windz(t_game *game)
 {
 	ft_stop(game, "aucun soucis");
-	return(1);
+	return (1);
 }
 
-int		ft_depart(t_game *game)
+int		ft_depart(t_game *g)
 {
-	float	dists[game->ecranx];
+	float	dists[g->ecranx];
 
-	initmlxptr(game, 7, game->ecranx, game->ecrany);
-	game_init(game, 0);
-	while (game->c[0] < game->ecranx)
+	initmlxptr(g, 7, g->ecranx, g->ecrany);
+	game_init(g, 0);
+	while (g->c[0] < g->ecranx)
 	{
-		rcx(game, game->c[0]);
-		rcy(game);
-		if ((game->ray.dist[1] < game->ray.dist[0]))
-		{
-			dists[game->c[0]] = game->ray.dist[1];
-			drawrectimg(game, game->c[0], game->ray.x[1], 1);
-		}
+		g->ray.angle = ((g->pangle + (float)20) -
+			(float)40 * ((float)g->c[0] / (float)g->ecranx)) * (float)0.0174;
+		rcx(g, 1, 'E');
+		if (!(sin(g->ray.angle) == 0))
+			rcy(g, 0, 'E');
+		dists[g->c[0]] = g->ray.dist[1];
+		if ((g->ray.dist[1] < g->ray.dist[0]))
+			drawrectimg(g, g->c[0], g->ray.x[1], 1);
 		else
 		{
-			drawrectimg(game, game->c[0], game->ray.y[0], 0);
-			dists[game->c[0]] = game->ray.dist[0];
+			drawrectimg(g, g->c[0], g->ray.y[0], 0);
+			dists[g->c[0]] = g->ray.dist[0];
 		}
-		game->c[0]++;
+		g->c[0]++;
 	}
-	ft_sprite(game,dists);
-	mlx_put_image_to_window(game->mlx.mlxptr, game->mlx.win, game->img.imgptr[7],0,0);
-	game->flag[2] = 0;
-	return(mlx_destroy_image(game->mlx.mlxptr, game->img.imgptr[7]));
+	ft_sprite(g, dists);
+	mlx_put_image_to_window(g->mlx.mlxptr
+		, g->mlx.win, g->img.imgptr[7], 0, 0);
+	return (mlx_destroy_image(g->mlx.mlxptr, g->img.imgptr[7]));
 }

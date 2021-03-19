@@ -12,7 +12,7 @@
 
 #include "../bibz/cub3d.h"
 
-int		taillenval(int mapi, int j, t_game *game)
+int			taillenval(int mapi, int j, t_game *game)
 {
 	int taille;
 
@@ -22,23 +22,24 @@ int		taillenval(int mapi, int j, t_game *game)
 	return (0);
 }
 
-int		bordurerectangle(t_game *game)
+void		bordurerectangle(t_game *game)
 {
-	game->c[6] = 0;
 	game->c[2] = ft_strlen(game->map[game->c[6]]);
 	game->mapx = game->c[2];
 	while (game->map[game->c[6]])
 	{
-		if (taillenval(6,2, game))
-			ft_stop(game, "Taille de la map invalide(Soit c'est pas un rectangle, soit trop de colonne))");
-		if(game->map[game->c[6]][0] != '1' || game->map[game->c[6]][game->c[2]-1] != '1')
+		if (taillenval(6, 2, game))
+			ft_stop(game, "Map mauvais caractere ou mauvaise taille");
+		if (game->map[game->c[6]][0] != '1'
+			|| game->map[game->c[6]][game->c[2] - 1] != '1')
 			ft_stop(game, "La map n'est pas fermée a gauche ou a droite");
 		game->c[6]++;
 	}
 	game->mapy = game->c[6];
 	while (game->c[5] < game->c[2])
 	{
-		if ((int)game->map[0][game->c[5]] != '1' || (int)game->map[game->c[1] - 1][game->c[5]] != '1')
+		if ((int)game->map[0][game->c[5]] != '1'
+			|| (int)game->map[game->c[1] - 1][game->c[5]] != '1')
 			ft_stop(game, "La map n'est pas fermée en haut ou en bas");
 		game->c[5]++;
 	}
@@ -48,10 +49,9 @@ int		bordurerectangle(t_game *game)
 		if (!(ft_only(game->map[game->c[2]++], "012NSWE")))
 			ft_stop(game, "La map contient un mauvais symbole");
 	}
-	return (1);
 }
 
-int		nbrjoueurtligne(t_game *game, int i)
+int			nbrjoueurtligne(t_game *game, int i)
 {
 	int flagpl;
 

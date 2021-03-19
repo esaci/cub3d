@@ -18,7 +18,7 @@ void		destroyer(t_game game, int j, ...)
 	int			i;
 
 	va_start(elias, j);
-	while(j > 0)
+	while (j > 0)
 	{
 		i = va_arg(elias, int);
 		mlx_destroy_image(game.mlx.mlxptr, game.img.imgptr[i]);

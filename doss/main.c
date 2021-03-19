@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 		ft_stop(&game, "aucun soucis");
 	}
 	mlx_hook(game.mlx.win, 17, 1L << 17, &ft_windz, &game);
-	mlx_key_hook (game.mlx.win, &vision, &game);
+	mlx_key_hook(game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &ft_depart, &game);
 	mlx_loop(game.mlx.mlxptr);
 	return (0);
