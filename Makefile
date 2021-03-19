@@ -45,6 +45,7 @@ MINILIBIX =	$(MLXD)/mlx_clear_window.o \
             $(MLXD)/mlx_rgb.o \
             $(MLXD)/mlx_string_put.o \
             $(MLXD)/mlx_xpm.o \
+			$(MLXD)/mlx_screen_size.o  \
 
 SRC =		./doss/init.c \
 			./doss/maptest.c \

@@ -36,7 +36,13 @@ t_ray		ray_init(t_ray ray)
 
 void	window_init(t_game *game)
 {
+	int		maxx;
+	int		maxy;
+
 	game->mlx.mlxptr = mlx_init();
+	mlx_get_screen_size(game->mlx.mlxptr, &maxx, &maxy);
+	game->ecranx = ft_min(maxx, game->ecranx);
+	game->ecrany = ft_min(maxy, game->ecrany);
 	if (game->flag[3] == 1)
 		return;
 	game->mlx.win = mlx_new_window(game->mlx.mlxptr, game->ecranx, game->ecrany, "fenetre init");
