@@ -1,0 +1,25 @@
+Raycastimg, permet de simuler une 3d avec de la 2d
+
+L'idee est de visualiser la carte comme une grille de carre ou chaque carre soit 0 soit une valeur positive
+La taille depand de la distance entre toi et le mur 
+
+Une ligne perpendiculaire Ala ligne de vision (x) est cree en face de la position, camera plane vector, représente la surface de d'écran de l'ordi
+
+FOV = taille du vecteur dir / taille du plan
+
+
+posX, posY pour repenser ma position
+dirX, dirY ma direction
+planeX, planeY le plan de la camera
+Time et Oldtime temps our la fenetre et lancienne fenetre est apparu
+
+
+Raycast Sol :
+
+Raycast X :
+
+Raycast Y : (pareil que x)
+
+
+mlx_get_data_addr
+mlx_string_put
