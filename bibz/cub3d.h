@@ -185,5 +185,6 @@ void				headbmp2(t_game *game, char *str, int i);
 void				headbmp(t_game *game, char *str, int np);
 void				swapbmp(t_game *game, char *str);
 void				divid(char *str, int *i, int np);
+int					ft_windz(t_game *game);
 
 #endif
