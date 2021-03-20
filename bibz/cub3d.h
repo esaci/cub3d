@@ -26,8 +26,8 @@
 # include "get_next_line.h"
 
 # define KEY_ESC							65307
-# define KEY_Z								122
-# define KEY_Q								113
+# define KEY_Z								119
+# define KEY_Q								97
 # define KEY_S								115
 # define KEY_D								100
 # define KEY_RIGHT							65363
@@ -36,8 +36,8 @@
 # define KEY_DOWN							65364
 # define ROWS								60
 # define COLS								60
-# define SCREENWIDTH						720
-# define SCREENHEIGHT						480
+# define SCREENWIDTH							720
+# define SCREENHEIGHT							480
 # define MAX_X								1920
 # define MAX_Y								1020
 # define MIN_X								320
