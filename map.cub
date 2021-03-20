@@ -1,15 +1,15 @@
-R   10000 10000
+R   660 440
 
-NO ./doss/image/nord.xpm
+NO ./src/image/nord.xpm
 
-SO ./doss/image/sud.xpm
+SO ./src/image/sud.xpm
 
-WE ./doss/image/ouest.xpm
+WE ./src/image/ouest.xpm
 
-EA ./doss/image/est.xpm
+EA ./src/image/est.xpm
 
 
-S ./doss/image/sprite.xpm
+S ./src/image/sprite.xpm
 
 
 F  128,128,128
@@ -33,9 +33,9 @@ C  255,255,255
 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1
 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1
 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1
-1 1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1
-1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1
-1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1
-1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1
+1 1 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1
+1 1 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1
+1 1 0 0 0 0 0 0 1 0 1 0 0 0 0 1 1
+1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 1 1
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1

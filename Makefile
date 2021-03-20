@@ -6,6 +6,8 @@ FTPRINTF = libftprintf.a
 
 MLXD = fct/minilibx-linux/
 
+SRCD = ./src
+
 CUBD= bibz/libcub.a
 
 LIBFTD = fct/libft/
@@ -47,24 +49,24 @@ MINILIBIX =	$(MLXD)/mlx_clear_window.o \
             $(MLXD)/mlx_xpm.o \
 			$(MLXD)/mlx_screen_size.o  \
 
-SRC =		./doss/init.c \
-			./doss/maptest.c \
-			./doss/mapper.c \
-			./doss/reader.c \
-			./doss/main.c \
-			./doss/player.c \
-			./doss/fct.c \
-			./doss/draw.c \
-			./doss/draw2.c \
-			./doss/utils.c \
-			./doss/utils2.c \
-			./doss/utils3.c \
-			./doss/rcast.c \
-			./doss/debut.c \
-			./doss/chargement.c \
-			./doss/bmp.c \
-			./doss/bmp2.c \
-			./doss/remplir.c \
+SRC =		$(SRCD)/init.c \
+			$(SRCD)/maptest.c \
+			$(SRCD)/mapper.c \
+			$(SRCD)/reader.c \
+			$(SRCD)/main.c \
+			$(SRCD)/player.c \
+			$(SRCD)/fct.c \
+			$(SRCD)/draw.c \
+			$(SRCD)/draw2.c \
+			$(SRCD)/utils.c \
+			$(SRCD)/utils2.c \
+			$(SRCD)/utils3.c \
+			$(SRCD)/rcast.c \
+			$(SRCD)/debut.c \
+			$(SRCD)/chargement.c \
+			$(SRCD)/bmp.c \
+			$(SRCD)/bmp2.c \
+			$(SRCD)/remplir.c \
 			./fct/GNL/get_next_line.c \
 			./fct/GNL/get_next_line_utils.c \
 
@@ -75,7 +77,7 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME) : $(OBJ) doss/main.c
+$(NAME) : $(OBJ) $(SRCD)/main.c
 		rm -rf $(NAME)
 		make -C $(MLXD)
 		make -C $(LIBFTD)
@@ -86,7 +88,7 @@ $(NAME) : $(OBJ) doss/main.c
 		/bin/rm -f $(LIBFT)
 		/bin/rm -f $(FTPRINTF)
 		ranlib $(CUBD)
-		$(COMPILE) -g3 -fsanitize=address -o $(NAME) doss/main.c $(MINILIBIX) $(CUBD) -I$(INCL) -lm  -lXext -lX11 -lbsd
+		$(COMPILE) -g3 -fsanitize=address -o $(NAME) $(SRCD)/main.c $(MINILIBIX) $(CUBD) -I$(INCL) -lm  -lXext -lX11 -lbsd
 
 clean:
 	rm -rf $(OBJ)
