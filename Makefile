@@ -1,4 +1,4 @@
-NAME = Cub3D
+NAME = cub3D
 
 LIBFT = libft.a
 
@@ -88,7 +88,7 @@ $(NAME) : $(OBJ) $(SRCD)/main.c
 		/bin/rm -f $(LIBFT)
 		/bin/rm -f $(FTPRINTF)
 		ranlib $(CUBD)
-		$(COMPILE) -g3 -fsanitize=address -o $(NAME) $(SRCD)/main.c $(MINILIBIX) $(CUBD) -I$(INCL) -lm  -lXext -lX11 -lbsd
+		$(COMPILE) -g3  -o $(NAME) $(SRCD)/main.c $(MINILIBIX) $(CUBD) -I$(INCL) -lm  -lXext -lX11 -lbsd
 
 clean:
 	rm -rf $(OBJ)

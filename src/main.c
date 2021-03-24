@@ -32,5 +32,5 @@ int	main(int argc, char **argv)
 	mlx_key_hook(game.mlx.win, &vision, &game);
 	mlx_loop_hook(game.mlx.mlxptr, &ft_depart, &game);
 	mlx_loop(game.mlx.mlxptr);
-	return (0);
+	return (1);
 }

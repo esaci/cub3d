@@ -25,6 +25,9 @@ void		destroyer(t_game game, int j, ...)
 		j--;
 	}
 	va_end(elias);
+	i = 0;
+	while(i < game.mapy)
+		free(game.map[i++]);
 }
 
 void		destroyernom(t_game *game)
@@ -34,12 +37,19 @@ void		destroyernom(t_game *game)
 	i = 0;
 	while (i <= 1)
 		free(game->img.datac[i]);
-	while (i <= 7)
-		free(game->img.nom[i++]);
 	i = 0;
-	while (game->map[i])
+	while (i <= 7)
+	{
+		free(game->img.nom[i]);
+		free(game->img.imgptr[i]);
+		free(game->img.data[i]);
+		i++;
+	}
+	i = 0;
+	while (i < game->mapx)
 		free(game->map[i++]);
 	free(game->map);
+	free(game->mlx.mlxptr);
 }
 
 void		modifdxdy(t_game *game, int i, int dx, int dy)
