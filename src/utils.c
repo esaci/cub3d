@@ -34,22 +34,16 @@ void		destroyernom(t_game *game)
 {
 	int i;
 
-	i = 0;
-	while (i <= 1)
-		free(game->img.datac[i]);
-	i = 0;
-	while (i <= 7)
+	i = 2;
+	while (i < 7)
 	{
 		free(game->img.nom[i]);
-		free(game->img.imgptr[i]);
-		free(game->img.data[i]);
 		i++;
 	}
 	i = 0;
-	while (i < game->mapx)
-		free(game->map[i++]);
 	free(game->map);
 	free(game->mlx.mlxptr);
+	free(game->mlx.win);
 }
 
 void		modifdxdy(t_game *game, int i, int dx, int dy)

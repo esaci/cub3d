@@ -22,7 +22,6 @@
 # include <unistd.h>
 # include "libft.h"
 # include <fcntl.h>
-# include "ft_printf.h"
 # include "get_next_line.h"
 
 # define KEY_ESC							65307
@@ -43,7 +42,7 @@
 # define MIN_X								320
 # define MIN_Y								200
 # define NBRDIMG							20
-# define NBRCOUNT							20
+# define NBRCOUNT							21
 # define HAUTEURC							32
 # define HAUTEURMUR							150
 
@@ -160,5 +159,6 @@ void				headbmp(t_game *game, char *str, int np);
 void				swapbmp(t_game *game, char *str);
 void				divid(char *str, int *i, int np);
 int					ft_windz(t_game *game);
+void				destroyernom(t_game *game);
 
 #endif

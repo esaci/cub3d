@@ -45,6 +45,7 @@ void	ft_line(char *line, t_game *game)
 		ft_color(line + 2, (game->img.datac[0]), game);
 	if (ft_strncmp(line, "C ", 2) == 0)
 		ft_color(line + 2, (game->img.datac[1]), game);
+	game->flag[0] = 1;
 }
 
 void	ft_rmap(t_game *game, char *pave)

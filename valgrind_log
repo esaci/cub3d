@@ -1,0 +1,564 @@
+==66327== Memcheck, a memory error detector
+==66327== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==66327== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==66327== Command: ./cub3D map.cub
+==66327== Parent PID: 66292
+==66327== 
+==66327== Conditional jump or move depends on uninitialised value(s)
+==66327==    at 0x11533D: get_next_line (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112616: ft_rmap (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11227A: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== Conditional jump or move depends on uninitialised value(s)
+==66327==    at 0x115364: get_next_line (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112616: ft_rmap (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11227A: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 
+==66327== HEAP SUMMARY:
+==66327==     in use at exit: 112,153 bytes in 106 blocks
+==66327==   total heap usage: 1,729 allocs, 1,623 frees, 1,220,016 bytes allocated
+==66327== 
+==66327== 3 bytes in 1 blocks are still reachable in loss record 1 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4B9F50E: strdup (strdup.c:42)
+==66327==    by 0x49EE2F5: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 8 bytes in 1 blocks are still reachable in loss record 2 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4B9F50E: strdup (strdup.c:42)
+==66327==    by 0x49E81FE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49B93F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 8 bytes in 1 blocks are still reachable in loss record 3 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49B9144: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B91AE: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B95A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 10 bytes in 1 blocks are still reachable in loss record 4 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4B9F50E: strdup (strdup.c:42)
+==66327==    by 0x49E81FE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A54A93: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EED89: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 16 bytes in 1 blocks are still reachable in loss record 5 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4CFDF81: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFC3FB: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFA8F5: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFEB72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x49FDB79: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EE318: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 21 bytes in 1 blocks are still reachable in loss record 6 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EE7AC: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 24 bytes in 1 blocks are still reachable in loss record 7 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49B9351: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B8E1C: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B919B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B95A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 24 bytes in 1 blocks are still reachable in loss record 8 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4B9F50E: strdup (strdup.c:42)
+==66327==    by 0x49E81FE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49B93F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B8E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B919B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B95A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327== 
+==66327== 24 bytes in 1 blocks are still reachable in loss record 9 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49B91CD: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B95A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 24 bytes in 1 blocks are still reachable in loss record 10 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49FE105: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FECD9: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F3F0: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F49C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F564: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 29 bytes in 1 blocks are still reachable in loss record 11 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49E90ED: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49E94B9: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49F9AC7: XSetWMProtocols (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110F46: mlx_new_window (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x115891: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 32 bytes in 1 blocks are still reachable in loss record 12 of 50
+==66327==    at 0x483B723: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x483E017: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4CFDB9E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFDC2B: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFB13E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFB1B4: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x49EEC48: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 32 bytes in 1 blocks are still reachable in loss record 13 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4CFD0C5: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFAE9E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFC61E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFC734: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFDC82: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFB13E: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFB1B4: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x49EEC48: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327== 
+==66327== 32 bytes in 1 blocks are still reachable in loss record 14 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49B93CF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 32 bytes in 1 blocks are still reachable in loss record 15 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49B93CF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B8E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B919B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B95A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 33 bytes in 1 blocks are still reachable in loss record 16 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49E90ED: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49E94B9: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x11022F: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 40 bytes in 1 blocks are still reachable in loss record 17 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49FFC21: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EE5DF: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 48 bytes in 1 blocks are still reachable in loss record 18 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49FDB01: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EE318: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 48 bytes in 1 blocks are still reachable in loss record 19 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49FDB17: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EE318: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 48 bytes in 1 blocks are still reachable in loss record 20 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A4F530: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 72 bytes in 1 blocks are still reachable in loss record 21 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EE691: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 72 bytes in 1 blocks are still reachable in loss record 22 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A4F514: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 104 bytes in 1 blocks are still reachable in loss record 23 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49FDA02: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EE318: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 112 bytes in 1 blocks are still reachable in loss record 24 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EE910: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 128 bytes in 1 blocks are still reachable in loss record 25 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EE840: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 128 bytes in 1 blocks are still reachable in loss record 26 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49E81EE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A54A93: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EED89: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 128 bytes in 1 blocks are still reachable in loss record 27 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49E81EE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49B93F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 128 bytes in 1 blocks are still reachable in loss record 28 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49E81EE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49B93F0: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B8E5A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B919B: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B95A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 145 bytes in 1 blocks are still reachable in loss record 29 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EEDF1: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 152 bytes in 1 blocks are still reachable in loss record 30 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A54C8E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EED89: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 160 bytes in 1 blocks are still reachable in loss record 31 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49DC84F: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EECB8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 160 bytes in 1 blocks are definitely lost in loss record 32 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49DC84F: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110F6E: mlx_new_window (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x115891: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 168 bytes in 1 blocks are still reachable in loss record 33 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EEBA7: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 208 bytes in 1 blocks are still reachable in loss record 34 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49B90F9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B91AE: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B95A2: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x49B47B2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==66327==    by 0x10FFB3: mlx_int_deal_shm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x11023E: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 256 bytes in 1 blocks are still reachable in loss record 35 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A5D42D: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F2AD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F40D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F49C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F564: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 344 bytes in 6 blocks are still reachable in loss record 36 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A4EC25: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F40D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F49C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F564: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 416 bytes in 2 blocks are still reachable in loss record 37 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A0138E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FDF06: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FEE6C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49E941A: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49F9AC7: XSetWMProtocols (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110F46: mlx_new_window (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x115891: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 512 bytes in 1 blocks are still reachable in loss record 38 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49E905A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49E93DE: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x11022F: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 832 bytes in 4 blocks are still reachable in loss record 39 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A0138E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FDF06: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FEE6C: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FA640: XSync (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110BC9: mlx_int_new_xshm_image (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x110DF2: mlx_new_image (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1119C7: mlx_int_parse_xpm (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112091: mlx_xpm_file_to_image (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x115DEA: initxpmptr (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x113DD2: ft_chargement (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1122DD: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327== 
+==66327== 1,120 bytes in 1 blocks are still reachable in loss record 40 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A5D4F1: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F0BF: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F40D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F49C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F564: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 1,456 bytes in 7 blocks are still reachable in loss record 41 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A0138E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FDF06: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FE960: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FCEC0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1108E5: mlx_int_wait_first_expose (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x110FAD: mlx_new_window (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x115891: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 2,028 bytes in 27 blocks are still reachable in loss record 42 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A4EA0D: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F40D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F49C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F564: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 2,048 bytes in 1 blocks are still reachable in loss record 43 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A4EC44: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F40D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F49C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F564: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 3,120 bytes in 15 blocks are still reachable in loss record 44 of 50
+==66327==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A0138E: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FDF06: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FE9A9: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49FCEC0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1108E5: mlx_int_wait_first_expose (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x110FAD: mlx_new_window (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x115891: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 4,688 bytes in 1 blocks are still reachable in loss record 45 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EE2E1: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 7,168 bytes in 1 blocks are still reachable in loss record 46 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4A4F33C: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F40D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F49C: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4F564: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4B7B8: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x4A4BCA7: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x110547: mlx_int_param_KeyRelease (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1109E6: mlx_loop (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FC01: main (main.c:34)
+==66327== 
+==66327== 14,612 bytes in 1 blocks are still reachable in loss record 47 of 50
+==66327==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4CFAA62: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFEB72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x49FDB79: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EE318: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 16,384 bytes in 1 blocks are still reachable in loss record 48 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EE62F: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 21,168 bytes in 1 blocks are still reachable in loss record 49 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x4CFA884: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x4CFEB72: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==66327==    by 0x49FDB79: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x49EE318: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== 33,600 bytes in 2 blocks are still reachable in loss record 50 of 50
+==66327==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==66327==    by 0x49EE994: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==66327==    by 0x1101A7: mlx_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x1157F7: window_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x112286: map_init (in /home/elias/Bureau/cub3d/cub3D)
+==66327==    by 0x10FB31: main (main.c:25)
+==66327== 
+==66327== LEAK SUMMARY:
+==66327==    definitely lost: 160 bytes in 1 blocks
+==66327==    indirectly lost: 0 bytes in 0 blocks
+==66327==      possibly lost: 0 bytes in 0 blocks
+==66327==    still reachable: 111,993 bytes in 105 blocks
+==66327==         suppressed: 0 bytes in 0 blocks
+==66327== 
+==66327== Use --track-origins=yes to see where uninitialised values come from
+==66327== For lists of detected and suppressed errors, rerun with: -s
+==66327== ERROR SUMMARY: 17 errors from 3 contexts (suppressed: 4 from 1)
