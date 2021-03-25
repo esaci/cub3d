@@ -19,22 +19,25 @@ void	swapbmp(t_game *game, char *str)
 	char	*str3;
 	int		i;
 
-	if (!(str2 = malloc(sizeof(char) * 4 + 1)))
+	if (!(str2 = malloc(sizeof(unsigned char) * 10)))
 		ft_stop(game, "mallox str2 bloqué");
 	j = 0;
 	str3 = str + 54;
 	while (j < game->ecrany / 2)
 	{
 		i = 0;
+		while((!(str3[game->ecranx * j * 4 + i]) || !(str3[game->ecranx * (game->ecrany - j) * 4 + i])) && i < game->ecranx * 4)
+			i++;
 		while (i < game->ecranx * 4)
 		{
-			while(!(str3[game->ecranx * j * 4 + i]) || !(str3[game->ecranx * (game->ecrany - j) * 4 + i]))
-				i++;
+
 			*(str2) = str3[game->ecranx * j * 4 + i];
 			str3[game->ecranx * j * 4 + i] =
 				str3[game->ecranx * (game->ecrany - j) * 4 + i];
 			str3[game->ecranx * (game->ecrany - j) * 4 + i] = *(str2);
 			i++;
+			while((!(str3[game->ecranx * j * 4 + i]) || !(str3[game->ecranx * (game->ecrany - j) * 4 + i])) && i < game->ecranx * 4)
+				i++;
 		}
 		j++;
 	}

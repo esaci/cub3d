@@ -35,5 +35,6 @@ void		ft_chargement(t_game *game)
 		initxpmptr(game, i, game->img.nom[i]);
 		i++;
 	}
+	
 	game->flag[0] = 2;
 }
