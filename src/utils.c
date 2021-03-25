@@ -28,6 +28,7 @@ void		destroyer(t_game game, int j, ...)
 	i = 0;
 	while(i < game.mapy)
 		free(game.map[i++]);
+	free(game.map);
 }
 
 void		destroyernom(t_game *game)
@@ -41,8 +42,12 @@ void		destroyernom(t_game *game)
 		i++;
 	}
 	i = 0;
-	free(game->map);
 	free(game->mlx.mlxptr);
+	if (game->flag[3] == 1)
+	{
+
+		return ;
+	}
 	free(game->mlx.win);
 }
 

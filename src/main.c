@@ -26,7 +26,6 @@ int	main(int argc, char **argv)
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)
 	{
 		ft_bmp(&game);
-		game.flag[0] = 0;
 		ft_stop(&game, "aucun soucis");
 	}
 	mlx_hook(game.mlx.win, 17, 1L << 17, &ft_windz, &game);

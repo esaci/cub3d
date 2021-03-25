@@ -45,6 +45,6 @@ void		window_init(t_game *game)
 	if (game->flag[3] == 1)
 		return ;
 	game->mlx.win = mlx_new_window(game->mlx.mlxptr,
-		game->ecranx, game->ecrany, "fenetre init");
+		game->ecranx, game->ecrany, "cub3D");
 	game->flag[0] = 0;
 }

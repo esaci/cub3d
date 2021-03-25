@@ -37,7 +37,6 @@ float	ft_dist(float x, float y)
 
 void	ft_stop(t_game *game, char *error)
 {
-	printf("%d le flag \n", game->flag[0]);
 	if (game->flag[0] >= 2)
 		destroyer(*game, 5, 2, 3, 4, 5, 6);
 	if(game->flag[0] >= 1)
