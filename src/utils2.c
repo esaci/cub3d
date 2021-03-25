@@ -37,8 +37,11 @@ float	ft_dist(float x, float y)
 
 void	ft_stop(t_game *game, char *error)
 {
+	int		i;
+
+	i = (game->flag[3] == 1) ? 6 : 5;
 	if (game->flag[0] >= 2)
-		destroyer(*game, 5, 2, 3, 4, 5, 6);
+		destroyer(*game, i, 2, 3, 4, 5, 6, 7);
 	if(game->flag[0] >= 1)
 		destroyernom(game);
 	if (ft_strncmp(error, "aucun soucis", 9) == 0)
