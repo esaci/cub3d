@@ -47,7 +47,5 @@ void	ft_stop(t_game *game, char *error)
 	if (ft_strncmp(error, "aucun soucis", 9) == 0)
 		exit(0);
 	printf("Error :\n%s\n", error);
-	mlx_clear_window(game->mlx.mlxptr, game->mlx.win);
-	mlx_destroy_window(game->mlx.mlxptr, game->mlx.win);
 	exit(0);
 }
