@@ -30,6 +30,8 @@ void	ft_rplayer(t_game *game)
 {
 	game->c[2] = 1;
 	game->c[0] = 0;
+	if (game->ecranx == 11)
+		return ;
 	while (game->c[2] == 1 && game->c[0] < game->mapy)
 	{
 		if (ft_contient(game->map[game->c[0]], "NSWE") >= 1)

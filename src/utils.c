@@ -50,7 +50,7 @@ void		destroyernom(t_game *game, char *error)
 		while(i < game->mapy)
 			free(game->map[i++]);
 		free(game->map);
-		i = 2;
+ 		i = (ft_strncmp(error + 14, " la", 3) == 0) ? 2 : 7;
 		while (i < 7)
 			free(game->img.imgptr[i++]);
 	}

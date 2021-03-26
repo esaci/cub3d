@@ -26,6 +26,10 @@ void	map_init(t_game *game, char *pave)
 	ft_chargement(game);
 	if (game->ecranx == 10)
 		ft_stop(game, "Pas pu charger la resolution");
+	if (game->ecranx == 11)
+		ft_stop(game, "Map mauvais format");
+	if (game->ecranx == 12)
+		ft_stop(game, "Map Mauvais joueur");
 	game->flag[0] = 2;
 	game_init(game, 0);
 }

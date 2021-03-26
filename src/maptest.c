@@ -29,10 +29,10 @@ void		bordurerectangle(t_game *game)
 	while (game->map[game->c[6]])
 	{
 		if (taillenval(6, 2, game))
-			ft_stop(game, "Map mauvais caractere ou mauvaise taille");
+			game->ecranx = 11;
 		if (game->map[game->c[6]][0] != '1'
 			|| game->map[game->c[6]][game->c[2] - 1] != '1')
-			ft_stop(game, "La map n'est pas fermée a gauche ou a droite");
+			game->ecranx = 11;
 		game->c[6]++;
 	}
 	game->mapy = game->c[6];
@@ -40,14 +40,14 @@ void		bordurerectangle(t_game *game)
 	{
 		if ((int)game->map[0][game->c[5]] != '1'
 			|| (int)game->map[game->c[1] - 1][game->c[5]] != '1')
-			ft_stop(game, "La map n'est pas fermée en haut ou en bas");
+			game->ecranx = 11;
 		game->c[5]++;
 	}
 	game->c[2] = 0;
 	while (game->c[2] < game->c[6])
 	{
 		if (!(ft_only(game->map[game->c[2]++], "012NSWE")))
-			ft_stop(game, "La map contient un mauvais symbole");
+			game->ecranx = 11;
 	}
 }
 
@@ -58,15 +58,15 @@ int			nbrjoueurtligne(t_game *game, int i)
 	game->c[8] = 0;
 	flagpl = 0;
 	if (!(game->c[i] < ROWS))
-		ft_stop(game, "Trop de ligne dans la map");
+		game->ecranx = 12;
 	while (game->map[game->c[8]])
 	{
 		flagpl += ft_contient(game->map[game->c[8]], "NSWE");
 		game->c[8]++;
 	}
 	if (flagpl == 0)
-		ft_stop(game, "Pas de joueur");
+		game->ecranx = 12;
 	if (!(flagpl == 1))
-		ft_stop(game, "Un/Plusieurs joueur en trop");
+		game->ecranx = 12;
 	return (1);
 }
