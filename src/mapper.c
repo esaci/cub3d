@@ -24,12 +24,15 @@ void	map_init(t_game *game, char *pave)
 	ft_verif(game);
 	game_init(game, 0);
 	ft_chargement(game);
+	if (game->ecranx == 10)
+		ft_stop(game, "Pas pu charger la resolution");
+	game->flag[0] = 2;
 	game_init(game, 0);
 }
 
 void	ft_line(char *line, t_game *game)
 {
-	if (ft_strncmp(line, "R ", 2) == 0)
+	if (ft_strncmp(line, "R ", 1) == 0)
 		ft_resolution(line + 2, game);
 	if (ft_strncmp(line, "NO ", 3) == 0)
 		game->img.nom[4] = (ft_strtrim(line + 3, " "));

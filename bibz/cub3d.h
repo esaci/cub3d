@@ -159,6 +159,6 @@ void				headbmp(t_game *game, char *str, int np);
 void				swapbmp(t_game *game, char *str);
 void				divid(char *str, int *i, int np);
 int					ft_windz(t_game *game);
-void				destroyernom(t_game *game);
+void				destroyernom(t_game *game, char *error);
 
 #endif

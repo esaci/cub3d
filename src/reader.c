@@ -15,16 +15,22 @@
 void	ft_resolution(char *line, t_game *game)
 {
 	game->c[2] = 0;
+	if (!line[game->c[2]])
+	{
+		game->ecranx = 10;
+		game->ecrany = 10;
+		return;
+	}
 	while (line[game->c[2]] == ' ')
 		game->c[2]++;
 	game->ecranx = ft_atoi(line + game->c[2]);
-	game->ecranx = ft_max(MIN_X, game->ecranx);
 	while (ft_isdigit(line[game->c[2]]))
 		game->c[2]++;
 	while (line[game->c[2]] == ' ')
 		game->c[2]++;
 	game->ecrany = ft_atoi(line + game->c[2]);
 	game->ecrany = ft_max(MIN_Y, game->ecrany);
+	game->ecranx = ft_max(MIN_X, game->ecranx);
 }
 
 void	ft_color(char *line, unsigned char *datac, t_game *game)

@@ -43,9 +43,11 @@ void	ft_stop(t_game *game, char *error)
 	if (game->flag[0] >= 2)
 		destroyer(*game, i, 2, 3, 4, 5, 6, 7);
 	if(game->flag[0] >= 1)
-		destroyernom(game);
+		destroyernom(game, error);
 	if (ft_strncmp(error, "aucun soucis", 9) == 0)
 		exit(0);
 	printf("Error :\n%s\n", error);
+	mlx_clear_window(game->mlx.mlxptr, game->mlx.win);
+	mlx_destroy_window(game->mlx.mlxptr, game->mlx.win);
 	exit(0);
 }

@@ -1,5 +1,7 @@
 NO ./src/image/nord.xpm
-R   660 440
+
+R 720 , 480
+
 SO ./src/image/sud.xpm
 
 WE ./src/image/ouest.xpm
