@@ -39,6 +39,11 @@ void	ft_stop(t_game *game, char *error)
 {
 	int		i;
 
+	if (ft_strncmp(error, "Pas de map", 8) == 0)
+	{
+		printf("Error :\n%s\n", error);
+		exit(0);
+	}
 	if (ft_strncmp(error, "Map", 3) == 0)
 	{
 		destroyernom(game, "Pas pu charger la");
