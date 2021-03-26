@@ -23,6 +23,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
+# include "../libft/libft.h"
 
 int		ft_flag(char countu[BUFFER_SIZE + 2]);
 int		ft_test(int fd, char **line, char *countb);

@@ -95,6 +95,8 @@ int		get_next_line(int fd, char **line)
 	int				ct;
 	int				count2;
 
+	ct = 0;
+	count2 = 0;
 	if (ft_test(fd, line, countb) == -'E')
 		return (-1);
 	if (ft_flag(countu[fd]) == 1)
