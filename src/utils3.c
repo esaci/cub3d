@@ -71,4 +71,3 @@ int		ft_testchar(char c, char *lettres)
 		return (0);
 	return (1);
 }
-

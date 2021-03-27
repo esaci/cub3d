@@ -30,7 +30,7 @@ void	ft_rplayer(t_game *game)
 {
 	game->c[2] = 1;
 	game->c[0] = 0;
-	if (game->ecranx == 11)
+	if (game->ecranx >= 10 && game->ecranx <= 20)
 		return ;
 	while (game->c[2] == 1 && game->c[0] < game->mapy)
 	{

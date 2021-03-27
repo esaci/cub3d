@@ -64,9 +64,7 @@ int			nbrjoueurtligne(t_game *game, int i)
 		flagpl += ft_contient(game->map[game->c[8]], "NSWE");
 		game->c[8]++;
 	}
-	if (flagpl == 0)
-		game->ecranx = 12;
-	if (!(flagpl == 1))
+	if (flagpl != 1)
 		game->ecranx = 12;
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: esaci <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 21:50:46 by esaci             #+#    #+#             */
-/*   Updated: 2020/02/12 17:25:30 by esaci            ###   ########.fr       */
+/*   Updated: 2021/03/27 13:59:14 by esaci            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ int		get_next_line(int fd, char **line)
 	int				count2;
 
 	ct = 0;
-	count2 = 0;
 	if (ft_test(fd, line, countb) == -'E')
 		return (-1);
 	if (ft_flag(countu[fd]) == 1)

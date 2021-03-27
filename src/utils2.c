@@ -46,15 +46,15 @@ void	ft_stop(t_game *game, char *error)
 	}
 	if (ft_strncmp(error, "Map", 3) == 0)
 	{
-		destroyernom(game, "Pas pu charger la");
+		destroyernom(game, "Pas pu charger la", 2);
 		printf("Error :\n%s\n", error);
 		exit(0);
 	}
 	i = (game->flag[3] == 1) ? 6 : 5;
 	if (game->flag[0] >= 2)
 		destroyer(*game, i, 2, 3, 4, 5, 6, 7);
-	if(game->flag[0] >= 1)
-		destroyernom(game, error);
+	if (game->flag[0] >= 1)
+		destroyernom(game, error, 2);
 	if (ft_strncmp(error, "aucun soucis", 9) == 0)
 		exit(0);
 	printf("Error :\n%s\n", error);

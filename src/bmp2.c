@@ -12,31 +12,25 @@
 
 #include "../bibz/cub3d.h"
 
-void	swapbmp(t_game *game, char *str)
+void	swapbmp(t_game *game, char *str3, int j, char *str2)
 {
-	int		j;
-	char	*str2;
-	char	*str3;
 	int		i;
 
-	if (!(str2 = malloc(sizeof(unsigned char) * 10)))
-		ft_stop(game, "mallox str2 bloqué");
-	j = 0;
-	str3 = str + 54;
-	while (j < game->ecrany / 2)
+	while (j < (int)(game->ecrany / 2))
 	{
 		i = 0;
-		while((!(str3[game->ecranx * j * 4 + i]) || !(str3[game->ecranx * (game->ecrany - j) * 4 + i])) && i < game->ecranx * 4)
+		while ((!(str3[game->ecranx * j * 4 + i]) || !(str3[game->ecranx
+			* (game->ecrany - j) * 4 + i])) && i < game->ecranx * 4)
 			i++;
 		while (i < game->ecranx * 4)
 		{
-
 			*(str2) = str3[game->ecranx * j * 4 + i];
 			str3[game->ecranx * j * 4 + i] =
 				str3[game->ecranx * (game->ecrany - j) * 4 + i];
 			str3[game->ecranx * (game->ecrany - j) * 4 + i] = *(str2);
 			i++;
-			while((!(str3[game->ecranx * j * 4 + i]) || !(str3[game->ecranx * (game->ecrany - j) * 4 + i])) && i < game->ecranx * 4)
+			while ((!(str3[game->ecranx * j * 4 + i]) || !(str3[game->ecranx
+				* (game->ecrany - j) * 4 + i])) && i < game->ecranx * 4)
 				i++;
 		}
 		j++;
@@ -44,7 +38,7 @@ void	swapbmp(t_game *game, char *str)
 	free(str2);
 }
 
-void	headbmp2(t_game *game, char *str, int i)
+int		headbmp2(t_game *game, char *str, int i)
 {
 	divid(str, &i, 0);
 	divid(str, &i, game->ecranx * game->ecrany);
@@ -58,9 +52,10 @@ void	headbmp2(t_game *game, char *str, int i)
 	str[i++] = 0;
 	divid(str, &i, 0);
 	divid(str, &i, 0);
+	return (i);
 }
 
-void	headbmp(t_game *game, char *str, int np)
+int		headbmp(t_game *game, char *str, int np)
 {
 	int		i;
 
@@ -82,5 +77,6 @@ void	headbmp(t_game *game, char *str, int np)
 	str[i++] = 0;
 	str[i++] = 32;
 	str[i++] = 0;
-	headbmp2(game, str, i);
+	i = headbmp2(game, str, i);
+	return (i);
 }

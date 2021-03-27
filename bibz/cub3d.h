@@ -154,11 +154,11 @@ void				draw(t_game *game, t_pix *pix, int height, int ryc);
 void				drawsprite(t_game *game, float *dists, t_sprite *s);
 float				ft_abs(float x);
 int					ft_bmp(t_game *game);
-void				headbmp2(t_game *game, char *str, int i);
-void				headbmp(t_game *game, char *str, int np);
-void				swapbmp(t_game *game, char *str);
+int					headbmp2(t_game *game, char *str, int i);
+int					headbmp(t_game *game, char *str, int np);
+void				swapbmp(t_game *game, char *str3, int j, char *str2);
 void				divid(char *str, int *i, int np);
 int					ft_windz(t_game *game);
-void				destroyernom(t_game *game, char *error);
+void				destroyernom(t_game *game, char *error, int i);
 
 #endif

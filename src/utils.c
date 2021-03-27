@@ -26,33 +26,29 @@ void		destroyer(t_game game, int j, ...)
 	}
 	va_end(elias);
 	i = 0;
-	while(i < game.mapy)
+	while (i < game.mapy)
 		free(game.map[i++]);
 	free(game.map);
 }
 
-void		destroyernom(t_game *game, char *error)
+void		destroyernom(t_game *game, char *error, int i)
 {
-	int i;
-
-	i = 2;
 	while (i < 7)
 	{
-		if(ft_isprint(*(game->img.nom[i] + 3)) == 1)
+		if (ft_isprint(*(game->img.nom[i] + 3)) == 1)
 			free(game->img.nom[i]);
 		i++;
 	}
-	i = 0;
 	if (ft_strncmp(error,
 		"Pas pu charger", 14) == 0)
 	{
 		i = 0;
-		while(i < game->mapy)
+		while (i < game->mapy)
 			free(game->map[i++]);
 		free(game->map);
- 		i = (ft_strncmp(error + 14, " la", 3) == 0) ? 2 : 7;
-		while (i < 7)
-			free(game->img.imgptr[i++]);
+		i = (ft_strncmp(error + 14, " la", 3) == 0) ? 2 : 7;
+/* 		while (i < 7)
+			free(game->img.imgptr[i++]); */
 	}
 	if (game->flag[3] == 1)
 	{

@@ -48,15 +48,18 @@ void	createbmp(t_game *game, char *nomfichier)
 	int		np;
 	int		fd1;
 	char	*str;
+	char	*str2;
 
 	np = game->ecranx * game->ecrany * 4;
 	if (!(fd1 = open(nomfichier, O_CREAT | O_TRUNC | O_RDWR, 0777)))
 		ft_stop(game, "Pas reussi a creer le bmp");
-	if (!(str = malloc(sizeof(char) * (np + 55))))
+	if (!(str = malloc(sizeof(char) * (np + 100))))
 		ft_stop(game, "Malloc fonctionne pas creation du bmp");
 	headbmp(game, str, np);
 	np = databmp(str, game);
-	swapbmp(game, str);
+	if (!(str2 = malloc(sizeof(unsigned char) * 10)))
+		ft_stop(game, "mallox str2 bloqué");
+	swapbmp(game, (str + 53), 0, str2);
 	write(fd1, str, np);
 	free(str);
 }

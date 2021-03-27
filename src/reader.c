@@ -19,7 +19,7 @@ void	ft_resolution(char *line, t_game *game)
 	{
 		game->ecranx = 10;
 		game->ecrany = 10;
-		return;
+		return ;
 	}
 	while (line[game->c[2]] == ' ')
 		game->c[2]++;

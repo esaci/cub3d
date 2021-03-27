@@ -28,6 +28,7 @@ void		deplacement(t_game *game, int key, int key2, int flag)
 	int		count2;
 	char	mapc;
 
+	mapc = 0;
 	if (key2 == 'E')
 		flag = 3;
 	count1 = game->posx;
@@ -56,6 +57,7 @@ void		deplacement2(t_game *game, int key, int key2, int flag)
 	int		count2;
 	char	mapc;
 
+	mapc = 0;
 	if (key2 == 'E')
 		flag = 3;
 	count1 = game->posx;

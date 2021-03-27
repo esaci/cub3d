@@ -29,7 +29,7 @@ void	map_init(t_game *game, char *pave)
 	if (game->ecranx == 11)
 		ft_stop(game, "Map mauvais format");
 	if (game->ecranx == 12)
-		ft_stop(game, "Map Mauvais joueur");
+		ft_stop(game, "Map mauvais joueur");
 	game->flag[0] = 2;
 	game_init(game, 0);
 }
@@ -67,7 +67,7 @@ void	ft_rmap(t_game *game, char *pave)
 		ft_stop(game, "Le format n'est pas valide");
 	while (get_next_line(game->c[0], &line) == 1)
 	{
-		if (ft_only(line, " 1") == 1 && ft_strlen(line) != 0)
+		if (ft_only(line, " 102") == 1 && ft_strlen(line) != 0)
 			break ;
 		ft_line(line, game);
 		free(line);
