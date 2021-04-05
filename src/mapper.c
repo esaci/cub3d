@@ -65,6 +65,8 @@ void	ft_rmap(t_game *game, char *pave)
 	if (ft_strncmp(".cub", pave + ft_strlen(pave) - 4, 4)
 		!= 0 || ft_strlen(pave) <= 4)
 		ft_stop(game, "Le format n'est pas valide");
+	if (!(game->map = malloc(sizeof(char *) * ROWS)))
+		ft_stop(game, "Malloc probleme");
 	while (get_next_line(game->c[0], &line) == 1)
 	{
 		if (ft_only(line, " 102") == 1 && ft_strlen(line) != 0)
@@ -72,13 +74,12 @@ void	ft_rmap(t_game *game, char *pave)
 		ft_line(line, game);
 		free(line);
 	}
-	if (!(game->map = malloc(sizeof(char *) * ROWS)))
-		ft_stop(game, "Malloc probleme");
 	game->map[0] = ft_antiespace(line, game);
 	game->c[1] = 1;
 	while (get_next_line(game->c[0], &line))
 		game->map[game->c[1]++] = ft_antiespace(line, game);
 	game->map[game->c[1]] = '\0';
+	/* ft_stop(game, ft_itoa(game->c[1])); */
 	free(line);
 	bordurerectangle(game);
 	nbrjoueurtligne(game, 1);

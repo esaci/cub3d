@@ -18,7 +18,6 @@ void	ft_resolution(char *line, t_game *game)
 	if (!line[game->c[2]])
 	{
 		game->ecranx = 10;
-		game->ecrany = 10;
 		return ;
 	}
 	while (line[game->c[2]] == ' ')
@@ -62,7 +61,11 @@ char	*ft_antiespace(char *line, t_game *game)
 	game->c[4] = 0;
 	game->c[3] = 0;
 	if (!(res = malloc(sizeof(char) * ft_strlen(line))))
+	{
+		free(line);
+		game->flag[0] = -2;
 		ft_stop(game, "Malloc probleme");
+	}
 	while (line[game->c[3]])
 	{
 		while (line[game->c[3]] == ' ')

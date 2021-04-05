@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	game.flag[0] = -2;
 	if (argc == 1)
 		ft_stop(&game, "Pas de map");
 	if (argc >= 3 && ft_strncmp(argv[2], "--save", 6) == 0)

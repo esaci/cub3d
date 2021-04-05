@@ -58,7 +58,7 @@ void	createbmp(t_game *game, char *nomfichier)
 	headbmp(game, str, np);
 	np = databmp(str, game);
 	if (!(str2 = malloc(sizeof(unsigned char) * 10)))
-		ft_stop(game, "mallox str2 bloqué");
+		ft_stop(game, "Malloc str2 bloqué");
 	swapbmp(game, (str + 53), 0, str2);
 	write(fd1, str, np);
 	free(str);

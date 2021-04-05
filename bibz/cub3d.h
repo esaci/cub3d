@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <mlx.h>
+# include "../fct/minilibx-linux/mlx.h"
 # include <string.h>
 # include <math.h>
 # include <unistd.h>
@@ -33,12 +33,8 @@
 # define KEY_LEFT							65361
 # define KEY_UP								65362
 # define KEY_DOWN							65364
-# define ROWS								60
-# define COLS								60
-# define SCREENWIDTH							720
-# define SCREENHEIGHT							480
-# define MAX_X								1920
-# define MAX_Y								1020
+# define ROWS								200
+# define COLS								200
 # define MIN_X								320
 # define MIN_Y								200
 # define NBRDIMG							20

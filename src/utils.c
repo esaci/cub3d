@@ -47,8 +47,6 @@ void		destroyernom(t_game *game, char *error, int i)
 			free(game->map[i++]);
 		free(game->map);
 		i = (ft_strncmp(error + 14, " la", 3) == 0) ? 2 : 7;
-/* 		while (i < 7)
-			free(game->img.imgptr[i++]); */
 	}
 	if (game->flag[3] == 1)
 	{
