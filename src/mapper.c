@@ -17,6 +17,8 @@ void	map_init(t_game *game, char *pave)
 	game_init(game, 3);
 	game->c[6] = 0;
 	ft_rmap(game, pave);
+	bordurerectangle(game);
+	nbrjoueurtligne(game, 1);
 	window_init(game);
 	game_init(game, 1);
 	ft_rplayer(game);
@@ -82,6 +84,4 @@ void	ft_rmap(t_game *game, char *pave)
 	if (line[0] != 0)
 		ft_stop(game, "Il manque un retour a la ligne a la map");
 	free(line);
-	bordurerectangle(game);
-	nbrjoueurtligne(game, 1);
 }
