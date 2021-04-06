@@ -58,20 +58,26 @@ char	*ft_antiespace(char *line, t_game *game)
 	char *str;
 
 	str = line;
-	game->c[4] = 0;
-	game->c[3] = 0;
-	if (!(res = malloc(sizeof(char) * ft_strlen(line))))
+	if (!(res = malloc(sizeof(char) * (ft_strlen(line) + 1))))
 	{
 		free(line);
 		game->flag[0] = -2;
 		ft_stop(game, "Malloc probleme");
 	}
+	game->c[4] = 0;
+	game->c[3] = 0;
 	while (line[game->c[3]])
 	{
 		while (line[game->c[3]] == ' ')
 			game->c[3]++;
 		while (line[game->c[3]] && line[game->c[3]] != ' ')
 			res[game->c[4]++] = line[game->c[3]++];
+	}
+	if (game->c[4] < 2)
+	{
+		free(line);
+		game->flag[0] = -2;
+		ft_stop(game, "ligne trop courte pour la map");
 	}
 	res[game->c[4]] = '\0';
 	free(str);

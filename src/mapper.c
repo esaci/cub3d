@@ -79,7 +79,8 @@ void	ft_rmap(t_game *game, char *pave)
 	while (get_next_line(game->c[0], &line))
 		game->map[game->c[1]++] = ft_antiespace(line, game);
 	game->map[game->c[1]] = '\0';
-	/* ft_stop(game, ft_itoa(game->c[1])); */
+	if (line[0] != 0)
+		ft_stop(game, "Il manque un retour a la ligne a la map");
 	free(line);
 	bordurerectangle(game);
 	nbrjoueurtligne(game, 1);

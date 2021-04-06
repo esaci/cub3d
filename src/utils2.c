@@ -39,7 +39,8 @@ void	ft_stop(t_game *game, char *error)
 {
 	int		i;
 
-	if (game->flag[0] == -2)
+	if (game->flag[0] == -2 || 
+		ft_strncmp(error, "Il manque un", 11) == 0)
 	{
 		printf("Error :\n%s\n", error);
 		exit(0);
