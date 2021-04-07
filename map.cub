@@ -12,10 +12,10 @@ EA ./src/image/est.xpm
 S ./src/image/sprite.xpm
 
 
-F  128,128,128
+F  255,255,255
 
 
-C  255,255,255
+C  0,0,0
 
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1

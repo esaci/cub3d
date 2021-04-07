@@ -26,6 +26,7 @@ void		game_init(t_game *game, int mode)
 		return ;
 	game->flag[1] = -2;
 	game->flag[2] = 1;
+	game->flag[4] = 0;
 }
 
 t_ray		ray_init(t_ray ray)

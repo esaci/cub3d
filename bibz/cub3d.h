@@ -97,7 +97,7 @@ typedef struct		s_game
 	t_img			img;
 	t_ray			ray;
 	int				c[NBRCOUNT];
-	int				flag[4];
+	int				flag[5];
 	int				ecranx;
 	int				ecrany;
 	int				mapx;

@@ -67,8 +67,6 @@ void		drawrectimg(t_game *game, int i, int ry, int ryc)
 
 	dist = game->ray.dist[ryc] *
 		cos((game->ray.angle - (float)game->pangle * 0.0174f));
-	if (dist < 0)
-		ft_stop(game, "dist dans draw negatif");
 	height = ceil((float)game->ecrany * (150 / dist));
 	pix.x = i;
 	pix.flag = ry;
