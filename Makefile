@@ -105,6 +105,8 @@ fclean: clean
 	make fclean -C $(LIBFTD)
 	make fclean -C $(FTPRINTFD)
 
+bonus: 
+
 re: fclean all
 
 .PHONY: clean fclean all re
