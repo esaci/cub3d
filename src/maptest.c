@@ -66,5 +66,14 @@ int			nbrjoueurtligne(t_game *game, int i)
 	}
 	if (flagpl != 1)
 		game->ecranx = 12;
+	flagpl = 0;
+	while (flagpl < 3)
+	{
+		if (game->img.datac[0][flagpl] == 0)
+			game->img.datac[0][flagpl] = 1;
+		if (game->img.datac[1][flagpl] == 0)
+			game->img.datac[1][flagpl] = 1;
+		flagpl++;
+	}
 	return (1);
 }
